@@ -246,8 +246,6 @@ transaction builder will see resemblance in `jcli transaction`.
 
 There is a couple of commands that can be used to:
 
-``다음과 같은 명령을 사용할 수 있습니다.``
-
 1. prepare a transaction:
     - `new` create a new empty transaction;
     - `add-input`
@@ -259,28 +257,24 @@ There is a couple of commands that can be used to:
     - `add-witness`
 4. `seal` the transaction, ready to send to the blockchain
 
+``다음과 같은 명령을 사용할 수 있습니다.``
 
 1. ``거래 준비 `` :
     - ``  - 비어있는 새 트랜잭션을 새로 작성하십시오.``
-
-- ``  - add-input``
-
-- ``  - add-account``
-
-- ``  - add-output``
+    - ``  - add-input``
+    - ``  - add-account``
+    - ``  - add-output``
 
 
-``2. 서명을 위한 트랜잭션 마무리합니다 :``
+2. ``서명을 위한 트랜잭션 마무리합니다``:
 
 
-``3. 증인을 만들고 증인을 추가하십시오.``
-
-- ``  - make-witness``
-
-- ``  - add-witness``
+3. ``증인을 만들고 증인을 추가하십시오``:
+    - ``  - make-witness``
+    - ``  - add-witness``
 
 
-``4. 거래를 봉인하고 블록 체인에 보낼 준비가 되었습니다.``
+4. ``'seal' 거래를 봉인하고 블록 체인에 보낼 준비가 되었습니다.``
 
 
 There are also functions to help decode and display the
