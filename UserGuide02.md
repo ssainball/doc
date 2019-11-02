@@ -163,7 +163,7 @@ p2p:
 
 Description of the fields:
 
-- `storage`: (선택사항) 저장소 경로입니다. 생략하면 블록 체인은 메모리에만 저장됩니다.
+- `storage`: (선택사항) 저장소 경로입니다. 생략하면 블록체인은 메모리에만 저장됩니다.
 - `log`: (optional) Logging configuration:
     - `level`: log messages minimum severity. 설정하지 않으면 기본 값은 "info" 입니다.
         Possible values: "off", "critical", "error", "warn", "info", "debug", "trace".
@@ -186,15 +186,15 @@ Description of the fields:
       - `allowed_origins`: (선택 사항) 허용 된 원점 (제공된 경우)
       - `max_age_secs`: (선택 사항) 최대 CORS 캐싱 시간 (초) (제공된 것이 없으면 캐싱이 비활성화 됨)
 - `p2p`: P2P network settings
-    - `trusted_peers`: (선택 사항) P2P 토폴로지를 부트 스트랩하고 로컬 블록체인을 부트 스트랩하기 위해 연결할 public_id가 있는 노드의 다수의 주소 목록입니다.;
+    - `trusted_peers`: (선택 사항) P2P 토폴로지를 부트스트랩하고 로컬 블록체인을 부트스트랩하기 위해 연결할 public_id 가 있는 노드의 multiaddr 목록입니다.;
     - `private_id`: 네트워크에서 이 노드를 식별하는 데 사용될 노드의 개인 키 (Ed25519)
     - `public_address`: P2P 서비스의 주소 지정. 이것은 노드의 블록체인 보급에 관심이 있는 네트워크의 다른 피어에게 배포 될 공개 주소입니다.
     - `listen_address`: (선택 사항) multiaddr은 p2p 연결을 수신하기 위해 노드가 수신 할 주소를 지정합니다. 비워 둘 수 있으며 노드는 public_address에 지정된 값을 수신합니다.
     - `topics_of_interest`: The dissemination topics this node is interested to hear about:
       - `messages`: 거래 및 기타 원장 항목.
-        Typical setting for a non-mining node: `low`. For a stakepool: `high`; 
+        non-mining node: `low`.  stakepool: `high`; 
       - `blocks`: 새로운 블록에 대한 알림.
-        Typical setting for a non-mining node: `normal`. For a stakepool: `high`.
+        non-mining node: `normal`. stakepool: `high`.
     - `max_connections`: 이 노드가 유지해야하는 최대 동시 P2P 연결 수입니다.
 - `explorer`: (optional) Explorer settings
     - `enabled`: True or false
@@ -209,13 +209,19 @@ jormungandr --config config.yaml --genesis-block-hash 'abcdef987654321....'
 
 The 'abcdef987654321....' part refers to the hash of the genesis, that should be given to you from one of the peers in the network you are connecting to.
 
+``'abcdef987654321 ....' 부분은 연결중인 네트워크의 피어 중 하나에서 제공해야하는 기원의 해시를 나타냅니다.``
+
 In case you have the genesis file (for example, because you are creating the network) you can get this hash with jcli.
+
+``당신이 제네시스 파일이 있다면 (예 : 네트워크 창조자 이기 때문에) jcli를 사용하여 이 해시를 얻을 수 있습니다.``
 
 ```sh
 cat block-0 | jcli genesis hash
 ```
 
 or, in case you only have the yaml file
+
+``또는 yaml 파일 만있는 경우``
 
 ```sh
 cat genesis.yaml | jcli genesis encode | jcli genesis hash
@@ -227,7 +233,12 @@ cat genesis.yaml | jcli genesis encode | jcli genesis hash
 
 It is possible to query the node via its REST Interface.
 
+``REST 인터페이스를 통해 노드를 쿼리 할 수 ​​있습니다.``
+
 In the node configuration, you have set something like:
+
+``노드 구성에서 다음과 같이 설정했습니다.``
+
 
 ```yaml
 # ...
@@ -240,7 +251,12 @@ rest:
 
 This is the REST endpoint to talk to the node, to query blocks or send transaction.
 
+``노드와 통신하거나 블록을 쿼리하거나 트랜잭션을 보내는 REST 엔드 포인트입니다.``
+
 It is possible to query the node stats with the following end point:
+
+``다음과 같은 엔드 포인트로 노드 통계를 쿼리 할 수 ​​있습니다.``
+
 
 ```
 curl http://127.0.0.1:8443/api/v0/node/stats
@@ -254,7 +270,11 @@ The result may be:
 
 > THE REST API IS STILL UNDER DEVELOPMENT
 
+``REST API는 아직 개발 중입니다``
+
 Please note that the end points and the results may change in the future.
+
+``end points 결과는 향후 변경 될 수 있습니다.``
 
 To see the whole Node API documentation,
 [click here](https://editor.swagger.io/?url=https://raw.githubusercontent.com/input-output-hk/jormungandr/master/doc/openapi.yaml)
