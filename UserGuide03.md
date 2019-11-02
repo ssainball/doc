@@ -1,9 +1,15 @@
 This chapter covers the node documentation, necessary to have a working system. It covers
 the network, logging and storage parameters.
 
+``이 장은 작동 시스템을 갖추기 위해 필요한 노드 문서를 다룹니다. 네트워크, 로깅 및 스토리지 매개 변수를 다룹니다.``
+
 The node configuration uses the [YAML](https://en.wikipedia.org/wiki/YAML) format.
 
+``노드 구성은 YAML 형식을 사용합니다.``
+
 This is an example of a configuration file:
+
+``다음은 구성 파일의 예입니다.``
 
 ```YAML
 storage: "/tmp/storage"
@@ -24,6 +30,8 @@ p2p:
 ```
 The following options are available in the log section:
 
+``로그 섹션에서 다음 옵션을 사용할 수 있습니다.``
+
 - `level`: log messages minimum severity. If not configured anywhere, defaults to "info".
   Possible values: "off", "critical", "error", "warn", "info", "debug", "trace".
 - `format`: log output format - `plain` or `json`.
@@ -32,6 +40,8 @@ The following options are available in the log section:
 
 
 There's 2 differents network interfaces which are covered by their respective section:
+
+``각 섹션에서 다루는 두 가지 다른 네트워크 인터페이스가 있습니다.``
 
 ```yaml
 rest:
@@ -78,8 +88,12 @@ When running an active node (BFT leader or stake pool) it is interesting to be
 able to make choices on how to manage the pending transactions: how long to keep
 them, how to prioritize them etc.
 
+``활성 노드 (BFT 리더 또는 스테이크 풀)를 실행할 때 보류중인 트랜잭션을 관리하는 방법, 유지 기간, 우선 순위 지정 방법 등을 선택하는 것이 흥미 롭습니다.``
+
 The `mempool` field in your node config file is not mandatory, by default it is set
 as follow:
+
+``노드 구성 파일의 mempool 필드는 필수는 아니며 기본적으로 다음과 같이 설정됩니다.``
 
 ```yaml
 mempool:
@@ -96,9 +110,17 @@ mempool:
 * `garbage_collection_interval` describes the interval between 2 garbage collection
   runs: i.e. when the node removes item (fragments or logs) that have timed out. 
 
+``* fragment_ttl은 노드가 폐기되기 전에 프래그먼트(트랜잭션)가 풀에 보류되는 시간을 설명합니다. ``
+
+``* log_ttl은 노드가 풀에서 보류/수락/거부 된 조각에 대한 로그를 보관하는 기간을 설명합니다. REST 프레이그먼트 로그에서 수신 한 데이터에 대한 링크입니다.``
+
+``* garbage_collection_interval은 2 개의 가비지 수집 실행 간격, 즉 노드가 시간 초과 된 항목 (조각 또는 로그)을 제거 할 때의 간격을 설명합니다.``
+
 
 The `leadership` field in your node config file is not mandatory, by default it is set
 as follow:
+
+``노드 구성 파일의 리더십 필드는 필수는 아니며 기본적으로 다음과 같이 설정됩니다.``
 
 ```yaml
 leadership:
@@ -110,3 +132,7 @@ leadership:
   This is link to the data you receives from the REST leadership logs end point;
 * `garbage_collection_interval` describes the interval between 2 garbage collection
   runs: i.e. when the node removes item logs that have timed out
+  
+ ``* log_ttl은 노드가 리더 이벤트 로그를 유지하는 기간을 설명합니다. REST 리더십 로그 엔드 포인트에서 수신 한 데이터에 대한 링크입니다.``
+  
+ ``* garbage_collection_interval은 두 가비지 수집 실행 간격을 설명합니다. 즉, 노드가 시간 초과 된 항목 로그를 제거 할 때``
