@@ -78,6 +78,10 @@ The options are
 - -o, --output <output> - path to file to write signature into, if no value is passed,
 standard output will be used
 
+
+`` 옵션은 ``
+
+
 - ``--secret-key <secret_key> : bech32로 인코딩 된 비밀 키가 있는 파일 경로``
 
 - ``-o, --output <output> : 서명을 쓸 파일의 경로입니다. 값이 전달되지 않으면 표준 출력이 사용됩니다.``
@@ -100,6 +104,8 @@ jcli key verify <options> <data>
 The options are
 - --public-key <public_key> - path to file with bech32-encoded public key
 - --signature <signature> - path to file with signature
+
+``옵션은``
 
 ''--public-key <public_key> : bech32로 인코딩 된 공개 키가있는 파일 경로''
 
@@ -255,16 +261,16 @@ There is a couple of commands that can be used to:
 
 
 ``1. 거래 준비: ``
-``  - 비어있는 새 트랜잭션을 새로 작성하십시오.``
-``  - add-input``
-``  - add-account``
-``  - add-output``
+    - ``  - 비어있는 새 트랜잭션을 새로 작성하십시오.``
+    - ``  - add-input``
+    - ``  - add-account``
+    - ``  - add-output``
 
 ``2. 서명을 위한 트랜잭션 마무리합니다 :``
 
 ``3. 증인을 만들고 증인을 추가하십시오.``
-``  - make-witness``
-``  - add-witness``
+    - ``  - make-witness``
+    - ``  - add-witness``
 
 ``4. 거래를 봉인하고 블록 체인에 보낼 준비가 되었습니다.``
 
