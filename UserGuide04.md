@@ -13,7 +13,7 @@ stake pool operators. It allows offline operations:
 
 ``* 주소, 거래, 인증서 작성``
 
-``* 새로운 블록 체인을 준비``
+``* 새로운 블록 체인 준비``
 
 and it allows simple interactions with the node:
 
@@ -78,13 +78,13 @@ The options are
 - -o, --output <output> - path to file to write signature into, if no value is passed,
 standard output will be used
 
-``--secret-key <secret_key> : bech32로 인코딩 된 비밀 키가있는 파일 경로``
+``--secret-key <secret_key> : bech32로 인코딩 된 비밀 키가 있는 파일 경로``
 
-``-o, --output <output> : 서명을 쓸 파일의 경로입니다. 값이 전달되지 않으면 표준 출력이 사용됩니다.
+``-o, --output <output> : 서명을 쓸 파일의 경로입니다. 값이 전달되지 않으면 표준 출력이 사용됩니다.``
 
 <data> - path to file with data to sign, if no value is passed, standard input will be used
 
-``-서명 할 데이터가있는 파일 경로, 값이 전달되지 않으면 표준 입력이 사용됩니다.``
+``-서명 할 데이터가 있는 파일 경로, 값이 전달되지 않으면 표준 입력이 사용됩니다.``
 
 ## Verifying signed data
 
@@ -107,7 +107,7 @@ The options are
 
 <data> - path to file with data to sign, if no value is passed, standard input will be used
 
-``-서명 할 데이터가있는 파일 경로, 값이 전달되지 않으면 표준 입력이 사용됩니다.``
+``-서명 할 데이터가 있는 파일 경로, 값이 전달되지 않으면 표준 입력이 사용됩니다.``
 
 
 # Address
