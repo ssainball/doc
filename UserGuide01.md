@@ -22,7 +22,7 @@ Jörmungandr refers to the _Midgard Serpent_ in Norse mythology. It is a hint to
 _Ouroboros_, the Ancient Egyptian serpent, who eat its own tail, as well as the
 [IOHK paper](https://eprint.iacr.org/2016/889.pdf) on proof of stake.
 
-``요르문간드는 북유럽 신화에서 미드가르드 뱀을 가리 킵니다. 그것은 자신의 꼬리를 먹는 고대 이집트의 뱀인 Ouroboros 로 이어졌으며 지분 증명에 관한 IOHK 논문 입니다.``
+``요르문간드는 북유럽 신화에서 미드가르드 뱀을 가리 킵니다. 요르문간드는 자신의 꼬리를 먹는 고대 이집트의 뱀인 Ouroboros 를 암시하며, Ouroboros는 지분 증명에 관한 IOHK 논문이기도 합니다.``
 
 
 # General Concepts
