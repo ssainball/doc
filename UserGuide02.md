@@ -116,6 +116,7 @@ information you need to connect to.
 2. the **trusted peers** identifiers and access points.
 
 ``1. 제네시스 블록의 해시, 이것이 블록체인의 진실의 근원이 될 것입니다. 64 개의 16 진수입니다.``
+
 ``2. 신뢰할 수있는 피어 식별자 및 액세스 지점``
 
 
@@ -274,20 +275,24 @@ The result may be:
 
 Please note that the end points and the results may change in the future.
 
-``end points 결과는 향후 변경 될 수 있습니다.``
+``접속지점(end points) 및 결과는 향후 변경 될 수 있습니다.``
 
 To see the whole Node API documentation,
 [click here](https://editor.swagger.io/?url=https://raw.githubusercontent.com/input-output-hk/jormungandr/master/doc/openapi.yaml)
 
-
+``전체 노드 API 설명서를 보려면 여기를 클릭하십시오``
 
 # Explorer mode
 
 The node can be configured to work as a explorer. This consumes more resources, but makes it possible to query data otherwise not available.
 
+``탐색기로 작동하도록 노드를 구성 할 수 있습니다. 이로 인해 더 많은 리소스가 소비되지만 접근 불가했던 감춰진 데이터를 쿼리 할 수 ​​있습니다.``
+
 ## Configuration
 
 There is two ways of enabling the explorer api. It can either be done by passing the `--enable-explorer` flag on the start arguemnts or by the config file: 
+
+``탐색기 API를 활성화하는 방법에는 두 가지가 있습니다. 시작 인수에 --enable-explorer 플래그를 전달하거나 구성 파일을 사용하여 수행 할 수 있습니다.``
 
 ``` yaml
 explorer:
@@ -298,11 +303,17 @@ explorer:
 
 For configuring CORS the explorer API, this needs to be done on the REST section of the config, as documented [here](../configuration/network.md).
 
+``CORS 탐색기 API를 구성하려면 여기에 설명 된대로 구성의 REST 섹션에서 수행해야합니다.``
+
 ## API
 
 A graphql interface can be used to query the explorer data, when enabled, two endpoints are available in the [REST interface](03_rest_api.md): `/explorer/graphql` and `/explorer/graphiql` .
 
+``graphql 인터페이스를 사용하여 탐색기 데이터를 조회 할 수 있습니다. 사용 가능한 경우 REST 인터페이스에서 '/explorer/graphql' 및 '/explorer /graphiql' 의 두 엔드 포인트를 사용할 수 있습니다.``
+
 The first is the one that queries are made against, for example: 
+
+``첫 번째는 다음과 같이 쿼리하는 것입니다.``
 
 ``` sh
 curl \
@@ -325,7 +336,7 @@ curl \
 ```
 
 While the second serves an in-browser graphql IDE that can be used to try queries interactively.
-
+``두 번째는 대화식으로 쿼리를 시도하는 데 사용할 수 있는 브라우저 내 graphql IDE 를 제공합니다.``
 
 
 # How to start a node as a leader candidate
@@ -333,6 +344,8 @@ While the second serves an in-browser graphql IDE that can be used to try querie
 ## Gathering data
 
 Like in the passive node case, two things are needed to connect to an existing network
+
+``패시브 노드의 경우와 마찬가지로 기존 네트워크에 연결하려면 두 가지가 필요합니다.``
 
 1. the hash of the **genesis block** of the blockchain, this will be the source
    of truth of the blockchain. It is 64 hexadecimal characters.
