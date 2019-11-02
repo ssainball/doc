@@ -351,9 +351,18 @@ Like in the passive node case, two things are needed to connect to an existing n
    of truth of the blockchain. It is 64 hexadecimal characters.
 2. the **trusted peers** identifiers and access points.
 
+``블록체인의 기원 블록의 해시, 이것이 블록 체인의 진실의 근원이 될 것입니다. 64개의 16 진수입니다.``
+
+``신뢰할 수있는 피어 식별자 및 액세스 지점``
+
+
 The node configuration could be the same as that for [running a passive node](./01_passive_node.md). 
 
+``노드 구성은 수동 노드를 실행하는 것과 동일 할 수 있습니다.``
+
 There are some differences depending if you are connecting to a network running a genesis or bft consensus protocol.
+
+``기원 또는 bft 합의 프로토콜을 실행하는 네트워크에 연결하는지에 따라 약간의 차이가 있습니다.``
 
 ### Connecting to a genesis blockchain
 
@@ -361,9 +370,13 @@ There are some differences depending if you are connecting to a network running 
 
 In order to be able to generate blocks in an existing genesis network, a [registered stake pool](../../stake_pool/registering_stake_pool) is needed.
 
+``기존의 창세기 네트워크에서 블록을 생성하려면 등록 된 스테이크 풀이 필요합니다.``
+
 #### Creating the secrets file
 
 Put the node id and private keys in a yaml file in the following way:  
+
+``다음과 같은 방법으로 노드 ID 및 개인 키를 yaml 파일에 넣습니다.``
 
 ##### Example
 
@@ -384,13 +397,19 @@ jormungandr --genesis-block-hash asdf1234... --config config.yaml --secret node_
 
 _The 'asdf1234...' part should be the actual block0 hash of the network_
 
+``'asdf1234 ...'부분은 네트워크의 실제 block0 해시 여야합니다.``
+
 ### Connecting to a BFT blockchain
 
 In order to generate blocks, the node should be registered as a slot leader in the network and started in the following way.
 
+``블록을 생성하려면 노드를 네트워크에서 슬롯 리더로 등록하고 다음과 같이 시작해야합니다.``
+
 ## The secret file
 
 Put secret key in a yaml file, e.g. `node_secret.yaml` as follows:
+
+``비밀 키를 yaml 파일에 넣으십시오 (예 : 다음과 같이 node_secret.yaml :``
 
 ```yaml
 bft:
@@ -406,3 +425,5 @@ jormungandr --genesis-block asdf1234... --config node.config --secret node_secre
 ```
 
 _The 'asdf1234...' part should be the actual block0 hash of the network_
+
+``'asdf1234 ...'부분은 네트워크의 실제 block0 해시 여야합니다.``
