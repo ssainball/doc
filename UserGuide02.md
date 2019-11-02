@@ -3,15 +3,25 @@
 The rust node comes with tools and help in order to quickly start
 a node and connect to the blockchain.
 
+``RUST 노드에는 노드를 빠르게 시작하고 블록체인에 연결하기위한 도구와 도움말이 제공됩니다.``
+
 It is compatible with most platforms and it is pre-packaged for some
 of them.
+
+``대부분의 플랫폼과 호환되며 일부 플랫폼에는 pre-packaged 되어 있습니다.``
 
 Here we will see how to install `jormungandr` and its helper `jcli`
 and how to connect quickly to a given blockchain.
 
+``여기에서 jormungandr와 그 도우미 jcli를 설치하는 방법과 주어진 블록체인에 빠르게 연결하는 방법을 볼 것입니다.``
+
 There are three posible ways you can start jormungandr.
 
+``jormungandr를 시작할 수있는 세 가지 가능한 방법이 있습니다.``
+
 ## As a passive node in an existing network
+
+`` 실제 네트워크에서 수동 노드 활성화하기``
 
 As described [here](./node_types/01_passive_node.md).  
 
@@ -19,19 +29,29 @@ The passive Node is the most common type of Node on the network. It can be used 
 doesn't have cryptographic materials or any mean to create blocks.
 This type of nodes are mostly used for wallets, explorers or relays.
 
+`` 수동 노드는 네트워크에서 가장 일반적인 유형의 노드입니다. 블록을 다운로드하고 피어에게 트랜잭션을 브로드 캐스트하는 데 사용할 수 있지만 암호화 자료나 블록을 만들 수단이 없습니다. 이 유형의 노드는 주로 지갑, 탐색기 또는 릴레이에 사용됩니다.``
+
 ## As a node generating blocks in an existing network
 
+`` 실제 네트워크에서 블록생성 노드 활성화하기``
+
 The network could be running either bft or genesis consensus. In the former case the node must have the private key of a registered as a slot leader, while for the latter the private keys of a registered stake pool are needed. 
+
+``네트워크는 bft 또는 제네시스 합의를 실행할 수 있습니다. 전자의 경우 노드에는 슬롯 리더로 등록 된 개인 키가 있어야하고 후자에는 등록 된 스테이크 풀의 개인 키가 필요합니다.``
 
 More information [here](./node_types/02_generating_blocks.md)
 
 ## Creating your own network
 
+''나만의 네트워크 만들기``
+
 This is similar to the previous case, but configuring a genesis file is needed. Consult the [Advanced section](../advanced/introduction.md) for more information on this procedure.
 
-
+``이것은 이전 경우와 비슷하지만 제네시스 파일을 구성해야합니다. 이 절차에 대한 자세한 내용은 고급 섹션을 참조하십시오.``
 
 The software is bundled with 2 different command line software:
+
+``이 소프트웨어는 두 가지 명령 줄 소프트웨어와 함께 번들로 제공됩니다.``
 
 1. **jormungandr**: the node;
 2. **jcli**: Jormungandr Command Line Interface, the helpers and primitives to run and interact with the node.
@@ -43,17 +63,25 @@ The software is bundled with 2 different command line software:
 This is the recommended method. Releases are all available
 [here](https://github.com/input-output-hk/jormungandr/releases).
 
+``이것이 권장되는 방법입니다. 릴리스는 모두 여기에서 사용할 수 있습니다.``
+
 ## From source
 
 Jormungandr's code source is available on
 [github](https://github.com/input-output-hk/jormungandr#how-to-install-from-sources).
 Follow the instructions to build the software from sources.
 
+``Jormungandr의 코드 소스는 github에서 사용할 수 있습니다. 지침에 따라 소스에서 소프트웨어를 빌드하십시오.``
+
 # Help and auto completion
 
 All commands come with usage help with the option `--help` or `-h`.
 
+``모든 명령에는 --help 또는 -h 옵션과 함께 사용 도움말이 제공됩니다.``
+
 For `jcli`, it is possible to generate the auto completion with:
+
+``jcli의 경우 다음을 사용하여 자동 완성을 생성 할 수 있습니다.``
 
 ```
 jcli auto-completion bash ${HOME}/.bash_completion.d
@@ -61,42 +89,65 @@ jcli auto-completion bash ${HOME}/.bash_completion.d
 
 Supported shells are: bash, fish, zsh, powershell and elvish.
 
+``지원되는 쉘은 bash, fish, zsh, powershell 및 elvish입니다.``
+
 **Note:** 
 Make sure `${HOME}/.bash_completion.d` directory previously exists on your HD.
 In order to use auto completion you still need to:
+
+``참고 : ${HOME}/.bash_completion.d 디렉토리가 HD에 이미 존재하는지 확인하십시오. 자동 완성을 사용하려면 다음을 수행해야합니다.``
+
 ```
 source ${HOME}/.bash_completion.d/jcli.bash
 ```
 You can also put it in your `${HOME}/.bashrc`.
+
+''${HOME}/.bashrc에 넣을 수도 있습니다.``
 
 
 
 In order to start the node, you first need to gather the blockchain
 information you need to connect to.
 
+``노드를 시작하려면 먼저 연결해야하는 블록체인 정보를 수집해야합니다.``
+
 1. the hash of the **genesis block** of the blockchain, this will be the source
    of truth of the blockchain. It is 64 hexadecimal characters.
 2. the **trusted peers** identifiers and access points.
 
+``1. 제네시스 블록의 해시, 이것이 블록체인의 진실의 근원이 될 것입니다. 64 개의 16 진수입니다.``
+``2. 신뢰할 수있는 피어 식별자 및 액세스 지점``
+
+
 These information are essentials to start your node in a secure way.
+
+``이 정보는 노드를 안전하게 시작하는 데 필수적입니다.``
 
 The **genesis block** is the first block of the blockchain. It contains the
 static parameters of the blockchain as well as the initial funds. Your node
 will utilise the **Hash** to retrieve it from the other peers. It will also
 allows the Node to verify the integrity of the downloaded **genesis block**.
 
+``기원 블록은 블록체인의 첫 번째 블록입니다. 초기 자금뿐만 아니라 블록체인의 정적 매개 변수가 포함되어 있습니다. 노드는 해시를 사용하여 다른 피어에서 검색합니다. 또한 노드가 다운로드 된 기원 블록의 무결성을 확인할 수 있습니다.``
+
 The **trusted peers** are the nodes in the public network that your Node will
 trust in order to initialise the Peer To Peer network.
+
+`` trusede peers 는 당신의 노드를 초기화하기 위해 퍼블릭 네트워크에서 믿을 수 있는 노드입니다.``
 
 # The node configuration
 
 Your node configuration file may look like the following:
+
+``노드 구성 파일은 다음과 같습니다.``
 
 **Note**
 
 This config shouldn't work as it is, the ip address and port for the trusted peer should be those of an already running node.
 Also, the public_address ('u.x.v.t') should be a valid address (you can use an internal one, eg: 127.0.0.1).
 Furthermore, you need to have permission to write in the path specified by the storage config.
+
+``이 구성은 그대로 작동하지 않아야합니다. 트러스트 된 피어의 IP 주소 및 포트는 이미 실행중인 노드의 IP 주소 및 포트 여야합니다. 또한 public_address('u.x.v.t')는 유효한 주소 여야합니다 (예 : 127.0.0.1). 또한 스토리지 구성에 지정된 경로에 쓸 수 있는 권한이 있어야합니다.``
 
 ```yaml
 storage: "/mnt/cardano/storage"
@@ -112,13 +163,12 @@ p2p:
 
 Description of the fields:
 
-- `storage`: (optional) Path to the storage. If omitted, the
-  blockchain is stored in memory only.
+- `storage`: (선택사항) 저장소 경로입니다. 생략하면 블록 체인은 메모리에만 저장됩니다.
 - `log`: (optional) Logging configuration:
-    - `level`: log messages minimum severity. If not configured anywhere, defaults to "info".
+    - `level`: log messages minimum severity. 설정하지 않으면 기본 값은 "info" 입니다.
         Possible values: "off", "critical", "error", "warn", "info", "debug", "trace".
     - `format`: Log output format, `plain` or `json`.
-    - `output`: Log output destination. Possible values are:
+    - `output`: 로그 출력 대상. 가능한 값은 다음과 같습니다.:
       - `stdout`: standard output
       - `stderr`: standard error
       - `syslog`: syslog (only available on Unix systems)
@@ -133,26 +183,19 @@ Description of the fields:
     - `listen`: _address_:_port_ to listen for requests
     - `pkcs12`: (optional) Certificate file
     - `cors`: (optional) CORS configuration, if not provided, CORS is disabled
-      - `allowed_origins`: (optional) allowed origins, if none provided, echos request origin
-      - `max_age_secs`: (optional) maximum CORS caching time in seconds, if none provided, caching is disabled
+      - `allowed_origins`: (선택 사항) 허용 된 원점 (제공된 경우)
+      - `max_age_secs`: (선택 사항) 최대 CORS 캐싱 시간 (초) (제공된 것이 없으면 캐싱이 비활성화 됨)
 - `p2p`: P2P network settings
-    - `trusted_peers`: (optional) the list of nodes's [multiaddr][multiaddr] with their associated `public_id`
-      to connect to in order to bootstrap the P2P topology (and bootstrap our local blockchain);
-    - `private_id`: the node's private key ([`Ed25519`]) that will be used to identify this node to the network
-    - `public_address`: [multiaddr][multiaddr] string specifying address of the
-      P2P service. This is the public address that will be distributed to other
-      peers of the network that may find interest in participating to the
-      blockchain dissemination with the node.
-    - `listen_address`: (optional) [multiaddr][multiaddr] specifies the address the node
-      will listen to to receive p2p connection. Can be left empty and the node will listen
-      to whatever value was given to `public_address`.
+    - `trusted_peers`: (선택 사항) P2P 토폴로지를 부트 스트랩하고 로컬 블록체인을 부트 스트랩하기 위해 연결할 public_id가 있는 노드의 다수의 주소 목록입니다.;
+    - `private_id`: 네트워크에서 이 노드를 식별하는 데 사용될 노드의 개인 키 (Ed25519)
+    - `public_address`: P2P 서비스의 주소 지정. 이것은 노드의 블록체인 보급에 관심이 있는 네트워크의 다른 피어에게 배포 될 공개 주소입니다.
+    - `listen_address`: (선택 사항) multiaddr은 p2p 연결을 수신하기 위해 노드가 수신 할 주소를 지정합니다. 비워 둘 수 있으며 노드는 public_address에 지정된 값을 수신합니다.
     - `topics_of_interest`: The dissemination topics this node is interested to hear about:
-      - `messages`: Transactions and other ledger entries.
-        Typical setting for a non-mining node: `low`. For a stakepool: `high`;
-      - `blocks`: Notifications about new blocks.
+      - `messages`: 거래 및 기타 원장 항목.
+        Typical setting for a non-mining node: `low`. For a stakepool: `high`; 
+      - `blocks`: 새로운 블록에 대한 알림.
         Typical setting for a non-mining node: `normal`. For a stakepool: `high`.
-    - `max_connections`: The maximum number of simultaneous P2P connections
-      this node should maintain.
+    - `max_connections`: 이 노드가 유지해야하는 최대 동시 P2P 연결 수입니다.
 - `explorer`: (optional) Explorer settings
     - `enabled`: True or false
 
