@@ -3,31 +3,50 @@
 This is the node command line helper. It is mostly meant for developers and
 stake pool operators. It allows offline operations:
 
+``jcli는 노드 명령 행 헬퍼입니다. 주로 개발자와 스테이크 풀 운영자를위한 것입니다. 오프라인 작업을 허용합니다.``
+
 * generating cryptographic materials for the wallets and stake pools;
 * creating addresses, transactions and certificates;
 * prepare a new blockchain
 
+``지갑 및 스테이크 풀을 위한 암호화 자료를 생성하는 단계``
+
+``주소, 거래, 인증서 작성``
+
+``새로운 블록 체인을 준비``
+
 and it allows simple interactions with the node:
+
+``노드와의 간단한 상호 작용을 허용합니다.``
 
 * query stats;
 * send transactions and certificates;
 * get raw blocks and UTxOs.
 
+``쿼리 통계;``
+
+``거래 및 인증서 보내기``
+
+``raw blocks 과 UTxO 얻기``
 
 # cryptographic keys
 
 There are multiple type of key for multiple use cases.
 
-| type | usage |
+``여러 사용 사례에 대한 다양한 유형의 키가 있습니다.``
+
+| 유형 | 사용법 |
 |:----:|:------|
-|`Ed25519` | Signing algorithm for Ed25519 algorithm |
-|`Ed25519Bip32`| Related to the HDWallet, Ed25519 Extended with chain code for derivation derivation |
-|`Ed25519Extended`| Related to `Ed25519Bip32` without the chain code |
-|`SumEd25519_12`| For stake pool, necessary for the KES |
-|`Curve25519_2HashDH`| For stake pool, necessary for the VRF |
+|`Ed25519` | 알고리즘의 서명 알고리즘 |
+|`Ed25519Bip32`| HDWallet 관련, 체인코드로 확장된 HDWallet |
+|`Ed25519Extended`| 체인 코드없이 Ed25519Bip32와 관련됨 |
+|`SumEd25519_12`| 스테이크 풀의 경우 KES 필요 |
+|`Curve25519_2HashDH`| 스테이크 풀의 경우 VRF 필요 |
 
 
 There is a command line parameter to generate this keys:
+
+``이 키를 생성하는 명령 행 매개 변수가 있습니다.``
 
 ```
 $ jcli key generate --type=Ed25519
