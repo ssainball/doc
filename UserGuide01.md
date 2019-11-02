@@ -7,7 +7,7 @@ Welcome to the Jormungandr User Guide.
 Jormungandr is a node implementation, written in rust, with the
 initial aim to support the Ouroboros type of consensus protocol.
 
-``Jormungandr는 Ouroboros 유형의 합의 프로토콜을 지원하기위한 초기 목표를 가진 'RUST'로 작성된 노드 구현입니다.``
+``Jormungandr는 Ouroboros 유형의 합의 프로토콜을 지원하기위한 초기 목표를 가진 'RUST' 언어로 작성된 노드 구현입니다.``
 
 
 A node is a participant of a blockchain network, continuously making,
