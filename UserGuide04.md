@@ -260,9 +260,8 @@ There is a couple of commands that can be used to:
 4. `seal` the transaction, ready to send to the blockchain
 
 
-``1. 거래 준비: ``
-
-- ``  - 비어있는 새 트랜잭션을 새로 작성하십시오.``
+1. ``거래 준비 `` :
+    - ``  - 비어있는 새 트랜잭션을 새로 작성하십시오.``
 
 - ``  - add-input``
 
