@@ -114,12 +114,19 @@ The options are
 
 Jormungandr comes with a separate CLI to create and manipulate addresses.
 
+``Jormungandr에는 주소를 생성하고 조작하기 위한 별도의 CLI가 제공됩니다.``
+
 This is useful for creating addresses from their components in the CLI,
 for debugging addresses and for testing.
+
+``이는 CLI의 구성 요소에서 주소를 작성하고 주소를 디버깅하고 테스트하는 데 유용합니다.``
+
 
 ## Display address info
 
 To display an address and verify it is in a valid format you can utilise:
+
+``주소를 표시하고 유효한 형식인지 확인하려면 다음을 사용할 수 있습니다.``
 
 ```
 $ jcli address info ta1svy0mwwm7mdwcuj308aapjw6ra4c3e6cygd0f333nvtjzxg8ahdvxlswdf0
@@ -144,16 +151,29 @@ Each command following allows to create addresses for production and testing
 chains. For chains, where the discrimination is `testing`, you need to
 use the `--testing` flag.
 
+``다음의 각 명령을 사용하면 운영중인 블록체인 또는 테스트용 블록체인 에 대한 주소를 만들 수 있습니다. 테스트를 하는 경우 --testing 플래그를 사용해야합니다.``
+
 There's 3 types of addresses:
 
 * Single address : A simple spending key. This doesn't have any stake in the system
 * Grouped address : A spending key attached to an account key. The stake is automatically
 * Account address : An account key. The account is its own stake
 
+``3 가지 유형의 주소가 있습니다.``
+
+``* 단일 주소 : 간단한 지출 키. 이 시스템에 아무런 지분이 없습니다``
+
+``* 그룹화 된 주소 : 계정 키에 연결된 지출 키. 스테이크는 자동으로``
+
+``* 계정 주소 : 계정 키. 계정 자체가 지분입니다``
+
+
 ### Address for UTxO
 
 You can create a single address (non-staked) using the spending public key for
 this address utilising the following command:
+
+``다음 명령을 사용하여 지출 공개 키를 사용하여 단일 주소(스테이크되지 않은)를 만들 수 있습니다.``
 
 ```
 $ jcli address \
@@ -163,6 +183,8 @@ ca1qw207ae4qfj8q4yw6v3ned6psa2r3tgrw9u3y9hdjcgj2p4pcaldyukyka8
 
 To add the staking information and make a group address, simply add the account
 public key as a second parameter of the command:
+
+``스테이 킹 정보를 추가하고 그룹 주소를 만들려면 계정 공개 키를 명령의 두 번째 매개 변수로 추가하십시오.``
 
 ```
 $ jcli address \
@@ -176,6 +198,8 @@ ca1q3yen35r2tmdye3zc5lfw3x992s7p4dcu4jkwxcda80tv8xh5ym74mqlzudkg42443nw08cxr7e9h
 
 To create an account address you need the account public key and run:
 
+``계정 주소를 만들려면 계정 공개 키가 필요합니다.``
+
 ```
 $ jcli address \
     account ed25519_pk1c4yq3hflulynn8fef0hdq92579n3c49qxljasrl9dnuvcksk84gs9sqvc2
@@ -187,6 +211,8 @@ ca1qhz5szxa8lnujwva8997a5q42nckw8z55qm7tkq0u4k03nz6zc74ze780qe
 You can decide to change the address prefix, allowing you to provide more
 enriched data to the user. However, this prefix is not forwarded to the node,
 it is only for UI/UX.
+
+``주소 접두사를 변경하여 보다 풍부한 데이터를 사용자에게 제공 할 수 있습니다. 그러나이 접두부는 노드로 전달되지 않으며 UI/UX 전용입니다.``
 
 ```
 $ jcli address \
@@ -201,6 +227,8 @@ address_1q5smgquwzdh4eyc77gf6ddxp2atz8ej3rt94nt6l0qes0vexf5g4cw68kdx
 
 Tooling for offline transaction creation and signing.
 
+``오프라인 트랜잭션 생성 및 서명을 위한 툴링.``
+
 ```
 jcli transaction
 ```
@@ -208,7 +236,11 @@ jcli transaction
 Those familiar with [`cardano-cli`](http://github.com/input-output-hk/cardano-cli)
 transaction builder will see resemblance in `jcli transaction`.
 
+``cardano-cli transaction builder에 익숙한 사람들은 jcli transaction과 유사합니다.``
+
 There is a couple of commands that can be used to:
+
+``다음과 같은 명령을 사용할 수 있습니다.``
 
 1. prepare a transaction:
     - `new` create a new empty transaction;
@@ -221,12 +253,36 @@ There is a couple of commands that can be used to:
     - `add-witness`
 4. `seal` the transaction, ready to send to the blockchain
 
+
+``1. 거래 준비: ``
+``  - 비어있는 새 트랜잭션을 새로 작성하십시오.``
+``  - add-input``
+``  - add-account``
+``  - add-output``
+
+``2. 서명을 위한 트랜잭션 마무리합니다 :``
+
+``3. 증인을 만들고 증인을 추가하십시오.``
+``  - make-witness``
+``  - add-witness``
+
+``4. 거래를 봉인하고 블록 체인에 보낼 준비가 되었습니다.``
+
+
 There are also functions to help decode and display the
 content information of a transaction:
+
+``트랜잭션의 컨텐츠 정보를 디코딩하고 표시하는 데 도움이되는 기능도 있습니다.``
 
 * `info`
 * `id` to get the **Transaction ID** of the transaction
 * `to-message` to get the hexadecimal encoded message, ready to send with `cli rest message`
+
+``정보``
+
+``거래의 거래 ID를 얻기위한 id``
+
+``16 진수로 인코딩 된 메시지를 가져 와서 cli rest 메시지와 함께 보낼 준비가 된 메시지``
 
 
 # Examples
@@ -234,7 +290,11 @@ content information of a transaction:
 The following example focuses on using an utxo as input, the few differences when transfering from an account will be pointed out when necessary.
 There is also a script [here](https://github.com/input-output-hk/jormungandr/blob/master/scripts/send-transaction) to send a transaction from a faucet account to a specific address which could be used as a reference.
 
+``다음 예는 utxo를 입력으로 사용하는 데 중점을 두며 필요한 경우 계정에서 전송할 때의 몇 가지 차이점이 지적됩니다. 수도꼭지 계정에서 참조로 사용할 수있는 특정 주소로 트랜잭션을 전송하는 스크립트도 있습니다.``
+
 Let's use the following utxo as input and transfer 50 lovelaces to the destination address
+
+``다음 utxo를 입력으로 사용하고 목적지 주소로 50 lovelaces를 전송합시다``
 
 ## Input utxo
 
