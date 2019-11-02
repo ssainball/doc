@@ -9,11 +9,11 @@ stake pool operators. It allows offline operations:
 * creating addresses, transactions and certificates;
 * prepare a new blockchain
 
-``지갑 및 스테이크 풀을 위한 암호화 자료를 생성하는 단계``
+``* 지갑 및 스테이크 풀을 위한 암호화 자료를 생성하는 단계``
 
-``주소, 거래, 인증서 작성``
+``* 주소, 거래, 인증서 작성``
 
-``새로운 블록 체인을 준비``
+``* 새로운 블록 체인을 준비``
 
 and it allows simple interactions with the node:
 
@@ -23,11 +23,11 @@ and it allows simple interactions with the node:
 * send transactions and certificates;
 * get raw blocks and UTxOs.
 
-``쿼리 통계;``
+``* 쿼리 통계``
 
-``거래 및 인증서 보내기``
+``* 거래 및 인증서 보내기``
 
-``raw blocks 과 UTxO 얻기``
+``* raw blocks 과 UTxO 얻기``
 
 # cryptographic keys
 
@@ -40,8 +40,8 @@ There are multiple type of key for multiple use cases.
 |`Ed25519` | 알고리즘의 서명 알고리즘 |
 |`Ed25519Bip32`| HDWallet 관련, 체인코드로 확장된 HDWallet |
 |`Ed25519Extended`| 체인 코드없이 Ed25519Bip32와 관련됨 |
-|`SumEd25519_12`| 스테이크 풀의 경우 KES 필요 |
-|`Curve25519_2HashDH`| 스테이크 풀의 경우 VRF 필요 |
+|`SumEd25519_12`| 스테이크 풀의 경우 KES 키 생성에 사용됨 |
+|`Curve25519_2HashDH`| 스테이크 풀의 경우 VRF 키 생성에 사용됨 |
 
 
 There is a command line parameter to generate this keys:
@@ -55,6 +55,8 @@ ed25519_sk1cvac48ddf2rpk9na94nv2zqhj74j0j8a99q33gsqdvalkrz6ar9srnhvmt
 
 and to extract the associated public key:
 
+``관련 공개 키를 추출합니다.``
+
 ```
 $ echo ed25519_sk1cvac48ddf2rpk9na94nv2zqhj74j0j8a99q33gsqdvalkrz6ar9srnhvmt | jcli key to-public
 ed25519_pk1z2ffur59cq7t806nc9y2g64wa60pg5m6e9cmrhxz9phppaxk5d4sn8nsqg
@@ -65,6 +67,8 @@ ed25519_pk1z2ffur59cq7t806nc9y2g64wa60pg5m6e9cmrhxz9phppaxk5d4sn8nsqg
 Sign data with private key. Supported key formats are: ed25519, ed25519bip32, ed25519extended and
 sumed25519_12.
 
+``개인 키로 데이터에 서명하십시오. 지원되는 키 형식은 ed25519, ed25519bip32, ed25519extended 및 sumed25519_12입니다.``
+
 ```
 jcli key sign <options> <data>
 ```
@@ -74,13 +78,20 @@ The options are
 - -o, --output <output> - path to file to write signature into, if no value is passed,
 standard output will be used
 
+``--secret-key <secret_key> : bech32로 인코딩 된 비밀 키가있는 파일 경로``
+
+``-o, --output <output> : 서명을 쓸 파일의 경로입니다. 값이 전달되지 않으면 표준 출력이 사용됩니다.
+
 <data> - path to file with data to sign, if no value is passed, standard input will be used
 
+``-서명 할 데이터가있는 파일 경로, 값이 전달되지 않으면 표준 입력이 사용됩니다.``
 
 ## Verifying signed data
 
 Verify signed data with public key. Supported key formats are: ed25519, ed25519bip32 and
 sumed25519_12.
+
+``공개 키로 서명 된 데이터를 확인하십시오. 지원되는 키 형식은 ed25519, ed25519bip32 및 sumed25519_12입니다.``
 
 ```
 jcli key verify <options> <data>
@@ -90,8 +101,13 @@ The options are
 - --public-key <public_key> - path to file with bech32-encoded public key
 - --signature <signature> - path to file with signature
 
+''--public-key <public_key> : bech32로 인코딩 된 공개 키가있는 파일 경로''
+
+``--signature <signature> : 서명이있는 파일의 경로``
+
 <data> - path to file with data to sign, if no value is passed, standard input will be used
 
+``-서명 할 데이터가있는 파일 경로, 값이 전달되지 않으면 표준 입력이 사용됩니다.``
 
 
 # Address
