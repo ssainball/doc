@@ -13,7 +13,7 @@ stake pool operators. It allows offline operations:
 
 ``* 주소, 거래, 인증서 작성``
 
-``* 새로운 블록 체인 준비``
+``* 새로운 블록체인 준비``
 
 and it allows simple interactions with the node:
 
@@ -27,7 +27,7 @@ and it allows simple interactions with the node:
 
 ``* 거래 및 인증서 보내기``
 
-``* raw blocks 과 UTxO 얻기``
+``* raw blocks 및 UTxO 얻기``
 
 # cryptographic keys
 
@@ -39,7 +39,7 @@ There are multiple type of key for multiple use cases.
 |:----:|:------|
 |`Ed25519` | 알고리즘의 서명 알고리즘 |
 |`Ed25519Bip32`| HDWallet 관련, 체인코드로 확장된 HDWallet |
-|`Ed25519Extended`| 체인 코드없이 Ed25519Bip32와 관련됨 |
+|`Ed25519Extended`| 체인코드 없이 Ed25519Bip32와 관련됨 |
 |`SumEd25519_12`| 스테이크 풀의 경우 KES 키 생성에 사용됨 |
 |`Curve25519_2HashDH`| 스테이크 풀의 경우 VRF 키 생성에 사용됨 |
 
@@ -151,7 +151,7 @@ Each command following allows to create addresses for production and testing
 chains. For chains, where the discrimination is `testing`, you need to
 use the `--testing` flag.
 
-``다음의 각 명령을 사용하면 운영중인 블록체인 또는 테스트용 블록체인 에 대한 주소를 만들 수 있습니다. 테스트를 하는 경우 --testing 플래그를 사용해야합니다.``
+``다음의 각 명령을 사용하면 운영중인 블록체인 또는 테스트용 블록체인에 대한 주소를 만들 수 있습니다. 테스트를 하는 경우 --testing 플래그를 사용해야합니다.``
 
 There's 3 types of addresses:
 
@@ -173,7 +173,7 @@ There's 3 types of addresses:
 You can create a single address (non-staked) using the spending public key for
 this address utilising the following command:
 
-``다음 명령을 사용하여 지출 공개 키를 사용하여 단일 주소(스테이크되지 않은)를 만들 수 있습니다.``
+``다음 명령에서 지출 공개 키를 사용하여 단일 주소(스테이크되지 않은)를 만들 수 있습니다.``
 
 ```
 $ jcli address \
