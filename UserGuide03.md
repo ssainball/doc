@@ -1,3 +1,5 @@
+# Configuration
+
 This chapter covers the node documentation, necessary to have a working system. It covers
 the network, logging and storage parameters.
 
