@@ -78,9 +78,9 @@ The options are
 - -o, --output <output> - path to file to write signature into, if no value is passed,
 standard output will be used
 
-``--secret-key <secret_key> : bech32로 인코딩 된 비밀 키가 있는 파일 경로``
+- ``--secret-key <secret_key> : bech32로 인코딩 된 비밀 키가 있는 파일 경로``
 
-``-o, --output <output> : 서명을 쓸 파일의 경로입니다. 값이 전달되지 않으면 표준 출력이 사용됩니다.``
+- ``-o, --output <output> : 서명을 쓸 파일의 경로입니다. 값이 전달되지 않으면 표준 출력이 사용됩니다.``
 
 <data> - path to file with data to sign, if no value is passed, standard input will be used
 
