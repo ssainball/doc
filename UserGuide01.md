@@ -423,7 +423,7 @@ The protocol allows to send multiple types of messages between nodes:
   this is for the fragment propagation.
 * propose new blocks: for the block propagation.
 
-* 원격 피어의 마지막 블록 ( tip)에 블록을 동기화 합니다.
+* 원격 피어의 _Last Block_ (tip)에 블록을 동기화 합니다.
 * 새로운 프래그먼트(새 트랜잭션, 인증서)를 제안합니다. 이것은 프래그먼트 전파를 위한 것입니다.
 * 블록 전파를 위해 새로운 블록을 제안하십시오.
 
@@ -455,8 +455,6 @@ they interested about.
 In the poldercast paper there are 3 different modules implementing 3 different
 strategies to select nodes to gossip to and to select the gossiping data:
 
-`` poldercast 논문에는 가십 노드를 선택하고 gossiping 데이터를 선택하는 3 가지 전략을 구현하는 3 가지 모듈이 있습니다.``
-
 1. Cyclon: this module is responsible to add a bit of randomness in the gossiping
    strategy. It also prevent nodes to be left behind, favouring contacting Nodes
    we have the least used;
@@ -467,9 +465,10 @@ strategies to select nodes to gossip to and to select the gossiping data:
    link the nodes in the network. For each topics, the node will select a set of
    close nodes.
 
+`` poldercast 논문에는 가십 노드를 선택하고 gossiping 데이터를 선택하는 3 가지 전략을 구현하는 3 가지 모듈이 있습니다.``
 
-``1. Cyclon :이 모듈은 gossiping 전략에 약간의 무작위성을 추가합니다. 또한 노드가 남겨지는 것을 방지하여 가장 적게 사용 된 노드와의 접촉을 선호합니다.``
+1. Cyclon: ``이 모듈은 gossiping 전략에 약간의 무작위성을 추가합니다. 또한 노드가 남겨지는 것을 방지하여 가장 적게 사용 된 노드와의 접촉을 선호합니다.``
 
-``2. Vicinity :이 모듈은 토폴로지 노드 사이에 관심 유도 링크를 작성하는 데 도움이됩니다. 공통의 관심사를 가진 노드가 종종 연락해야합니다.``
+2. Vicinity: ``이 모듈은 토폴로지 노드 사이에 관심 유도 링크를 작성하는 데 도움이됩니다. 공통의 관심사를 가진 노드가 종종 연락해야합니다.``
 
-``3. Rings :이 모듈은 지향적 인 노드 목록을 만듭니다. 네트워크의 노드를 연결하는 임의의 방법입니다. 각 주제에 대해 노드는 닫기 노드 세트를 선택합니다.``
+3. Rings: ``이 모듈은 지향적 인 노드 목록을 만듭니다. 네트워크의 노드를 연결하는 임의의 방법입니다. 각 주제에 대해 노드는 닫기 노드 세트를 선택합니다.``
