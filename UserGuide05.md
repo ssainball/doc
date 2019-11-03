@@ -365,7 +365,13 @@ from the given genesis configuration file (`genesis.yaml`).
 
 Now that the blockchain is initialized, you need to start your node.
 
+``이제 블록 체인이 초기화되었으므로 노드를 시작해야합니다.``
+
 Write you private key in a file on your HD:
+
+``HD의 파일에 개인 키를 작성하십시오.``
+
+``
 
 ```
 $ cat node_secret.yaml
@@ -375,6 +381,8 @@ bft:
 
 Configure your Node (config.yml) and run the following command:
 
+``노드 (config.yml)를 구성하고 다음 명령을 실행하십시오.``
+
 ```
 $ jormungandr --genesis-block block-0.bin \
     --config example.config \
@@ -383,6 +391,8 @@ $ jormungandr --genesis-block block-0.bin \
 
 It's possible to use the flag `--secret` multiple times to run a node
 with multiple leaders.
+
+``여러 리더와 함께 노드를 실행하기 위해 --secret 플래그를 여러 번 사용할 수 있습니다.``
 
 ## Step by step to start the BFT node
 
@@ -423,19 +433,25 @@ jormungandr --genesis-block block-0.bin --config node.config --secret node_secre
 
 Additionally, there is a script [here](https://github.com/input-output-hk/jormungandr/blob/master/scripts/bootstrap) that can be used to bootstrap a test node with bft consensus protocol.
 
-
+``또한 여기에는 bft 합의 프로토콜로 테스트 노드를 부트 스트랩하는 데 사용할 수있는 스크립트가 있습니다.``
 
 # starting a genesis blockchain
 
 When starting a genesis praos blockchain there is an element to take
 into consideration while constructing the block 0: _the stake distribution_.
 
+``창세기 praos 블록 체인을 시작할 때 블록 0을 구성하는 동안 고려해야 할 요소 인 스테이크 분포가 있습니다.``
+
 In the context of Genesis/Praos the network is fully decentralized and it is
 necessary to think ahead about initial stake pools and to make sure there
 is stake delegated to these stake pools.
 
+``Genesis / Praos의 맥락에서 네트워크는 완전히 분산되어 있으며 초기 스테이크 풀에 대해 미리 생각하고 스테이크 풀에 위임 된 스테이크가 있는지 확인해야합니다.``
+
 In your genesis yaml file, make sure to set the following values to the appropriate
 values/desired values:
+
+``생성 yaml 파일에서 다음 값을 적절한 값 / 원하는 값으로 설정하십시오.``
 
 ```yaml
 # The Blockchain Configuration defines the settings of the blockchain.
@@ -449,11 +465,17 @@ blockchain_configuration:
 `block0_consensus` set to `genesis_praos` means you want to start a blockchain with
 genesis praos as the consensus layer.
 
+``block0_consensus를 genesis_praos로 설정하면 기원 praos를 합의 레이어로 사용하여 블록 체인을 시작하려고합니다.``
+
 `bft_slots_ratio` needs to be set to `0` (we don't support composite modes between
 BFT mode and Genesis mode -- yet).
 
+``bft_slots_ratio는 0으로 설정해야합니다 (BFT 모드와 Genesis 모드 사이의 복합 모드는 지원하지 않습니다).``
+
 `consensus_genesis_praos_active_slot_coeff` determines minimum stake required to
 try becoming slot leader, must be in range 0 exclusive and 1 inclusive.
+
+``consensus_genesis_praos_active_slot_coeff는 슬롯 리더가되기 위해 필요한 최소 스테이크를 결정합니다. 범위는 0과 1 사이 여야합니다.``
 
 ## The initial certificates
 
@@ -461,17 +483,27 @@ In the `initial_certs` field you will set the initial certificate. This is impor
 to declare the stake pool and delegate stake to them. Otherwise no block will be ever
 created.
 
+``initial_certs 필드에서 초기 인증서를 설정합니다. 스테이크 풀을 선언하고 스테이크를 위임하는 것이 중요합니다. 그렇지 않으면 블록이 생성되지 않습니다.``
+
 Remember that in this array the **order** matters:
 
+``이 배열에서 순서는 중요합니다.``
+
 In order to delegate your stake, you need a stake pool to already exist, so the stake pool registration certificate should go first.
+
+``스테이크를 위임하려면 스테이크 풀이 이미 존재해야하므로 스테이크 풀 등록 인증서가 먼저 있어야합니다.``
 
 ### Stake pool registration
 
 Now you can register a stake pool.
 Follow the instruction in [registering stake pool guide](../stake_pool/registering_stake_pool.md).
 
+``이제 스테이크 풀을 등록 할 수 있습니다. 스테이크 풀 가이드 등록 지침을 따르십시오.``
+
 The _owner key_ (the key you sign the stake pool registration certificate) is the secret
 key associated to a previously registered stake key.
+
+``소유자 키 (스테이크 풀 등록 인증서에 서명 한 키)는 이전에 등록 된 스테이크 키와 관련된 비밀 키입니다.``
 
 ### Delegating stake
 
@@ -479,9 +511,13 @@ Now that there is both your stake key and there are stake pools available
 in the block0 you need to delegate to one of the stake pool. Follow the instruction
 in [delegating stake](../stake_pool/delegating_stake.md).
 
+``이제 스테이크 키가 있고 블록 0에 사용 가능한 스테이크 풀이 있으므로 스테이크 풀 중 하나에 위임해야합니다. 스테이크 위임의 지시를 따르십시오.``
+
 And in the initial funds start adding the addresses. To create an address with delegation
 follow the instruction in [JCLI's address guide](../jcli/address.md). Utilise the stake key
 registered previously as group address:
+
+``그리고 초기 자금에서 주소 추가를 시작하십시오. 위임 된 주소를 작성하려면 JCLI의 주소 안내서에있는 지시 사항을 따르십시오. 이전에 그룹 주소로 등록 된 스테이크 키를 사용하십시오.``
 
 ```
 jcli address single $(cat wallet_key.pub) $(cat stake_key.pub)
@@ -491,7 +527,11 @@ ta1sjx4j3jwel94g0cgwzq9au7h6m8f5q3qnyh0gfnryl3xan6qnmjse3k2uv062mzj34eacjnxthxqv
 You will notice that addresses with delegation are longer (about twice longer) than
 address without delegation.
 
+``위임이 있는 주소가 위임이 없는 주소보다 깁니다(약 2배).``
+
 For example, the most minimal setting you may have is:
+
+``예를 들어, 가장 작은 설정은 다음과 같습니다.``
 
 ```yaml
 initial_certs:
@@ -514,11 +554,17 @@ initial_funds:
 
 Now, for starting the node and be able to generate new blocks, you have to put your pool's private keys and id in a file and start the node with the `--secret filename` parameter.
 
+``이제 노드를 시작하고 새 블록을 생성하려면 풀의 개인 키와 ID를 파일에 넣고 --secret filename 매개 변수로 노드를 시작해야합니다.``
+
 ---
 
 For example, if you follow the examples of the [registering stake pool guide](../stake_pool/registering_stake_pool.md) 
 
+``예를 들어 스테이크 풀 등록 가이드의 예를 따르면``
+
 You could create a file called poolsecret.yaml with the following content.
+
+``다음 내용으로 poolsecret.yaml이라는 파일을 만들 수 있습니다.``
 
 ```yaml
 genesis:
@@ -529,6 +575,8 @@ genesis:
 
 And you could start the node with this command 
 
+``이 명령으로 노드를 시작할 수 있습니다``
+
 ```sh
 jormungandr --genesis-block block-0.bin --config config.yaml --secret poolsecret.yaml
 ```
@@ -537,4 +585,4 @@ jormungandr --genesis-block block-0.bin --config config.yaml --secret poolsecret
 
 There is a script [here](https://github.com/input-output-hk/jormungandr/blob/master/scripts/bootstrap) that can be used to bootstrap a test node with a pre-set faucet and stake pool and can be used as an example.
 
-
+``여기에는 사전 설정된 facuet 및 스테이크 풀이 있는 테스트 노드를 부트 스트랩하는 데 사용할 수 있는 스크립트가 있으며 예제로 사용할 수 있습니다.``
