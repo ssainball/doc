@@ -3,25 +3,23 @@
 The rust node comes with tools and help in order to quickly start
 a node and connect to the blockchain.
 
-``RUST 노드에는 노드를 빠르게 시작하고 블록체인에 연결하기위한 도구와 도움말이 제공됩니다.``
+``RUST 노드는 신속하게 노드를 시작하고 블록체인에 연결하기 위한 도구와 도움말이 제공됩니다.``
 
 It is compatible with most platforms and it is pre-packaged for some
 of them.
 
-``대부분의 플랫폼과 호환되며 일부 플랫폼에는 pre-packaged 되어 있습니다.``
+``대부분의 플랫폼과 호환되며 일부 플랫폼용으로 미리 패키징 되어 있습니다.``
 
 Here we will see how to install `jormungandr` and its helper `jcli`
 and how to connect quickly to a given blockchain.
 
-``여기에서 jormungandr와 그 도우미 jcli를 설치하는 방법과 주어진 블록체인에 빠르게 연결하는 방법을 볼 것입니다.``
+``여기에서 jormungandr와 그 도우미 jcli를 설치하는 방법과 주어진 블록체인에 빠르게 연결하는 방법을 알아 볼 것입니다.``
 
 There are three posible ways you can start jormungandr.
 
-``jormungandr를 시작할 수있는 세 가지 가능한 방법이 있습니다.``
+``jormungandr를 시작할 수 있는 세 가지 방법이 있습니다.``
 
 ## As a passive node in an existing network
-
-`` 실제 네트워크에서 수동 노드 활성화하기``
 
 As described [here](./node_types/01_passive_node.md).  
 
@@ -29,11 +27,9 @@ The passive Node is the most common type of Node on the network. It can be used 
 doesn't have cryptographic materials or any mean to create blocks.
 This type of nodes are mostly used for wallets, explorers or relays.
 
-`` 수동 노드는 네트워크에서 가장 일반적인 유형의 노드입니다. 블록을 다운로드하고 피어에게 트랜잭션을 브로드 캐스트하는 데 사용할 수 있지만 암호화 자료나 블록을 만들 수단이 없습니다. 이 유형의 노드는 주로 지갑, 탐색기 또는 릴레이에 사용됩니다.``
+``수동 노드는 네트워크에서 가장 일반적인 유형의 노드입니다. 블록을 다운로드하고 피어에게 트랜잭션을 브로드캐스트하는 데 사용할 수 있지만 암호화 자료나 블록을 만들 수단이 없습니다. 이 유형의 노드는 주로 지갑, 탐색기 또는 릴레이에 사용됩니다.``
 
 ## As a node generating blocks in an existing network
-
-`` 실제 네트워크에서 블록생성 노드 활성화하기``
 
 The network could be running either bft or genesis consensus. In the former case the node must have the private key of a registered as a slot leader, while for the latter the private keys of a registered stake pool are needed. 
 
@@ -42,8 +38,6 @@ The network could be running either bft or genesis consensus. In the former case
 More information [here](./node_types/02_generating_blocks.md)
 
 ## Creating your own network
-
-''나만의 네트워크 만들기``
 
 This is similar to the previous case, but configuring a genesis file is needed. Consult the [Advanced section](../advanced/introduction.md) for more information on this procedure.
 
@@ -89,7 +83,7 @@ jcli auto-completion bash ${HOME}/.bash_completion.d
 
 Supported shells are: bash, fish, zsh, powershell and elvish.
 
-``지원되는 쉘은 bash, fish, zsh, powershell 및 elvish입니다.``
+``지원되는 쉘은 bash, fish, zsh, powershell, elvish입니다.``
 
 **Note:** 
 Make sure `${HOME}/.bash_completion.d` directory previously exists on your HD.
@@ -109,16 +103,10 @@ You can also put it in your `${HOME}/.bashrc`.
 In order to start the node, you first need to gather the blockchain
 information you need to connect to.
 
-``노드를 시작하려면 먼저 연결해야하는 블록체인 정보를 수집해야합니다.``
+``노드를 시작하려면 먼저 연결해야하는 블록체인 정보를 수집해야 합니다.``
 
-1. the hash of the **genesis block** of the blockchain, this will be the source
-   of truth of the blockchain. It is 64 hexadecimal characters.
-2. the **trusted peers** identifiers and access points.
-
-``1. 제네시스 블록의 해시, 이것이 블록체인의 진실의 근원이 될 것입니다. 64 개의 16 진수입니다.``
-
-``2. 신뢰할 수있는 피어 식별자 및 액세스 지점``
-
+1. the hash of the **genesis block** , 이것은 블록체인 신뢰의 근원입니다. 64개의 16진수 입니다.
+2. the **trusted peers** 식별자 및 and access points.
 
 These information are essentials to start your node in a secure way.
 
@@ -129,7 +117,7 @@ static parameters of the blockchain as well as the initial funds. Your node
 will utilise the **Hash** to retrieve it from the other peers. It will also
 allows the Node to verify the integrity of the downloaded **genesis block**.
 
-``기원 블록은 블록체인의 첫 번째 블록입니다. 초기 자금뿐만 아니라 블록체인의 정적 매개 변수가 포함되어 있습니다. 노드는 해시를 사용하여 다른 피어에서 검색합니다. 또한 노드가 다운로드 된 기원 블록의 무결성을 확인할 수 있습니다.``
+``기원 블록은 블록체인의 첫 번째 블록입니다. 초기 자금규모뿐만 아니라 블록체인의 정적 매개 변수가 포함되어 있습니다. 노드는 해시를 사용하여 다른 피어에서 검색합니다. 또한 노드가 다운로드된 기원 블록의 무결성을 확인할 수 있습니다.``
 
 The **trusted peers** are the nodes in the public network that your Node will
 trust in order to initialise the Peer To Peer network.
@@ -148,7 +136,7 @@ This config shouldn't work as it is, the ip address and port for the trusted pee
 Also, the public_address ('u.x.v.t') should be a valid address (you can use an internal one, eg: 127.0.0.1).
 Furthermore, you need to have permission to write in the path specified by the storage config.
 
-``이 구성은 그대로 작동하지 않아야합니다. 트러스트 된 피어의 IP 주소 및 포트는 이미 실행중인 노드의 IP 주소 및 포트 여야합니다. 또한 public_address('u.x.v.t')는 유효한 주소 여야합니다 (예 : 127.0.0.1). 또한 스토리지 구성에 지정된 경로에 쓸 수 있는 권한이 있어야합니다.``
+``이 구성은 그대로 작동하지 않아야합니다. 트러스트된 피어의 IP 주소 및 포트는 이미 실행중인 노드의 IP 주소 및 포트 여야합니다. 또한 public_address('u.x.v.t')는 유효한 주소 여야합니다(예 : 127.0.0.1). 또한 스토리지 구성에 지정된 경로에 쓸 수 있는 권한이 있어야 합니다.``
 
 ```yaml
 storage: "/mnt/cardano/storage"
@@ -187,7 +175,7 @@ Description of the fields:
       - `allowed_origins`: (선택 사항) 허용 된 원점 (제공된 경우)
       - `max_age_secs`: (선택 사항) 최대 CORS 캐싱 시간 (초) (제공된 것이 없으면 캐싱이 비활성화 됨)
 - `p2p`: P2P network settings
-    - `trusted_peers`: (선택 사항) P2P 토폴로지를 부트스트랩하고 로컬 블록체인을 부트스트랩하기 위해 연결할 public_id 가 있는 노드의 multiaddr 목록입니다.;
+    - `trusted_peers`: (선택 사항) P2P 토폴로지와 로컬 블록체인을 부트스트랩하기 위해 연결할 multiaddr(노드 public_id) 목록입니다.;
     - `private_id`: 네트워크에서 이 노드를 식별하는 데 사용될 노드의 개인 키 (Ed25519)
     - `public_address`: P2P 서비스의 주소 지정. 이것은 노드의 블록체인 보급에 관심이 있는 네트워크의 다른 피어에게 배포 될 공개 주소입니다.
     - `listen_address`: (선택 사항) multiaddr은 p2p 연결을 수신하기 위해 노드가 수신 할 주소를 지정합니다. 비워 둘 수 있으며 노드는 public_address에 지정된 값을 수신합니다.
@@ -210,11 +198,11 @@ jormungandr --config config.yaml --genesis-block-hash 'abcdef987654321....'
 
 The 'abcdef987654321....' part refers to the hash of the genesis, that should be given to you from one of the peers in the network you are connecting to.
 
-``'abcdef987654321 ....' 부분은 연결중인 네트워크의 피어 중 하나에서 제공해야하는 기원의 해시를 나타냅니다.``
+``'abcdef987654321 ....' 부분은 연결중인 네트워크의 피어 중 하나에서 제공해야 하는 기원의 해시를 나타냅니다.``
 
 In case you have the genesis file (for example, because you are creating the network) you can get this hash with jcli.
 
-``당신이 제네시스 파일이 있다면 (예 : 네트워크 창조자 이기 때문에) jcli를 사용하여 이 해시를 얻을 수 있습니다.``
+``당신이 제네시스 파일을 가지고 있는 경우 (예를 들어, 당신이 네트워크를 만들고 있기 때문에) jcli를 사용하여 이 해시를 얻을 수 있습니다.``
 
 ```sh
 cat block-0 | jcli genesis hash
@@ -222,7 +210,7 @@ cat block-0 | jcli genesis hash
 
 or, in case you only have the yaml file
 
-``또는 yaml 파일 만있는 경우``
+``또는 yaml 파일만 가지고 있는 경우``
 
 ```sh
 cat genesis.yaml | jcli genesis encode | jcli genesis hash
@@ -234,11 +222,11 @@ cat genesis.yaml | jcli genesis encode | jcli genesis hash
 
 It is possible to query the node via its REST Interface.
 
-``REST 인터페이스를 통해 노드를 쿼리 할 수 ​​있습니다.``
+``REST 인터페이스를 통해 노드를 쿼리할 수 있습니다.``
 
 In the node configuration, you have set something like:
 
-``노드 구성에서 다음과 같이 설정했습니다.``
+``노드 구성에서 다음과 같이 설정``
 
 
 ```yaml
@@ -256,7 +244,7 @@ This is the REST endpoint to talk to the node, to query blocks or send transacti
 
 It is possible to query the node stats with the following end point:
 
-``다음과 같은 엔드 포인트로 노드 통계를 쿼리 할 수 ​​있습니다.``
+``다음과 같은 엔드 포인트로 노드 통계를 쿼리할 수 있습니다.``
 
 
 ```
@@ -286,13 +274,13 @@ To see the whole Node API documentation,
 
 The node can be configured to work as a explorer. This consumes more resources, but makes it possible to query data otherwise not available.
 
-``탐색기로 작동하도록 노드를 구성 할 수 있습니다. 이로 인해 더 많은 리소스가 소비되지만 접근 불가했던 감춰진 데이터를 쿼리 할 수 ​​있습니다.``
+``탐색기로 작동하도록 노드를 구성할 수 있습니다. 이로 인해 더 많은 리소스가 소비되지만 접근 불가했던 감춰진 데이터를 쿼리할 수 있습니다.``
 
 ## Configuration
 
 There is two ways of enabling the explorer api. It can either be done by passing the `--enable-explorer` flag on the start arguemnts or by the config file: 
 
-``탐색기 API를 활성화하는 방법에는 두 가지가 있습니다. 시작 인수에 --enable-explorer 플래그를 전달하거나 구성 파일을 사용하여 수행 할 수 있습니다.``
+``탐색기 API를 활성화하는 방법에는 두 가지가 있습니다. 시작 인수에 --enable-explorer 플래그를 전달하거나 구성 파일을 사용하여 수행할 수 있습니다.``
 
 ``` yaml
 explorer:
@@ -303,13 +291,13 @@ explorer:
 
 For configuring CORS the explorer API, this needs to be done on the REST section of the config, as documented [here](../configuration/network.md).
 
-``CORS 탐색기 API를 구성하려면 여기에 설명 된대로 구성의 REST 섹션에서 수행해야합니다.``
+``CORS 탐색기 API를 구성하려면 여기에 설명된 대로 환경설정의 REST 섹션에서 수행해야 합니다.``
 
 ## API
 
 A graphql interface can be used to query the explorer data, when enabled, two endpoints are available in the [REST interface](03_rest_api.md): `/explorer/graphql` and `/explorer/graphiql` .
 
-``graphql 인터페이스를 사용하여 탐색기 데이터를 조회 할 수 있습니다. 사용 가능한 경우 REST 인터페이스에서 '/explorer/graphql' 및 '/explorer /graphiql' 의 두 엔드 포인트를 사용할 수 있습니다.``
+``graphql 인터페이스를 사용하여 탐색기 데이터를 조회 할 수 있습니다. 사용 가능한 경우 REST 인터페이스에서 /explorer/graphql 및 /explorer /graphiql 의 두 엔드 포인트를 사용할 수 있습니다.``
 
 The first is the one that queries are made against, for example: 
 
@@ -345,15 +333,11 @@ While the second serves an in-browser graphql IDE that can be used to try querie
 
 Like in the passive node case, two things are needed to connect to an existing network
 
-``패시브 노드의 경우와 마찬가지로 기존 네트워크에 연결하려면 두 가지가 필요합니다.``
+``패시브 노드 사례처럼 기존 네트워크에 연결하려면 두 가지가 필요합니다.``
 
-1. the hash of the **genesis block** of the blockchain, this will be the source
-   of truth of the blockchain. It is 64 hexadecimal characters.
-2. the **trusted peers** identifiers and access points.
+1. the hash of the **genesis block** , 이것은 블록체인 신뢰의 근원입니다. 64개의 16진수 입니다.
+2. the **trusted peers** 식별자 및 and access points.
 
-``블록체인의 기원 블록의 해시, 이것이 블록 체인의 진실의 근원이 될 것입니다. 64개의 16 진수입니다.``
-
-``신뢰할 수있는 피어 식별자 및 액세스 지점``
 
 
 The node configuration could be the same as that for [running a passive node](./01_passive_node.md). 
@@ -362,7 +346,7 @@ The node configuration could be the same as that for [running a passive node](./
 
 There are some differences depending if you are connecting to a network running a genesis or bft consensus protocol.
 
-``기원 또는 bft 합의 프로토콜을 실행하는 네트워크에 연결하는지에 따라 약간의 차이가 있습니다.``
+``당신이 독창적인 합의 프로토콜 또는 bft 합의 프로토콜을 실행하는 네트워크에 접속하는지에 따라 약간의 차이가 있습니다.``
 
 ### Connecting to a genesis blockchain
 
@@ -370,7 +354,7 @@ There are some differences depending if you are connecting to a network running 
 
 In order to be able to generate blocks in an existing genesis network, a [registered stake pool](../../stake_pool/registering_stake_pool) is needed.
 
-``기존의 창세기 네트워크에서 블록을 생성하려면 등록 된 스테이크 풀이 필요합니다.``
+``기존 제네시스 네트워크에서 블록을 생성할 수 있으려면 등록된 스테이크 풀이 필요합니다.``
 
 #### Creating the secrets file
 
@@ -409,7 +393,7 @@ In order to generate blocks, the node should be registered as a slot leader in t
 
 Put secret key in a yaml file, e.g. `node_secret.yaml` as follows:
 
-``비밀 키를 yaml 파일에 넣으십시오 (예 : 다음과 같이 node_secret.yaml :``
+``다음과 같이 yaml 파일에 비밀키(예 : node_secret.yaml)를 넣으십시오. :``
 
 ```yaml
 bft:
@@ -417,6 +401,8 @@ bft:
 ```
 
 where signing_key is a private key associated to the public id of a slot leader.
+
+``여기서 signing_key는 슬롯 리더의 공용 ID와 관련된 개인 키.``
 
 ### Starting the node
 
