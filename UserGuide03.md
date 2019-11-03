@@ -34,7 +34,7 @@ The following options are available in the log section:
 
 ``로그 섹션에서 다음 옵션을 사용할 수 있습니다.``
 
-- `level`: log messages minimum severity. If not configured anywhere, defaults to "info".
+- `level`: 로깅 레벨. 설정하지 않으면 디폴트는 "info".
   Possible values: "off", "critical", "error", "warn", "info", "debug", "trace".
 - `format`: log output format - `plain` or `json`.
 - `output`: log output - `stdout`, `stderr`, `syslog` (Unix only),
@@ -55,7 +55,7 @@ p2p:
 ## REST interface configuration
 
 - `listen`: listen address
-- `pkcs12`: certificate file (optional)
+- `pkcs12`: (optional) certificate file 
 - `cors`: (optional) CORS configuration, if not provided, CORS is disabled
   - `allowed_origins`: (optional) allowed origins, if none provided, echos request origin
   - `max_age_secs`: (optional) maximum CORS caching time in seconds, if none provided, caching is disabled
@@ -90,7 +90,7 @@ When running an active node (BFT leader or stake pool) it is interesting to be
 able to make choices on how to manage the pending transactions: how long to keep
 them, how to prioritize them etc.
 
-``활성 노드 (BFT 리더 또는 스테이크 풀)를 실행할 때 보류중인 트랜잭션을 관리하는 방법, 유지 기간, 우선 순위 지정 방법 등을 선택하는 것이 흥미 롭습니다.``
+``활성 노드 (BFT 리더 또는 스테이크 풀)를 실행할 때 보류중인 트랜잭션을 관리하는 방법, 유지 기간, 우선 순위 지정 방법 등을 선택할 수 있는 것이 흥미롭습니다.``
 
 The `mempool` field in your node config file is not mandatory, by default it is set
 as follow:
@@ -104,19 +104,9 @@ mempool:
     garbage_collection_interval: 15m
 ```
 
-* `fragment_ttl` describes for how long the node shall keep a fragment (a _transaction_)
-  pending in the pool before being discarded;
-* `log_ttl` describes for how long the node will keep logs of pending/accepted/rejected
-  fragments in the pool; This is link to the data you receives from the REST fragment
-  logs end point;
-* `garbage_collection_interval` describes the interval between 2 garbage collection
-  runs: i.e. when the node removes item (fragments or logs) that have timed out. 
-
-``* fragment_ttl은 노드가 폐기되기 전에 프래그먼트(트랜잭션)가 풀에 보류되는 시간을 설명합니다. ``
-
-``* log_ttl은 노드가 풀에서 보류/수락/거부 된 조각에 대한 로그를 보관하는 기간을 설명합니다. REST 프레이그먼트 로그에서 수신 한 데이터에 대한 링크입니다.``
-
-``* garbage_collection_interval은 2 개의 가비지 수집 실행 간격, 즉 노드가 시간 초과 된 항목 (조각 또는 로그)을 제거 할 때의 간격을 설명합니다.``
+* `fragment_ttl` 은 노드가 풀에서 프래그먼트(a _transaction_)를 얼마나 보관해야 하는지를 기술합니다.;
+* `log_ttl` 은 노드가 풀에서 보류/수락/거부 된 프래그먼트 로그를 보관하는 기간을 설명합니다; 
+* `garbage_collection_interval`  노드가 시간 초과된 항목(프래그먼트 또는 로그)을 제거 할 때의 간격을 설명합니다.
 
 
 The `leadership` field in your node config file is not mandatory, by default it is set
