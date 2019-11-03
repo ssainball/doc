@@ -327,6 +327,8 @@ jcli transaction new > tx
 
 For the input, we need to reference the uxto with the **UTXO's transaction ID** and **UTXO'S output index** fields and we need to specify how much coins are there with the **associated value** field.
 
+``입력을 위해 UTXO의 트랜잭션 ID 및 UTXO의 출력 인덱스 필드를 사용하여 uxto를 참조해야하며 연관된 값 필드와 함께 얼마나 많은 코인이 있는지 지정해야합니다.``
+
 ### Example - UTXO address as Input
 
 ```sh
@@ -337,6 +339,8 @@ jcli transaction add-input  55762218e5737603e6d27d36c8aacf8fcd16406e820361a8ac65
 
 If the input is an account, the command is slightly different
 
+``입력이 계정 인 경우 명령이 약간 다릅니다``
+
 ```sh
 jcli transaction add-account account_address account_funds --staging tx
 ```
@@ -344,6 +348,8 @@ jcli transaction add-account account_address account_funds --staging tx
 ## Add output
 
 For the output, we need the address we want to transfer to, and the amount.
+
+``출력을 위해, 전송할 주소와 금액이 필요합니다.``
 
 ```sh
 jcli transaction add-output  ca1qvnr5pvt9e5p009strshxndrsx5etcentslp2rwj6csm8sfk24a2wlqtdj6 50 --staging tx
@@ -353,6 +359,9 @@ jcli transaction add-output  ca1qvnr5pvt9e5p009strshxndrsx5etcentslp2rwj6csm8sfk
 
 We want to get the change in the same address that we are sending from (the *associated address* of the utxo). We also specify how to compute the fees.
 You can leave out the `--fee-constant 5 --fee-coefficient 2` part if those are both 0.
+
+``보내는 주소와 동일한 주소 (utxo의 관련 주소)를 변경하려고합니다. 또한 수수료 계산 방법을 지정합니다. --fee-constant 5 --fee-coefficient 2 부분이 모두 0 인 경우 생략 할 수 있습니다.``
+
 
 ```sh
 jcli transaction finalize  ca1q09u0nxmnfg7af8ycuygx57p5xgzmnmgtaeer9xun7hly6mlgt3pjyknplu --fee-constant 5 --fee-coefficient 2 --staging tx
@@ -383,9 +392,15 @@ Transaction `0df39a87d3f18a188b40ba8c203f85f37af665df229fb4821e477f6998864273' (
 
 For signing the transaction, you need the private key associated with the input address (the one that's in the utxos) and the hash of the genesis block of the network you are connected to.
 
+``트랜잭션에 서명하려면 입력 주소 (utxos에있는 주소)와 연결된 개인 키와 연결된 네트워크의 생성 블록 해시가 필요합니다.``
+
 The genesis' hash is needed for ensuring that the transaction cannot be re-used in another blockchain and for security concerns on offline transaction signing, as we are signing the transaction for the specific blockchain started by this block0 hash.
 
+``우리가 이 block0 해시에 의해 시작된 특정 블록체인에 대한 거래에 서명 할 때, 트랜잭션을 다른 블록 체인에서 재사용 할 수 없도록하고 오프라인 거래 서명에 대한 보안 문제를 위해 기원의 해시가 필요합니다.``
+
 The following command takes the private key in the *key.prv* file and creates a witness in a file named *witness* in the current directory. 
+
+``다음 명령은 key.prv 파일에서 개인 키를 가져 와서 현재 디렉토리의 witness 파일에 감시를 만듭니다.``
 
 ```sh
 jcli transaction make-witness --genesis-block-hash abcdef987654321... --type utxo txid witness key.prv
@@ -395,6 +410,8 @@ jcli transaction make-witness --genesis-block-hash abcdef987654321... --type utx
 #### Account input
 
 When using an account as input, the command takes `account` as the type and an additional parameter: `--account-spending-counter`, that should be increased every time the account is used as input.
+
+``계정을 입력으로 사용하는 경우 이 명령은 계정을 입력으로 사용할 때마다 증가해야하는 --account-spending-counter 유형 및 추가 매개 변수로 계정을 고려합니다.``
 
 e.g.
 
@@ -428,6 +445,8 @@ jcli rest v0 message post -f txmsg --host http://127.0.0.1:8443/api
 
 You can check if the transaction was accepted by checking the node logs, for example, if the transaction is accepted 
 
+``트랜잭션이 승인되었는지 여부와 같은 노드 로그를 확인하여 트랜잭션이 승인되었는지 확인할 수 있습니다.``
+
 `jcli rest v0 message logs -h http://127.0.0.1:8443/api`
 
 ```plaintext
@@ -445,26 +464,40 @@ You can check if the transaction was accepted by checking the node logs, for exa
 Where the InABlock status means that the transaction was accepted in the block with date "4.707"
 and for block `d9040ca57e513a36ecd3bb54207dfcd10682200929cad6ada46b521417964174`.
 
+``InABlock 상태는 날짜가 "4.707"이고 블록 d9040ca57e513a36ecd3bb54207dfcd10682200929cad6ada46b521417964174 인 블록에서 트랜잭션이 수락되었음을 의미합니다.``
+
 The status here could also be: 
 
+``여기서 상태는 다음과 같습니다.``
+
 Pending: if the transaction is received and is pending being added in the blockchain (or rejected).
+
+``보류 중 : 거래가 접수되어 블록 체인에 추가 (또는 거부)중인 경우.``
 
 or
 
 Rejected: with an attached message of the reason the transaction was rejected. 
 
+``거부 됨 : 거래가 거부 된 이유에 대한 메시지가 첨부되어 있습니다.``
 
 
 # certificate
 
 Tooling for offline transaction creation
 
+``오프라인 트랜잭션 생성을위한 툴링``
+
 ## Builder
 
 Builds a signed certificate.
 
+``서명 된 인증서를 작성합니다.``
+
 The process can be split into steps on the first step certificate
 is created.
+
+``프로세스는 첫 번째 단계 인증서가 작성된 단계로 나눌 수 있습니다.``
+
 ```
 jcli certificate new stake-pool-registration \
   --vrf-key <vrf-public-key> --kes-key <kes-public-key> \
@@ -477,6 +510,8 @@ if output-file is omited result will be written to stdout. Once
 certificate is ready you must sign it with the private keys of
 all the owners:
 
+``출력 파일이 생략되면 결과가 stdout에 기록됩니다. 인증서가 준비되면 모든 소유자의 개인 키로 서명해야합니다.``
+
 
 ```
 jcli certificate sign <key> <input-file> <output-file>
@@ -487,6 +522,8 @@ jcli certificate sign <key> <input-file> <output-file>
 # Genesis
 
 Tooling for working with a genesis file
+
+``생성 파일 작업을 위한 툴링``
 
 # Usage
 ```sh
@@ -500,6 +537,15 @@ jcli genesis [subcommand]
 - hash: Print the block hash of the genesis 
 - init: Create a default Genesis file with appropriate documentation to help creating the YAML file
 - help
+
+
+- decode: ``인코딩 된 기원 블록에 해당하는 YAML 파일을 인쇄하십시오.``
+- encode: ``주어진 yaml 파일에서 블록 체인의 기원 블록을 만듭니다.``
+- hash: ``기원 해시 인쇄`` 
+- init: ``YAML 파일 작성에 도움이되는 적절한 문서를 사용하여 기본 Genesis 파일을 작성하십시오.``
+- help
+
+
 
 ## Examples
 
@@ -526,6 +572,8 @@ jcli genesis hash --input block-0.bin
 
 Tooling for working with a genesis file
 
+``생성 파일 작업을 위한 툴링``
+
 # Usage
 ```sh
 jcli genesis [subcommand]
@@ -537,6 +585,12 @@ jcli genesis [subcommand]
 - encode: Create the genesis block of the blockchain from a given yaml file.
 - hash: Print the block hash of the genesis 
 - init: Create a default Genesis file with appropriate documentation to help creating the YAML file
+- help
+
+- decode: ``인코딩 된 기원 블록에 해당하는 YAML 파일을 인쇄하십시오.``
+- encode: ``주어진 yaml 파일에서 블록 체인의 기원 블록을 만듭니다.``
+- hash: ``기원 해시 인쇄`` 
+- init: ``YAML 파일 작성에 도움이되는 적절한 문서를 사용하여 기본 Genesis 파일을 작성하십시오.``
 - help
 
 ## Examples
@@ -564,9 +618,13 @@ jcli genesis hash --input block-0.bin
 
 Jormungandr comes with a CLI client for manual communication with nodes over HTTP.
 
+``Jormungandr에는 HTTP를 통한 노드와의 수동 통신을위한 CLI 클라이언트가 제공됩니다.``
+
 ## Conventions
 
 Many CLI commands have common arguments:
+
+``많은 CLI 명령에는 일반적인 인수가 있습니다.``
 
 - `-h <addr>` or `--host <addr>` - Node API address. Must always have `http://` or
 `https://` prefix. E.g. `-h http://127.0.0.1`, `--host https://node.com:8443/cardano/api`
@@ -576,9 +634,17 @@ The output format is intentionally undocumented and unstable
 Any other value is treated as a custom format using values from output data structure.
 Syntax is Go text template: https://golang.org/pkg/text/template/.
 
+
+- ``-h <addr> 또는 --host <addr>-노드 API 주소. 항상 http : // 또는 https : // 접두사가 있어야합니다. 예 : -h http://127.0.0.1, --host https://node.com:8443/cardano/api``
+- ``--debug-추가 디버그 정보를 stderr에 인쇄합니다. 출력 형식이 의도적으로 문서화되지 않고 불안정합니다.``
+- ``--output-format <format>-출력 데이터의 형식입니다. 가능한 값 : json, yaml, 기본 yaml. 다른 값은 출력 데이터 구조의 값을 사용하여 사용자 정의 형식으로 처리됩니다. 구문은 Go 텍스트 템플릿입니다 (https://golang.org/pkg/text/template/).``
+
+
 ## Node stats
 
 Fetches node stats
+
+``노드 통계를 가져옵니다.``
 
 ```
 jcli rest v0 node stats get <options>
@@ -590,8 +656,13 @@ The options are
 - --debug - see [conventions](#conventions)
 - --output-format <format> - see [conventions](#conventions)
 
+- ``-h <node_addr>-규칙을 참조하십시오``
+- ``--debug-규칙을 참조하십시오``
+- ``--output-format – 규칙 참조``
+
 
 YAML printed on success
+
 
 ```yaml
 ---
@@ -648,6 +719,8 @@ YAML printed on success
 
 Posts a signed, hex-encoded transaction
 
+``서명 된 16 진 인코딩 트랜잭션을 게시합니다.``
+
 ```
 jcli rest v0 message post <options>
 ```
@@ -660,7 +733,14 @@ The options are
 If not provided, transaction will be read from stdin.
 
 
+- -h <node_addr>-규칙을 참조하십시오
+- --debug-규칙을 참조하십시오
+- -f --file <file_path>-16 진으로 인코딩 된 트랜잭션을 포함하는 파일입니다. 제공하지 않으면 stdin에서 트랜잭션을 읽습니다.
+
+
 Fragment Id is printed on success (which can help finding transaction status using get message log command)
+
+``조각 ID는 성공시 인쇄됩니다 (get message log 명령을 사용하여 트랜잭션 상태를 찾는 데 도움이 됨)``
 
 ```
 50f21ac6bd3f57f231c4bf9c5fff7c45e2529c4dffed68f92410dbf7647541f1
@@ -671,6 +751,8 @@ Fragment Id is printed on success (which can help finding transaction status usi
 Get the node's logs on the message pool. This will provide information on pending transaction,
 rejected transaction and or when a transaction has been added in a block
 
+``메시지 풀에서 노드의 로그를 가져옵니다. 보류중인 거래, 거부 된 거래 및 거래가 블록에 추가 된시기에 대한 정보를 제공합니다.``
+
 ```
 jcli rest v0 message logs <options>
 ```
@@ -680,6 +762,10 @@ The options are
 - -h <node_addr> - see [conventions](#conventions)
 - --debug - see [conventions](#conventions)
 - --output-format <format> - see [conventions](#conventions)
+    
+- -h <node_addr>-규칙을 참조하십시오
+- --debug-규칙을 참조하십시오
+- --output-format – 규칙 참조
 
 YAML printed on success
 
@@ -723,6 +809,8 @@ status:                         # fragment was included in a block
 
 Retrieves a hex-encoded ID of the blockchain tip
 
+``블록 체인 팁의 16 진 인코딩 ID를 검색합니다.``
+
 ```
 jcli rest v0 tip get <options>
 ```
@@ -732,9 +820,15 @@ The options are
 - -h <node_addr> - see [conventions](#conventions)
 - --debug - see [conventions](#conventions)
 
+-  -h <node_addr>-규칙을 참조하십시오
+-  --debug-규칙을 참조하십시오
+
+
 ## Get block
 
 Retrieves a hex-encoded block with given ID
+
+``주어진 ID로 16 진으로 인코딩 된 블록을 검색합니다.``
 
 ```
 jcli rest v0 block <block_id> get <options>
@@ -742,15 +836,24 @@ jcli rest v0 block <block_id> get <options>
 
 <block_id> - hex-encoded block ID
 
+``<block_id> - 16진수로 인코딩 된 블록 ID``
+
+
 The options are
 
 - -h <node_addr> - see [conventions](#conventions)
 - --debug - see [conventions](#conventions)
 
+- -h <node_addr>-규칙을 참조하십시오
+- --debug-규칙을 참조하십시오
+
+
 ## Get next block ID
 
 Retrieves a list of hex-encoded IDs of descendants of block with given ID.
 Every list element is in separate line. The IDs are sorted from closest to farthest.
+
+``주어진 ID를 가진 블록의 자손의 16 진 인코딩 된 ID 목록을 검색합니다. 모든 목록 요소는 별도의 줄에 있습니다. ID는 가장 가까운 것부터 가장 먼 것까지 정렬됩니다.``
 
 ```
 jcli rest v0 block <block_id> next-id get <options>
@@ -758,15 +861,23 @@ jcli rest v0 block <block_id> next-id get <options>
 
 <block_id> - hex-encoded block ID
 
+``<block_id> - 16진수로 인코딩 된 블록 ID``
+
 The options are
 
 - -h <node_addr> - see [conventions](#conventions)
 - --debug - see [conventions](#conventions)
 - -c --count <count> - Maximum number of IDs, must be between 1 and 100, default 1
 
+- ``-h <node_addr>-규칙을 참조하십시오``
+- ``--debug-규칙을 참조하십시오``
+- ``-c --count-최대 ID 수는 1에서 100 사이 여야하며 기본값은 1입니다.``
+
 ## Get account state
 
 Get account state
+
+``계정 상태 얻기``
 
 ```
 jcli rest v0 account get <account-id> <options>
@@ -774,10 +885,17 @@ jcli rest v0 account get <account-id> <options>
 
 <account-id> - ID of an account, bech32-encoded
 
+``-bech32로 인코딩 된 계정의 ID``
+
 The options are
 - -h <node_addr> - see [conventions](#conventions)
 - --debug - see [conventions](#conventions)
 - --output-format <format> - see [conventions](#conventions)
+
+
+-  ``-h <node_addr>-규칙을 참조하십시오``
+-  ``--debug-규칙을 참조하십시오``
+-  ``--output-format – 규칙 참조``
 
 YAML printed on success
 
