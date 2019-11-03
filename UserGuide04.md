@@ -3,31 +3,31 @@
 This is the node command line helper. It is mostly meant for developers and
 stake pool operators. It allows offline operations:
 
-``jcli는 노드 명령 행 헬퍼입니다. 주로 개발자와 스테이크 풀 운영자를위한 것입니다. 오프라인 작업을 허용합니다.``
-
 * generating cryptographic materials for the wallets and stake pools;
 * creating addresses, transactions and certificates;
 * prepare a new blockchain
 
-``* 지갑 및 스테이크 풀을 위한 암호화 자료를 생성하는 단계``
+``jcli는 노드 명령 행 헬퍼입니다. 주로 개발자와 스테이크 풀 운영자를 위한 것입니다. 오프라인 작업을 허용합니다.``
 
-``* 주소, 거래, 인증서 작성``
+* ``지갑 및 스테이크 풀을 위한 암호화 자료를 생성하는 단계``
 
-``* 새로운 블록체인 준비``
+* ``주소, 거래, 인증서 작성``
+
+* ``새로운 블록체인 준비``
 
 and it allows simple interactions with the node:
-
-``노드와의 간단한 상호 작용을 허용합니다.``
 
 * query stats;
 * send transactions and certificates;
 * get raw blocks and UTxOs.
 
-``* 쿼리 통계``
+``노드와의 간단한 상호 작용을 허용합니다.``
 
-``* 거래 및 인증서 보내기``
+* ``쿼리 통계``
 
-``* raw blocks 및 UTxO 얻기``
+* ``거래 및 인증서 보내기``
+
+* ``raw blocks 및 UTxO 얻기``
 
 # cryptographic keys
 
@@ -67,7 +67,7 @@ ed25519_pk1z2ffur59cq7t806nc9y2g64wa60pg5m6e9cmrhxz9phppaxk5d4sn8nsqg
 Sign data with private key. Supported key formats are: ed25519, ed25519bip32, ed25519extended and
 sumed25519_12.
 
-``개인 키로 데이터에 서명하십시오. 지원되는 키 형식은 ed25519, ed25519bip32, ed25519extended 및 sumed25519_12입니다.``
+``개인 키로 데이터에 서명하십시오. 지원되는 키 형식은 ed25519, ed25519bip32, ed25519extended, sumed25519_12입니다.``
 
 ```
 jcli key sign <options> <data>
@@ -75,27 +75,30 @@ jcli key sign <options> <data>
 
 The options are
 
-`` 옵션은 ``
-
 - --secret-key <secret_key> - path to file with bech32-encoded secret key
-
-- ``--secret-key <secret_key> : bech32로 인코딩 된 비밀 키가 있는 파일 경로``
 
 - -o, --output <output> - path to file to write signature into, if no value is passed,
 standard output will be used
 
-- ``-o, --output <output> : 서명을 쓸 파일의 경로입니다. 값이 전달되지 않으면 표준 출력이 사용됩니다.``
+
+`` 옵션은 ``
+
+- ``--secret-key <secret_key> - bech32로 인코딩 된 비밀 키가 있는 파일 경로``
+
+- ``-o, --output <output> - 서명을 쓸 파일의 경로입니다. 값이 전달되지 않으면 표준 출력이 사용됩니다.``
+
 
 <data> - path to file with data to sign, if no value is passed, standard input will be used
 
-``-서명 할 데이터가 있는 파일 경로, 값이 전달되지 않으면 표준 입력이 사용됩니다.``
+``<data> -서명 할 데이터가 있는 파일 경로, 값이 전달되지 않으면 표준 입력이 사용됩니다.``
+
 
 ## Verifying signed data
 
 Verify signed data with public key. Supported key formats are: ed25519, ed25519bip32 and
 sumed25519_12.
 
-``공개 키로 서명 된 데이터를 확인하십시오. 지원되는 키 형식은 ed25519, ed25519bip32 및 sumed25519_12입니다.``
+``공개 키로 서명 된 데이터를 확인하십시오. 지원되는 키 형식은 ed25519, ed25519bip32, sumed25519_12입니다.``
 
 ```
 jcli key verify <options> <data>
@@ -107,13 +110,13 @@ The options are
 
 ``옵션은``
 
-''--public-key <public_key> : bech32로 인코딩 된 공개 키가있는 파일 경로''
+- ''--public-key <public_key> - bech32로 인코딩 된 공개 키가있는 파일 경로''
 
-``--signature <signature> : 서명이있는 파일의 경로``
+- ``--signature <signature> - 서명이있는 파일의 경로``
 
 <data> - path to file with data to sign, if no value is passed, standard input will be used
 
-``-서명 할 데이터가 있는 파일 경로, 값이 전달되지 않으면 표준 입력이 사용됩니다.``
+``- <data> 서명 할 데이터가 있는 파일 경로, 값이 전달되지 않으면 표준 입력이 사용됩니다.``
 
 
 # Address
@@ -157,7 +160,7 @@ Each command following allows to create addresses for production and testing
 chains. For chains, where the discrimination is `testing`, you need to
 use the `--testing` flag.
 
-``다음의 각 명령을 사용하면 운영중인 블록체인 또는 테스트용 블록체인에 대한 주소를 만들 수 있습니다. 테스트를 하는 경우 --testing 플래그를 사용해야합니다.``
+``다음의 각 명령을 사용하면 배포용 블록체인 또는 테스트 블록체인에 대한 주소를 만들 수 있습니다. 테스트를 하는 경우 --testing 플래그를 사용해야합니다.``
 
 There's 3 types of addresses:
 
@@ -167,11 +170,11 @@ There's 3 types of addresses:
 
 ``3 가지 유형의 주소가 있습니다.``
 
-``* 단일 주소 : 간단한 지출 키. 이 시스템에 아무런 지분이 없습니다``
+* ``Single address : 간단한 지출 키. 이 시스템에 아무런 지분이 없습니다``
 
-``* 그룹화 된 주소 : 계정 키에 연결된 지출 키. 스테이크는 자동으로``
+* ``Grouped address : 계정 키에 연결된 지출 키. 스테이크는 자동으로``
 
-``* 계정 주소 : 계정 키. 계정 자체가 지분입니다``
+* ``Account address : 계정 키. 계정 자체가 지분입니다``
 
 
 ### Address for UTxO
@@ -179,7 +182,7 @@ There's 3 types of addresses:
 You can create a single address (non-staked) using the spending public key for
 this address utilising the following command:
 
-``다음 명령에서 지출 공개 키를 사용하여 단일 주소(스테이크되지 않은)를 만들 수 있습니다.``
+``다음 명령에서 지출 공개 키를 사용하여 단일 주소(스테이크되지 않는)를 만들 수 있습니다.``
 
 ```
 $ jcli address \
@@ -218,7 +221,7 @@ You can decide to change the address prefix, allowing you to provide more
 enriched data to the user. However, this prefix is not forwarded to the node,
 it is only for UI/UX.
 
-``주소 접두사를 변경하여 보다 풍부한 데이터를 사용자에게 제공 할 수 있습니다. 그러나이 접두부는 노드로 전달되지 않으며 UI/UX 전용입니다.``
+``주소 접두사를 변경하여 보다 풍부한 데이터를 사용자에게 제공 할 수 있습니다. 그러나 이 접두부는 노드로 전달되지 않으며 UI/UX 전용입니다.``
 
 ```
 $ jcli address \
@@ -233,7 +236,7 @@ address_1q5smgquwzdh4eyc77gf6ddxp2atz8ej3rt94nt6l0qes0vexf5g4cw68kdx
 
 Tooling for offline transaction creation and signing.
 
-``오프라인 트랜잭션 생성 및 서명을 위한 툴링.``
+``오프라인 트랜잭션 생성 및 서명을 위한 명령어.``
 
 ```
 jcli transaction
@@ -260,18 +263,18 @@ There is a couple of commands that can be used to:
 ``다음과 같은 명령을 사용할 수 있습니다.``
 
 1. ``거래 준비 `` :
-    - ``  - 비어있는 새 트랜잭션을 새로 작성하십시오.``
-    - ``  - add-input``
-    - ``  - add-account``
-    - ``  - add-output``
+    - ``비어있는 새 트랜잭션을 새로 작성하십시오.``
+    - ``add-input``
+    - ``add-account``
+    - ``add-output``
 
 
 2. ``서명을 위한 트랜잭션 마무리합니다``:
 
 
 3. ``증인을 만들고 증인을 추가하십시오``:
-    - ``  - make-witness``
-    - ``  - add-witness``
+    - ``make-witness``
+    - ``add-witness``
 
 
 4. ``'seal' 거래를 봉인하고 블록 체인에 보낼 준비가 되었습니다.``
@@ -280,17 +283,17 @@ There is a couple of commands that can be used to:
 There are also functions to help decode and display the
 content information of a transaction:
 
-``트랜잭션의 컨텐츠 정보를 디코딩하고 표시하는 데 도움이되는 기능도 있습니다.``
-
 * `info`
 * `id` to get the **Transaction ID** of the transaction
 * `to-message` to get the hexadecimal encoded message, ready to send with `cli rest message`
 
-``정보``
+``트랜잭션의 컨텐츠 정보를 디코딩하고 표시하는 데 도움이되는 기능도 있습니다.``
 
-``거래의 거래 ID를 얻기위한 id``
+* ``'info'``
 
-``16 진수로 인코딩 된 메시지를 가져 와서 cli rest 메시지와 함께 보낼 준비가 된 메시지``
+* ``'id' 거래 ID를 얻기 위한 것``
+
+* ``'to-message' 16진수로 인코딩 된 메시지를 가져 와서 'cli rest message' 와 함께 보낼 준비를 하는 것``
 
 
 # Examples
@@ -298,11 +301,11 @@ content information of a transaction:
 The following example focuses on using an utxo as input, the few differences when transfering from an account will be pointed out when necessary.
 There is also a script [here](https://github.com/input-output-hk/jormungandr/blob/master/scripts/send-transaction) to send a transaction from a faucet account to a specific address which could be used as a reference.
 
-``다음 예는 utxo를 입력으로 사용하는 데 중점을 두며 필요한 경우 계정에서 전송할 때의 몇 가지 차이점이 지적됩니다. 수도꼭지 계정에서 참조로 사용할 수있는 특정 주소로 트랜잭션을 전송하는 스크립트도 있습니다.``
+``다음 예는 utxo를 입력으로 사용하는 데 중점을 두며 필요한 경우 계정에서 전송할 때의 몇 가지 차이점을 설명합니다. facuet 계정에서 트랜잭션을 참조용 주소로 전송하는 스크립트도 있습니다.``
 
 Let's use the following utxo as input and transfer 50 lovelaces to the destination address
 
-``다음 utxo를 입력으로 사용하고 목적지 주소로 50 lovelaces를 전송합시다``
+``다음 utxo를 입력으로 사용하고 목적지 주소로 50 lovelaces 를 전송합시다``
 
 ## Input utxo
 
@@ -327,7 +330,7 @@ jcli transaction new > tx
 
 For the input, we need to reference the uxto with the **UTXO's transaction ID** and **UTXO'S output index** fields and we need to specify how much coins are there with the **associated value** field.
 
-``입력을 위해 UTXO의 트랜잭션 ID 및 UTXO의 출력 인덱스 필드를 사용하여 uxto를 참조해야하며 연관된 값 필드와 함께 얼마나 많은 코인이 있는지 지정해야합니다.``
+``입력을 위해, 우리는 **UTXO's transaction ID** 및 **UTXO'S output index** 등의 UTXO 필드 참조가 필요 하며 **associated value** 필드와 함께 얼마나 많은 코인이 있는지 지정해야 합니다.``
 
 ### Example - UTXO address as Input
 
@@ -339,7 +342,7 @@ jcli transaction add-input  55762218e5737603e6d27d36c8aacf8fcd16406e820361a8ac65
 
 If the input is an account, the command is slightly different
 
-``입력이 계정 인 경우 명령이 약간 다릅니다``
+``입력이 계정인 경우 명령이 약간 다릅니다``
 
 ```sh
 jcli transaction add-account account_address account_funds --staging tx
@@ -360,7 +363,7 @@ jcli transaction add-output  ca1qvnr5pvt9e5p009strshxndrsx5etcentslp2rwj6csm8sfk
 We want to get the change in the same address that we are sending from (the *associated address* of the utxo). We also specify how to compute the fees.
 You can leave out the `--fee-constant 5 --fee-coefficient 2` part if those are both 0.
 
-``보내는 주소와 동일한 주소 (utxo의 관련 주소)를 변경하려고합니다. 또한 수수료 계산 방법을 지정합니다. --fee-constant 5 --fee-coefficient 2 부분이 모두 0 인 경우 생략 할 수 있습니다.``
+``보내는 주소와 동일한 주소(utxo 관련 주소)를 변경하려고 합니다. 또한 수수료 계산 방법을 지정합니다. --fee-constant 5 --fee-coefficient 2 로 설정합니다. 이 2개 옵션이 0 인 경우 생략 할 수 있습니다.``
 
 
 ```sh
@@ -392,11 +395,11 @@ Transaction `0df39a87d3f18a188b40ba8c203f85f37af665df229fb4821e477f6998864273' (
 
 For signing the transaction, you need the private key associated with the input address (the one that's in the utxos) and the hash of the genesis block of the network you are connected to.
 
-``트랜잭션에 서명하려면 입력 주소 (utxos에있는 주소)와 연결된 개인 키와 연결된 네트워크의 생성 블록 해시가 필요합니다.``
+``트랜잭션에 서명하려면 입력 주소(utxos에 있는 주소)와 연결된 개인 키와 연결된 네트워크의 생성 블록 해시가 필요합니다.``
 
 The genesis' hash is needed for ensuring that the transaction cannot be re-used in another blockchain and for security concerns on offline transaction signing, as we are signing the transaction for the specific blockchain started by this block0 hash.
 
-``우리가 이 block0 해시에 의해 시작된 특정 블록체인에 대한 거래에 서명 할 때, 트랜잭션을 다른 블록 체인에서 재사용 할 수 없도록하고 오프라인 거래 서명에 대한 보안 문제를 위해 기원의 해시가 필요합니다.``
+``우리가 이 block0 해시에 의해 시작된 특정 블록체인에 대한 거래에 서명 할 때, 트랜잭션을 다른 블록 체인에서 재사용 할 수 없도록 하고 오프라인 거래 서명에 대한 보안 문제를 위해 기원의 해시가 필요합니다.``
 
 The following command takes the private key in the *key.prv* file and creates a witness in a file named *witness* in the current directory. 
 
@@ -411,7 +414,7 @@ jcli transaction make-witness --genesis-block-hash abcdef987654321... --type utx
 
 When using an account as input, the command takes `account` as the type and an additional parameter: `--account-spending-counter`, that should be increased every time the account is used as input.
 
-``계정을 입력으로 사용하는 경우 이 명령은 계정을 입력으로 사용할 때마다 증가해야하는 --account-spending-counter 유형 및 추가 매개 변수로 계정을 고려합니다.``
+``계정을 입력으로 사용하는 경우 이 명령은 계정을 입력으로 사용할 때마다 증가해야 하는 --account-spending-counter 유형 및 추가 매개 변수로 계정을 고려합니다.``
 
 e.g.
 
@@ -437,6 +440,8 @@ jcli transaction to-message --staging tx > txmsg
 
 Send it using the rest api
 
+``REST API를 사용하여 보내십시오.``
+
 ```sh
 jcli rest v0 message post -f txmsg --host http://127.0.0.1:8443/api
 ```
@@ -445,7 +450,7 @@ jcli rest v0 message post -f txmsg --host http://127.0.0.1:8443/api
 
 You can check if the transaction was accepted by checking the node logs, for example, if the transaction is accepted 
 
-``트랜잭션이 승인되었는지 여부와 같은 노드 로그를 확인하여 트랜잭션이 승인되었는지 확인할 수 있습니다.``
+``트랜잭션이 승인되면 노드 로그를 확인하여 트랜잭션이 승인 여부를 확인할 수 있습니다.``
 
 `jcli rest v0 message logs -h http://127.0.0.1:8443/api`
 
@@ -464,7 +469,7 @@ You can check if the transaction was accepted by checking the node logs, for exa
 Where the InABlock status means that the transaction was accepted in the block with date "4.707"
 and for block `d9040ca57e513a36ecd3bb54207dfcd10682200929cad6ada46b521417964174`.
 
-``InABlock 상태는 날짜가 "4.707"이고 블록 d9040ca57e513a36ecd3bb54207dfcd10682200929cad6ada46b521417964174 인 블록에서 트랜잭션이 수락되었음을 의미합니다.``
+``InABlock 상태는 날짜가 "4.707"이고 d9040ca57e513a36ecd3bb54207dfcd10682200929cad6ada46b521417964174 블록에서 트랜잭션이 수락되었음을 의미합니다.``
 
 The status here could also be: 
 
@@ -472,31 +477,31 @@ The status here could also be:
 
 Pending: if the transaction is received and is pending being added in the blockchain (or rejected).
 
-``보류 중 : 거래가 접수되어 블록 체인에 추가 (또는 거부)중인 경우.``
+``Pending : 거래가 접수되어 블록체인에 추가(또는 거부) 중인 경우.``
 
 or
 
 Rejected: with an attached message of the reason the transaction was rejected. 
 
-``거부 됨 : 거래가 거부 된 이유에 대한 메시지가 첨부되어 있습니다.``
+``Rejected : 거래가 거부 된 이유에 대한 메시지가 첨부되어 있습니다.``
 
 
 # certificate
 
 Tooling for offline transaction creation
 
-``오프라인 트랜잭션 생성을위한 툴링``
+``오프라인 트랜잭션 생성을 위한 명령어``
 
 ## Builder
 
 Builds a signed certificate.
 
-``서명 된 인증서를 작성합니다.``
+``서명된 인증서를 작성합니다.``
 
 The process can be split into steps on the first step certificate
 is created.
 
-``프로세스는 첫 번째 단계 인증서가 작성된 단계로 나눌 수 있습니다.``
+``인증서 작성의 첫 번째 단계는 인증서 작성 단계 입니다.``
 
 ```
 jcli certificate new stake-pool-registration \
@@ -510,7 +515,7 @@ if output-file is omited result will be written to stdout. Once
 certificate is ready you must sign it with the private keys of
 all the owners:
 
-``출력 파일이 생략되면 결과가 stdout에 기록됩니다. 인증서가 준비되면 모든 소유자의 개인 키로 서명해야합니다.``
+``출력 파일이 생략되면 결과가 stdout에 기록됩니다. 인증서가 준비되면 소유자의 개인 키로 서명해야합니다.``
 
 
 ```
@@ -523,7 +528,7 @@ jcli certificate sign <key> <input-file> <output-file>
 
 Tooling for working with a genesis file
 
-``생성 파일 작업을 위한 툴링``
+``생성 파일 작업을 위한 명령어``
 
 # Usage
 ```sh
@@ -532,17 +537,10 @@ jcli genesis [subcommand]
 
 ## Subcommands
 
-- decode: Print the YAML file corresponding to an encoded genesis block.
-- encode: Create the genesis block of the blockchain from a given yaml file.
-- hash: Print the block hash of the genesis 
-- init: Create a default Genesis file with appropriate documentation to help creating the YAML file
-- help
-
-
-- decode: ``인코딩 된 기원 블록에 해당하는 YAML 파일을 인쇄하십시오.``
-- encode: ``주어진 yaml 파일에서 블록 체인의 기원 블록을 만듭니다.``
-- hash: ``기원 해시 인쇄`` 
-- init: ``YAML 파일 작성에 도움이되는 적절한 문서를 사용하여 기본 Genesis 파일을 작성하십시오.``
+- decode: ``인코딩 된 기원 블록에 해당하는 YAML 파일 인쇄 하기``
+- encode: ``주어진 yaml 파일에서 블록체인의 기원 블록 생성 하기.``
+- hash: ``기원 블록 해시 인쇄 하기`` 
+- init: ``YAML 파일 작성에 도움이 되는 적절한 문서를 사용하여 기본 Genesis 파일 생성 하기.``
 - help
 
 
@@ -556,6 +554,8 @@ jcli genesis encode --input genesis.yaml --output block-0.bin
 ```
 
 or equivantely
+
+``또는 동등하게``
 
 ```sh
 cat genesis.yaml | jcli genesis encode > block-0.bin
@@ -572,7 +572,7 @@ jcli genesis hash --input block-0.bin
 
 Tooling for working with a genesis file
 
-``생성 파일 작업을 위한 툴링``
+``생성 파일 작업을 위한 명령어``
 
 # Usage
 ```sh
@@ -581,16 +581,10 @@ jcli genesis [subcommand]
 
 ## Subcommands
 
-- decode: Print the YAML file corresponding to an encoded genesis block.
-- encode: Create the genesis block of the blockchain from a given yaml file.
-- hash: Print the block hash of the genesis 
-- init: Create a default Genesis file with appropriate documentation to help creating the YAML file
-- help
-
-- decode: ``인코딩 된 기원 블록에 해당하는 YAML 파일을 인쇄하십시오.``
-- encode: ``주어진 yaml 파일에서 블록 체인의 기원 블록을 만듭니다.``
-- hash: ``기원 해시 인쇄`` 
-- init: ``YAML 파일 작성에 도움이되는 적절한 문서를 사용하여 기본 Genesis 파일을 작성하십시오.``
+- decode: ``인코딩 된 기원 블록에 해당하는 YAML 파일 인쇄 하기``
+- encode: ``주어진 yaml 파일에서 블록체인의 기원 블록 생성 하기.``
+- hash: ``기원 블록 해시 인쇄 하기`` 
+- init: ``YAML 파일 작성에 도움이 되는 적절한 문서를 사용하여 기본 Genesis 파일 생성 하기.``
 - help
 
 ## Examples
@@ -618,7 +612,7 @@ jcli genesis hash --input block-0.bin
 
 Jormungandr comes with a CLI client for manual communication with nodes over HTTP.
 
-``Jormungandr에는 HTTP를 통한 노드와의 수동 통신을위한 CLI 클라이언트가 제공됩니다.``
+``Jormungandr 에는 HTTP를 통한 노드와의 수동 통신을 위한 CLI 클라이언트가 제공됩니다.``
 
 ## Conventions
 
@@ -626,8 +620,7 @@ Many CLI commands have common arguments:
 
 ``많은 CLI 명령에는 일반적인 인수가 있습니다.``
 
-- `-h <addr>` or `--host <addr>` - Node API address. Must always have `http://` or
-`https://` prefix. E.g. `-h http://127.0.0.1`, `--host https://node.com:8443/cardano/api`
+- `-h <addr>` or `--host <addr>` - ``Node API 주소. 항상 `http://` 또는 `https://` 접두사가 있어야 합니다. 예 : `-h http://127.0.0.1`, `--host https://node.com:8443/cardano/api` ``
 - `--debug` - Print additional debug information to stderr.
 The output format is intentionally undocumented and unstable
 - `--output-format <format>` - Format of output data. Possible values: json, yaml, default yaml.
@@ -635,7 +628,7 @@ Any other value is treated as a custom format using values from output data stru
 Syntax is Go text template: https://golang.org/pkg/text/template/.
 
 
-- ``-h <addr> 또는 --host <addr>-노드 API 주소. 항상 http : // 또는 https : // 접두사가 있어야합니다. 예 : -h http://127.0.0.1, --host https://node.com:8443/cardano/api``
+
 - ``--debug-추가 디버그 정보를 stderr에 인쇄합니다. 출력 형식이 의도적으로 문서화되지 않고 불안정합니다.``
 - ``--output-format <format>-출력 데이터의 형식입니다. 가능한 값 : json, yaml, 기본 yaml. 다른 값은 출력 데이터 구조의 값을 사용하여 사용자 정의 형식으로 처리됩니다. 구문은 Go 텍스트 템플릿입니다 (https://golang.org/pkg/text/template/).``
 
