@@ -75,17 +75,11 @@ jcli key sign <options> <data>
 
 The options are
 
-- --secret-key <secret_key> - path to file with bech32-encoded secret key
+- --secret-key <secret_key> : bech32로 인코딩 된 비밀 키가 있는 파일 경로
 
-- -o, --output <output> - path to file to write signature into, if no value is passed,
-standard output will be used
+- -o, --output <output> : 서명을 쓸 파일의 경로입니다. 값이 전달되지 않으면 표준 출력이 사용됩니다.
 
 
-`` 옵션은 ``
-
-- ``--secret-key <secret_key> - bech32로 인코딩 된 비밀 키가 있는 파일 경로``
-
-- ``-o, --output <output> - 서명을 쓸 파일의 경로입니다. 값이 전달되지 않으면 표준 출력이 사용됩니다.``
 
 
 <data> - path to file with data to sign, if no value is passed, standard input will be used
@@ -105,14 +99,8 @@ jcli key verify <options> <data>
 ```
 
 The options are
-- --public-key <public_key> - path to file with bech32-encoded public key
-- --signature <signature> - path to file with signature
-
-``옵션은``
-
-- ''--public-key <public_key> - bech32로 인코딩 된 공개 키가있는 파일 경로''
-
-- ``--signature <signature> - 서명이있는 파일의 경로``
+- --public-key <public_key> : bech32로 인코딩 된 공개 키가있는 파일 경로
+- --signature <signature> : 서명이있는 파일의 경로
 
 <data> - path to file with data to sign, if no value is passed, standard input will be used
 
@@ -620,10 +608,9 @@ Many CLI commands have common arguments:
 
 ``많은 CLI 명령에는 일반적인 인수가 있습니다.``
 
-- -h <addr> or --host <addr> - ``Node API 주소. 항상 http:// 또는 https:// 접두사가 있어야 합니다. 예 : -h http://127.0.0.1, --host https://node.com:8443/cardano/api ``
-- `--debug` - ``추가 디버그 정보를 stderr에 인쇄합니다. 출력 형식이 의도적으로 문서화되지 않고 불안정합니다.``
-The output format is intentionally undocumented and unstable
-- `--output-format <format>` - ``출력 데이터의 형식입니다. 가능한 값 : json, yaml, default yaml. 다른 값은 출력 데이터 구조의 값을 사용하여 사용자 정의 형식으로 처리됩니다. 구문은 Go 텍스트 템플릿입니다 (https://golang.org/pkg/text/template/).``
+- `-h <addr> or --host <addr>` : Node API 주소. 항상 `http://` 또는 `https://` 접두사가 있어야 합니다. 예 : `-h http://127.0.0.1`, `--host https://node.com:8443/cardano/api`
+- `--debug` : 추가 디버그 정보를 stderr에 인쇄합니다. 출력 형식이 의도적으로 문서화되지 않고 불안정합니다.
+- `--output-format <format>` : 출력 데이터의 형식입니다. 가능한 값 : json, yaml, default yaml. 다른 값은 출력 데이터 구조의 값을 사용하여 사용자 정의 형식으로 처리됩니다. 구문은 Go 텍스트 템플릿입니다 (https://golang.org/pkg/text/template/).
 
 
 
@@ -639,9 +626,9 @@ jcli rest v0 node stats get <options>
 
 The options are
 
-- -h <node_addr> - "규칙을 참조하세요." [conventions](#conventions)
-- --debug - "규칙을 참조하세요."  [conventions](#conventions)
-- --output-format <format> - "규칙을 참조하세요" [conventions](#conventions)
+- -h <node_addr> : 참조링크 [conventions](#conventions)
+- --debug : 참조링크  [conventions](#conventions)
+- --output-format <format> : 참조링크 [conventions](#conventions)
 
 
 
@@ -684,9 +671,9 @@ jcli rest v0 utxo get <options>
 
 The options are
 
-- -h <node_addr> - see [conventions](#conventions)
-- --debug - see [conventions](#conventions)
-- --output-format <format> - see [conventions](#conventions)
+- -h <node_addr> : 참조링크 [conventions](#conventions)
+- --debug : 참조링크  [conventions](#conventions)
+- --output-format <format> : 참조링크 [conventions](#conventions)
 
 
 YAML printed on success
@@ -711,20 +698,14 @@ jcli rest v0 message post <options>
 
 The options are
 
-- -h <node_addr> - see [conventions](#conventions)
-- --debug - see [conventions](#conventions)
-- -f --file <file_path> - File containing hex-encoded transaction.
-If not provided, transaction will be read from stdin.
-
-
-- -h <node_addr>-규칙을 참조하십시오
-- --debug-규칙을 참조하십시오
-- -f --file <file_path>-16 진으로 인코딩 된 트랜잭션을 포함하는 파일입니다. 제공하지 않으면 stdin에서 트랜잭션을 읽습니다.
+- -h <node_addr> : 참조링크 [conventions](#conventions)
+- --debug : 참조링크 [conventions](#conventions)
+- -f --file <file_path> : 16진으로 인코딩 된 트랜잭션을 포함하는 파일입니다. 제공하지 않으면 stdin에서 트랜잭션을 읽습니다.
 
 
 Fragment Id is printed on success (which can help finding transaction status using get message log command)
 
-``조각 ID는 성공시 인쇄됩니다 (get message log 명령을 사용하여 트랜잭션 상태를 찾는 데 도움이 됨)``
+``프래그먼트 ID는 성공시 인쇄됩니다 (get message log 명령을 사용하여 트랜잭션 상태를 찾는 데 도움이 됨)``
 
 ```
 50f21ac6bd3f57f231c4bf9c5fff7c45e2529c4dffed68f92410dbf7647541f1
@@ -735,7 +716,7 @@ Fragment Id is printed on success (which can help finding transaction status usi
 Get the node's logs on the message pool. This will provide information on pending transaction,
 rejected transaction and or when a transaction has been added in a block
 
-``메시지 풀에서 노드의 로그를 가져옵니다. 보류중인 거래, 거부 된 거래 및 거래가 블록에 추가 된시기에 대한 정보를 제공합니다.``
+``메시지 풀에서 노드의 로그를 가져옵니다. 보류중인 거래, 거부 된 거래, 거래가 블록에 추가 된 시기에 대한 정보를 제공합니다.``
 
 ```
 jcli rest v0 message logs <options>
@@ -743,13 +724,10 @@ jcli rest v0 message logs <options>
 
 The options are
 
-- -h <node_addr> - see [conventions](#conventions)
-- --debug - see [conventions](#conventions)
-- --output-format <format> - see [conventions](#conventions)
+- -h <node_addr> : 참조링크 [conventions](#conventions)
+- --debug : 참조링크 [conventions](#conventions)
+- --output-format <format> : 참조링크 [conventions](#conventions)
     
-- -h <node_addr>-규칙을 참조하십시오
-- --debug-규칙을 참조하십시오
-- --output-format – 규칙 참조
 
 YAML printed on success
 
@@ -793,7 +771,7 @@ status:                         # fragment was included in a block
 
 Retrieves a hex-encoded ID of the blockchain tip
 
-``블록 체인 팁의 16 진 인코딩 ID를 검색합니다.``
+``블록체인 팁의 16진 인코딩 ID를 검색합니다.``
 
 ```
 jcli rest v0 tip get <options>
@@ -801,18 +779,16 @@ jcli rest v0 tip get <options>
 
 The options are
 
-- -h <node_addr> - see [conventions](#conventions)
-- --debug - see [conventions](#conventions)
+- -h <node_addr> : 참조링크 [conventions](#conventions)
+- --debug - 참조링크 [conventions](#conventions)
 
--  -h <node_addr>-규칙을 참조하십시오
--  --debug-규칙을 참조하십시오
 
 
 ## Get block
 
 Retrieves a hex-encoded block with given ID
 
-``주어진 ID로 16 진으로 인코딩 된 블록을 검색합니다.``
+``주어진 ID로 16진으로 인코딩 된 블록을 검색합니다.``
 
 ```
 jcli rest v0 block <block_id> get <options>
@@ -825,11 +801,9 @@ jcli rest v0 block <block_id> get <options>
 
 The options are
 
-- -h <node_addr> - see [conventions](#conventions)
-- --debug - see [conventions](#conventions)
+- -h <node_addr> - 참조링크 [conventions](#conventions)
+- --debug - 참조링크 [conventions](#conventions)
 
-- -h <node_addr>-규칙을 참조하십시오
-- --debug-규칙을 참조하십시오
 
 
 ## Get next block ID
@@ -837,7 +811,7 @@ The options are
 Retrieves a list of hex-encoded IDs of descendants of block with given ID.
 Every list element is in separate line. The IDs are sorted from closest to farthest.
 
-``주어진 ID를 가진 블록의 자손의 16 진 인코딩 된 ID 목록을 검색합니다. 모든 목록 요소는 별도의 줄에 있습니다. ID는 가장 가까운 것부터 가장 먼 것까지 정렬됩니다.``
+``주어진 ID를 가진 블록 자손의 16진 인코딩 된 ID 목록을 검색합니다. 모든 목록 요소는 별도의 줄에 있습니다. ID는 가장 가까운 것부터 가장 먼 것까지 정렬됩니다.``
 
 ```
 jcli rest v0 block <block_id> next-id get <options>
@@ -849,13 +823,11 @@ jcli rest v0 block <block_id> next-id get <options>
 
 The options are
 
-- -h <node_addr> - see [conventions](#conventions)
-- --debug - see [conventions](#conventions)
-- -c --count <count> - Maximum number of IDs, must be between 1 and 100, default 1
+- -h <node_addr> : 참조링크 [conventions](#conventions)
+- --debug : 참조링크 [conventions](#conventions)
+- -c --count <count> : 최대 ID 수는 1에서 100 사이 여야하며 기본값은 1입니다.
 
-- ``-h <node_addr>-규칙을 참조하십시오``
-- ``--debug-규칙을 참조하십시오``
-- ``-c --count-최대 ID 수는 1에서 100 사이 여야하며 기본값은 1입니다.``
+
 
 ## Get account state
 
@@ -869,17 +841,13 @@ jcli rest v0 account get <account-id> <options>
 
 <account-id> - ID of an account, bech32-encoded
 
-``-bech32로 인코딩 된 계정의 ID``
+``<account-id> : bech32로 인코딩 된 계정의 ID``
 
 The options are
-- -h <node_addr> - see [conventions](#conventions)
-- --debug - see [conventions](#conventions)
-- --output-format <format> - see [conventions](#conventions)
+- -h <node_addr> : 참조링크 [conventions](#conventions)
+- --debug : 참조링크 [conventions](#conventions)
+- --output-format <format> : 참조링크 [conventions](#conventions)
 
-
--  ``-h <node_addr>-규칙을 참조하십시오``
--  ``--debug-규칙을 참조하십시오``
--  ``--output-format – 규칙 참조``
 
 YAML printed on success
 
@@ -899,16 +867,15 @@ value: 990
 
 
 * ```value` 는 계정의 현재 잔고입니다.;``
-* ''`counter` 는 이 계정을 사용하여 수행 된 트랜잭션 수이며 새 트랜잭션에 서명 할 때 알아야합니다.;''
-* ''`delegation` 은 계정이 위임 된 스테이크 풀 식별자입니다. 이 계정과 관련된 위임 인증서가 전송되지 않은 경우 이 값이 설정되지 않을 수 있습니다.''
+* ```counter` 는 이 계정을 사용하여 수행 된 트랜잭션 수이며 새 트랜잭션에 서명 할 때 알아야합니다.;``
+* ```delegation` 은 계정이 위임 된 스테이크 풀 식별자입니다. 이 계정과 관련된 위임 인증서가 전송되지 않은 경우 이 값이 설정되지 않을 수 있습니다.``
 
 
 ## Node settings
 
 Fetches node settings
 
-``3797/5000
-노드 설정을 가져옵니다.``
+``노드 설정을 가져옵니다.``
 
 ```
 jcli rest v0 settings get <options>
@@ -916,15 +883,9 @@ jcli rest v0 settings get <options>
 
 The options are
 
-- -h <node_addr> - see [conventions](#conventions)
-- --debug - see [conventions](#conventions)
-- --output-format <format> - see [conventions](#conventions)
-
-``옵션은``
-
-- ``-h <node_addr>-규칙을 참조하십시오``
-- ``--debug-규칙을 참조하십시오``
-- ``--output-format – 규칙 참조``
+- -h <node_addr> : 참조링크 [conventions](#conventions)
+- --debug : 참조링크 [conventions](#conventions)
+- --output-format <format> : 참조링크 [conventions](#conventions)
 
 
 YAML printed on success
@@ -952,8 +913,8 @@ jcli rest v0 shutdown get <options>
 
 The options are
 
-- -h <node_addr> - see [conventions](#conventions)
-- --debug - see [conventions](#conventions)
+- -h <node_addr> : 참조링크 [conventions](#conventions)
+- --debug : 참조링크 [conventions](#conventions)
 
 ## Get leaders
 
@@ -967,15 +928,9 @@ jcli rest v0 leaders get <options>
 
 The options are
 
-- -h <node_addr> - see [conventions](#conventions)
-- --debug - see [conventions](#conventions)
-- --output-format <format> - see [conventions](#conventions)
-
-``옵션은``
-
-- "-h <node_addr>-[conventions] (# conventions) 참조"
-- "---debug-[컨벤션] (# conventions) 참조"
-- "---output-format <format>-[conventions] (# conventions) 참조"
+- -h <node_addr> : 참조링크 [conventions](#conventions)
+- --debug : 참조링크 [conventions](#conventions)
+- --output-format <format> : 참조링크 [conventions](#conventions)
 
 
 YAML printed on success
@@ -998,12 +953,11 @@ jcli rest v0 leaders post <options>
 
 The options are
 
-`` 옵션은 ``
+- -h <node_addr> : 참조링크 [conventions](#conventions)
+- --debug : 참조링크 [conventions](#conventions)
+- --output-format <format> : 참조링크 [conventions](#conventions)
+-f, --file <file> : leader secret 이 포함 된 YAML 파일. secrey YAML이 Jormungandr에 --secret과 같은 형식으로 전달되어야합니다. 제공하지 않으면 stdin에서 YAML을 읽습니다.
 
-- -h <node_addr> - see [conventions](#conventions)
-- --debug - see [conventions](#conventions)
-- --output-format <format> - see [conventions](#conventions)
--f, --file <file> - File containing YAML with leader secret. It must have the same format as secret YAML passed to Jormungandr as --secret. If not provided, YAML will be read from stdin.
 
 On success created leader ID is printed
 
@@ -1027,13 +981,9 @@ jcli rest v0 leaders delete <id> <options>
 
 The options are
 
-- -h <node_addr> - see [conventions](#conventions)
-- --debug - see [conventions](#conventions)
+- -h <node_addr> : 참조링크 [conventions](#conventions)
+- --debug : 참조링크 [conventions](#conventions)
 
-``옵션은``
-
-- "-h <node_addr>-[conventions] (# conventions) 참조"
-- "---debug-[컨벤션] (# conventions) 참조"
 
 
 ## Get leadership logs
@@ -1046,15 +996,10 @@ jcli rest v0 leaders logs get <options>
 
 The options are
 
-- -h <node_addr> - see [conventions](#conventions)
-- --debug - see [conventions](#conventions)
-- --output-format <format> - see [conventions](#conventions)
+- -h <node_addr> : 참조링크 [conventions](#conventions)
+- --debug : 참조링크 [conventions](#conventions)
+- --output-format <format> : 참조링크 [conventions](#conventions)
 
-``옵션은``
-
-- "-h <node_addr>-[conventions] (# conventions) 참조"
-- "---debug-[컨벤션] (# conventions) 참조"
-- "---output-format <format>-[conventions] (# conventions) 참조"
 
 
 YAML printed on success
@@ -1081,15 +1026,10 @@ jcli rest v0 stake-pools get <options>
 
 The options are
 
-- -h <node_addr> - see [conventions](#conventions)
-- --debug - see [conventions](#conventions)
-- --output-format <format> - see [conventions](#conventions)
+- -h <node_addr> : 참조링크 [conventions](#conventions)
+- --debug : 참조링크 [conventions](#conventions)
+- --output-format <format> : 참조링크 [conventions](#conventions)
 
-``옵션은``
-
-- "-h <node_addr>-[conventions] (# conventions) 참조"
-- "---debug-[컨벤션] (# conventions) 참조"
-- "---output-format <format>-[conventions] (# conventions) 참조"
 
 YAML printed on success
 
@@ -1111,15 +1051,9 @@ jcli rest v0 stake get <options>
 
 The options are
 
-- -h <node_addr> - see [conventions](#conventions)
-- --debug - see [conventions](#conventions)
-- --output-format <format> - see [conventions](#conventions)
-
-``옵션은``
-
-- "-h <node_addr>-[conventions] (# conventions) 참조"
-- "---debug-[컨벤션] (# conventions) 참조"
-- "---output-format <format>-[conventions] (# conventions) 참조"
+- -h <node_addr> : 참조링크 [conventions](#conventions)
+- --debug : 참조링크 [conventions](#conventions)
+- --output-format <format> : 참조링크 [conventions](#conventions)
 
 
 
@@ -1150,15 +1084,10 @@ jcli rest v0 network stats get <options>
 
 The options are
 
-- -h <node_addr> - see [conventions](#conventions)
-- --debug - see [conventions](#conventions)
-- --output-format <format> - see [conventions](#conventions)
+- -h <node_addr> : 참조링크 [conventions](#conventions)
+- --debug : 참조링크 [conventions](#conventions)
+- --output-format <format> : 참조링크 [conventions](#conventions)
 
-`` 옵션은 ``
-
-- "-h <node_addr>-[conventions] (# conventions) 참조"
-- "---debug-[컨벤션] (# conventions) 참조"
-- "---output-format <format>-[conventions] (# conventions) 참조"
 
 
 YAML printed on success
