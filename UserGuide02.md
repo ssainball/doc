@@ -122,7 +122,7 @@ allows the Node to verify the integrity of the downloaded **genesis block**.
 The **trusted peers** are the nodes in the public network that your Node will
 trust in order to initialise the Peer To Peer network.
 
-`` trusede peers 는 당신의 노드를 초기화하기 위해 퍼블릭 네트워크에서 믿을 수 있는 노드입니다.``
+`` trusted peers 는 당신의 노드를 초기화하기 위해 퍼블릭 네트워크에서 믿을 수 있는 노드입니다.``
 
 # The node configuration
 
