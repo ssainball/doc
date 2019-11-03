@@ -310,7 +310,7 @@ jcli transaction new > tx
 
 For the input, we need to reference the uxto with the **UTXO's transaction ID** and **UTXO'S output index** fields and we need to specify how much coins are there with the **associated value** field.
 
-``입력을 위해, 우리는`` **UTXO's transaction ID** 및 **UTXO'S output index** ``등의 UTXO 필드 참조가 필요 하며`` **associated value** ``필드와 함께 얼마나 많은 코인이 있는지 지정해야 합니다.``
+``입력을 위해, 우리는 UTXO's transaction ID 및 UTXO'S output index 등의 UTXO 필드 참조가 필요 하며 associated value 필드와 함께 얼마나 많은 코인이 있는지 지정해야 합니다.``
 
 ### Example - UTXO address as Input
 
@@ -850,9 +850,9 @@ delegation: c780f14f9782770014d8bcd514b1bc664653d15f73a7158254730c6e1aa9f356
 value: 990
 ```
 
-* ```value` 는 계정의 현재 잔고입니다.;``
-* ```counter` 는 이 계정을 사용하여 수행 된 트랜잭션 수이며 새 트랜잭션에 서명 할 때 알아야합니다.;``
-* ```delegation` 은 계정이 위임 된 스테이크 풀 식별자입니다. 이 계정과 관련된 위임 인증서가 전송되지 않은 경우 이 값이 설정되지 않을 수 있습니다.``
+* `value` 는 계정의 현재 잔고입니다.;
+* `counter` 는 이 계정을 사용하여 수행 된 트랜잭션 수이며 새 트랜잭션에 서명 할 때 알아야합니다.;
+* `delegation` 은 계정이 위임 된 스테이크 풀 식별자입니다. 이 계정과 관련된 위임 인증서가 전송되지 않은 경우 이 값이 설정되지 않을 수 있습니다.
 
 
 ## Node settings
