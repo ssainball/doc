@@ -107,9 +107,11 @@ mempool:
     garbage_collection_interval: 15m
 ```
 
-* `fragment_ttl` 은 노드가 풀에서 프래그먼트(a _transaction_)를 얼마나 보관해야 하는지를 기술합니다
-* `log_ttl` 은 노드가 풀에서 보류/수락/거부 된 프래그먼트 로그를 보관하는 기간을 설명합니다
-* `garbage_collection_interval`  노드가 시간 초과된 항목(프래그먼트 또는 로그)을 제거 할 때의 간격을 설명합니다
+* `fragment_ttl` 은 노드가 풀에서 프래그먼트(a _transaction_)를 얼마나 보관해야 하는지를 기술합니다.
+
+* `log_ttl` 은 노드가 풀에서 보류/수락/거부 된 프래그먼트 로그를 보관하는 기간을 설명합니다.
+
+* `garbage_collection_interval`  노드가 시간 초과된 항목(프래그먼트 또는 로그)을 제거 할 때의 간격을 설명합니다.
 
 
 The `leadership` field in your node config file is not mandatory, by default it is set
