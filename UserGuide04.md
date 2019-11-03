@@ -913,9 +913,18 @@ value: 990
   it is possible this value is not set if there is no delegation certificate
   sent associated to this account.
 
+
+* ```value` 는 계정의 현재 잔고입니다.;``
+* ''`counter` 는 이 계정을 사용하여 수행 된 트랜잭션 수이며 새 트랜잭션에 서명 할 때 알아야합니다.;''
+* ''`delegation` 은 계정이 위임 된 스테이크 풀 식별자입니다. 이 계정과 관련된 위임 인증서가 전송되지 않은 경우 이 값이 설정되지 않을 수 있습니다.''
+
+
 ## Node settings
 
 Fetches node settings
+
+``3797/5000
+노드 설정을 가져옵니다.``
 
 ```
 jcli rest v0 settings get <options>
@@ -926,6 +935,12 @@ The options are
 - -h <node_addr> - see [conventions](#conventions)
 - --debug - see [conventions](#conventions)
 - --output-format <format> - see [conventions](#conventions)
+
+``옵션은``
+
+- ``-h <node_addr>-규칙을 참조하십시오``
+- ``--debug-규칙을 참조하십시오``
+- ``--output-format – 규칙 참조``
 
 
 YAML printed on success
@@ -960,6 +975,8 @@ The options are
 
 Fetches list of leader IDs
 
+``리더 ID 목록을 가져옵니다.``
+
 ```
 jcli rest v0 leaders get <options>
 ```
@@ -969,6 +986,12 @@ The options are
 - -h <node_addr> - see [conventions](#conventions)
 - --debug - see [conventions](#conventions)
 - --output-format <format> - see [conventions](#conventions)
+
+``옵션은``
+
+- "-h <node_addr>-[conventions] (# conventions) 참조"
+- "---debug-[컨벤션] (# conventions) 참조"
+- "---output-format <format>-[conventions] (# conventions) 참조"
 
 
 YAML printed on success
@@ -983,11 +1006,15 @@ YAML printed on success
 
 Register new leader and get its ID
 
+``새로운 리더를 등록하고 ID를 얻습니다``
+
 ```
 jcli rest v0 leaders post <options>
 ```
 
 The options are
+
+`` 옵션은 ``
 
 - -h <node_addr> - see [conventions](#conventions)
 - --debug - see [conventions](#conventions)
@@ -996,6 +1023,8 @@ The options are
 
 On success created leader ID is printed
 
+``성공하면 리더 ID가 인쇄됩니다.``
+
 ```
 3
 ```
@@ -1003,6 +1032,8 @@ On success created leader ID is printed
 ## Delete leader
 
 Delete leader with given ID
+
+`` 주어진 아이디로 리더 삭제 ``
 
 ```
 jcli rest v0 leaders delete <id> <options>
@@ -1014,6 +1045,12 @@ The options are
 
 - -h <node_addr> - see [conventions](#conventions)
 - --debug - see [conventions](#conventions)
+
+``옵션은``
+
+- "-h <node_addr>-[conventions] (# conventions) 참조"
+- "---debug-[컨벤션] (# conventions) 참조"
+
 
 ## Get leadership logs
 
@@ -1028,6 +1065,12 @@ The options are
 - -h <node_addr> - see [conventions](#conventions)
 - --debug - see [conventions](#conventions)
 - --output-format <format> - see [conventions](#conventions)
+
+``옵션은``
+
+- "-h <node_addr>-[conventions] (# conventions) 참조"
+- "---debug-[컨벤션] (# conventions) 참조"
+- "---output-format <format>-[conventions] (# conventions) 참조"
 
 
 YAML printed on success
@@ -1046,6 +1089,8 @@ YAML printed on success
 
 Fetches list of stake pool IDs
 
+`` 스테이크 풀 ID 리스트 가져오기 ``
+
 ```
 jcli rest v0 stake-pools get <options>
 ```
@@ -1056,6 +1101,11 @@ The options are
 - --debug - see [conventions](#conventions)
 - --output-format <format> - see [conventions](#conventions)
 
+``옵션은``
+
+- "-h <node_addr>-[conventions] (# conventions) 참조"
+- "---debug-[컨벤션] (# conventions) 참조"
+- "---output-format <format>-[conventions] (# conventions) 참조"
 
 YAML printed on success
 
@@ -1069,6 +1119,8 @@ YAML printed on success
 
 Fetches stake information
 
+`` 스테이크 정보 가져오기``
+
 ```
 jcli rest v0 stake get <options>
 ```
@@ -1078,6 +1130,13 @@ The options are
 - -h <node_addr> - see [conventions](#conventions)
 - --debug - see [conventions](#conventions)
 - --output-format <format> - see [conventions](#conventions)
+
+``옵션은``
+
+- "-h <node_addr>-[conventions] (# conventions) 참조"
+- "---debug-[컨벤션] (# conventions) 참조"
+- "---output-format <format>-[conventions] (# conventions) 참조"
+
 
 
 YAML printed on success
@@ -1099,6 +1158,8 @@ stake:
 
 Fetches network stats
 
+`` 네트워크 통계 가져요기``
+
 ```
 jcli rest v0 network stats get <options>
 ```
@@ -1108,6 +1169,12 @@ The options are
 - -h <node_addr> - see [conventions](#conventions)
 - --debug - see [conventions](#conventions)
 - --output-format <format> - see [conventions](#conventions)
+
+`` 옵션은 ``
+
+- "-h <node_addr>-[conventions] (# conventions) 참조"
+- "---debug-[컨벤션] (# conventions) 참조"
+- "---output-format <format>-[conventions] (# conventions) 참조"
 
 
 YAML printed on success
