@@ -76,8 +76,10 @@ p2p:
     지정하지 않으면 public_address에 지정된 값으로 p2p 연결을 수신함
 
 - `topics_of_interest`: 노드가 관심 있어 하는 다양한 항목:
+    
     - `messages`: 이 노드가 트랜잭션에 관심이 있는 다른 피어에게 알림.
     일반적인 설정 passive node: `low`. stakepool: `high`
+    
     - `blocks`: 이 노드가 새 블록에 관심이 있는 다른 피어에게 알림.
     일반적인 설정 passive node: `normal`. stakepool: `high`
 
@@ -122,4 +124,5 @@ leadership:
 ```
 
 * `log_ttl` 은 노드가 리더 이벤트 로그를 보관하는 기간을 기술합니다.
+
 * `garbage_collection_interval` 은 2개의 가비지 수집 실행 간격(예: 노드가 시간 초과된 item log 를 제거하는 경우)
