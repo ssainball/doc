@@ -620,17 +620,11 @@ Many CLI commands have common arguments:
 
 ``많은 CLI 명령에는 일반적인 인수가 있습니다.``
 
-- `-h <addr>` or `--host <addr>` - ``Node API 주소. 항상 `http://` 또는 `https://` 접두사가 있어야 합니다. 예 : `-h http://127.0.0.1`, `--host https://node.com:8443/cardano/api` ``
-- `--debug` - Print additional debug information to stderr.
+- -h <addr> or --host <addr> - ``Node API 주소. 항상 http:// 또는 https:// 접두사가 있어야 합니다. 예 : -h http://127.0.0.1, --host https://node.com:8443/cardano/api ``
+- `--debug` - ``추가 디버그 정보를 stderr에 인쇄합니다. 출력 형식이 의도적으로 문서화되지 않고 불안정합니다.``
 The output format is intentionally undocumented and unstable
-- `--output-format <format>` - Format of output data. Possible values: json, yaml, default yaml.
-Any other value is treated as a custom format using values from output data structure.
-Syntax is Go text template: https://golang.org/pkg/text/template/.
+- `--output-format <format>` - ``출력 데이터의 형식입니다. 가능한 값 : json, yaml, default yaml. 다른 값은 출력 데이터 구조의 값을 사용하여 사용자 정의 형식으로 처리됩니다. 구문은 Go 텍스트 템플릿입니다 (https://golang.org/pkg/text/template/).``
 
-
-
-- ``--debug-추가 디버그 정보를 stderr에 인쇄합니다. 출력 형식이 의도적으로 문서화되지 않고 불안정합니다.``
-- ``--output-format <format>-출력 데이터의 형식입니다. 가능한 값 : json, yaml, 기본 yaml. 다른 값은 출력 데이터 구조의 값을 사용하여 사용자 정의 형식으로 처리됩니다. 구문은 Go 텍스트 템플릿입니다 (https://golang.org/pkg/text/template/).``
 
 
 ## Node stats
@@ -645,13 +639,10 @@ jcli rest v0 node stats get <options>
 
 The options are
 
-- -h <node_addr> - see [conventions](#conventions)
-- --debug - see [conventions](#conventions)
-- --output-format <format> - see [conventions](#conventions)
+- -h <node_addr> - "규칙을 참조하세요." [conventions](#conventions)
+- --debug - "규칙을 참조하세요."  [conventions](#conventions)
+- --output-format <format> - "규칙을 참조하세요" [conventions](#conventions)
 
-- ``-h <node_addr>-규칙을 참조하십시오``
-- ``--debug-규칙을 참조하십시오``
-- ``--output-format – 규칙 참조``
 
 
 YAML printed on success
