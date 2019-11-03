@@ -3,7 +3,7 @@
 This chapter covers the node documentation, necessary to have a working system. It covers
 the network, logging and storage parameters.
 
-``이 장은 작동 시스템을 갖추기 위해 필요한 노드 문서를 다룹니다. 네트워크, 로깅 및 스토리지 매개 변수를 다룹니다.``
+``이 장에서는 작업 시스템을 갖추는 데 필요한 노드 설명서를 다룹니다. 네트워크, 로깅, 스토리지 매개 변수를 다룹니다.``
 
 The node configuration uses the [YAML](https://en.wikipedia.org/wiki/YAML) format.
 
