@@ -34,10 +34,10 @@ The following options are available in the log section:
 
 ``로그 섹션에서 다음 옵션을 사용할 수 있습니다.``
 
-- `level`: 로깅 레벨. 설정하지 않으면 디폴트는 "info".  "off", "critical", "error", "warn", "info", "debug", "trace" 선택 가능.
-- `format`: log output format - `plain` or `json`.
+- `level`: 로깅 레벨. 설정하지 않으면 기본값 "info". 선택 가능 "off", "critical", "error", "warn", "info", "debug", "trace"
+- `format`: log output format - `plain` or `json`
 - `output`: log output - `stdout`, `stderr`, `syslog` (Unix only),
-  or `journald` (Linux with systemd only, must be enabled during compilation).
+  or `journald` (Linux 만 사용가능하며, 컴파일 할때 활성화해야 사용 가능함).
 
 
 There's 2 differents network interfaces which are covered by their respective section:
@@ -56,7 +56,7 @@ p2p:
 - `listen`: listen address
 - `pkcs12`: (optional) certificate file 
 - `cors`: (optional) CORS 구성, 설정하지 않으면 CORS 는 비활성화됨
-  - `allowed_origins`: (optional) allowed origins, 설정하지 않으면 echos request origin
+  - `allowed_origins`: (optional) allowed origins, 설정하지 않으면 origin 으로 설정됨
   - `max_age_secs`: (optional) 최대 CORS 캐싱 시간(초), 설정하지 않으면, 캐싱은 비활성화됨
 
 ## P2P configuration
@@ -68,18 +68,18 @@ p2p:
     이 노드가 다른 피어에게 블록체인 배포를 원할 경우, 네트워크의 다른 피어에게 배포될 이 노드의 주소
 
 - `private_id`: (optional) `Ed25519` 유형의 암호 비밀키. 키를 생성하는 자세한 내용은 [`jcli key`] 참조. 
-    지정하지 않으면 임의의 키가 생성됨. 연관된 공개키는 네트워크에서 노드의 고유식별자가 됨.
+    지정하지 않으면 임의의 키가 생성됨. 연관된 공개키는 네트워크에서 노드의 고유식별자가 됨
 
 - `listen_address`: (optional) [multiaddr][multiaddr] 는 노드가 p2p 연결 수신을 위한 주소 지정.
-    지정하지 않으면 public_address에 지정된 값으로 p2p 연결을 수신함.
+    지정하지 않으면 public_address에 지정된 값으로 p2p 연결을 수신함
 
 - `topics_of_interest`: 노드가 관심 있어 하는 다양한 항목:
     - `messages`: 이 노드가 트랜잭션에 관심이 있는 다른 피어에게 알림.
-    일반적인 설정 passive node: `"low"`. stakepool: `"high"`;
+    일반적인 설정 passive node: `low`. stakepool: `high`
     - `blocks`: 이 노드가 새 블록에 관심이 있는 다른 피어에게 알림.
-    일반적인 설정 passive node: `"normal"`. stakepool: `"high"`.
+    일반적인 설정 passive node: `normal`. stakepool: `high`
 
-- `max_connections`: 이 노드가 유지해야 하는 최대 p2p 연결수. 지정하지 않는 경우, 기본 값은 internal limit 이 적용됨.
+- `max_connections`: 이 노드가 유지해야 하는 최대 p2p 연결수. 지정하지 않는 경우, 기본 값은 internal limit 이 적용됨
 
 [multiaddr]: https://github.com/multiformats/multiaddr
 
@@ -103,9 +103,9 @@ mempool:
     garbage_collection_interval: 15m
 ```
 
-* `fragment_ttl` 은 노드가 풀에서 프래그먼트(a _transaction_)를 얼마나 보관해야 하는지를 기술합니다.;
-* `log_ttl` 은 노드가 풀에서 보류/수락/거부 된 프래그먼트 로그를 보관하는 기간을 설명합니다; 
-* `garbage_collection_interval`  노드가 시간 초과된 항목(프래그먼트 또는 로그)을 제거 할 때의 간격을 설명합니다.
+* `fragment_ttl` 은 노드가 풀에서 프래그먼트(a _transaction_)를 얼마나 보관해야 하는지를 기술합니다
+* `log_ttl` 은 노드가 풀에서 보류/수락/거부 된 프래그먼트 로그를 보관하는 기간을 설명합니다
+* `garbage_collection_interval`  노드가 시간 초과된 항목(프래그먼트 또는 로그)을 제거 할 때의 간격을 설명합니다
 
 
 The `leadership` field in your node config file is not mandatory, by default it is set
@@ -119,5 +119,5 @@ leadership:
     garbage_collection_interval: 15m
 ```
 
-* `log_ttl` 은 노드가 리더 이벤트 로그를 보관하는 기간을 기술합니다.;
+* `log_ttl` 은 노드가 리더 이벤트 로그를 보관하는 기간을 기술합니다.
 * `garbage_collection_interval` 은 2개의 가비지 수집 실행 간격(예: 노드가 시간 초과된 item log 를 제거하는 경우)
