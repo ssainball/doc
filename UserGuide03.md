@@ -63,23 +63,23 @@ p2p:
 
 - `trusted_peers`: (optional) the list of nodes' [multiaddr][multiaddr] to connect to in order to
     bootstrap the p2p topology (and bootstrap our local blockchain) with the associated `public_id`.
-- `public_address`: [multiaddr][multiaddr] the address to listen from and accept connection
-    from. This is the public address that will be distributed to other peers
-    of the network that may find interest into participating to the blockchain
-    dissemination with the node;
-- `private_id`: (optional) a cryptographic secret key of type `Ed25519`. See [`jcli key`] for more info
-  on how to generate a key. If not set, a random key will be generated.
-  The associated public key is the node's unique identifier on the network.
-- `listen_address`: (optional) [multiaddr][multiaddr] specifies the address the node
-    will listen to to receive p2p connection. Can be left empty and the node will listen
-    to whatever value was given to `public_address`.
-- `topics_of_interest`: the different topics we are interested to hear about:
-    - `messages`: notify other peers this node is interested about Transactions
-    typical setting for a non mining node: `"low"`. For a stakepool: `"high"`;
-    - `blocks`: notify other peers this node is interested about new Blocs.
-    typical settings for a non mining node: `"normal"`. For a stakepool: `"high"`.
-- `max_connections`: the maximum number of P2P connections this node should
-    maintain. If not specified, an internal limit is used by default.
+
+- `public_address`: [multiaddr][multiaddr] 는 수신하고 연결을 허락할 주소. 
+    이 노드가 다른 피어에게 블록체인 배포를 원할 경우, 네트워크의 다른 피어에게 배포될 이 노드의 주소
+
+- `private_id`: (optional) `Ed25519` 유형의 암호 비밀키. 키를 생성하는 자세한 내용은 [`jcli key`] 참조. 
+    지정하지 않으면 임의의 키가 생성됨. 연관된 공개키는 네트워크에서 노드의 고유식별자가 됨.
+
+- `listen_address`: (optional) [multiaddr][multiaddr] 는 노드가 p2p 연결 수신을 위한 주소 지정.
+    지정하지 않으면 public_address에 지정된 값으로 p2p 연결을 수신함.
+
+- `topics_of_interest`: 노드가 관심 있어 하는 다양한 항목:
+    - `messages`: 이 노드가 트랜잭션에 관심이 있는 다른 피어에게 알림.
+    일반적인 설정 passive node: `"low"`. stakepool: `"high"`;
+    - `blocks`: 이 노드가 새 블록에 관심이 있는 다른 피어에게 알림.
+    일반적인 설정 passive node: `"normal"`. stakepool: `"high"`.
+
+- `max_connections`: 이 노드가 유지해야 하는 최대 P2P 연결수. 지정하지 않는 경우, 기본 값은 internal limit 이 적용됨.
 
 [multiaddr]: https://github.com/multiformats/multiaddr
 
