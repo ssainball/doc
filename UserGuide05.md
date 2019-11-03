@@ -9,6 +9,12 @@ If you are a user of the blockchain then you will certainly not need to look
 at the last section about _how to register a stake pool_.
 
 
+``다음은 방법을 설명합니다.``
+
+*  ``컨센서스에 참여하고 이에 대한 보상을 받을 수 있도록 스테이크 풀에 스테이크를 위임하십시오.``
+
+``블록체인 사용자 인 경우 스테이크 풀을 등록하는 방법에 대한 마지막 섹션을 반드시 볼 필요는 없습니다.``
+
 
 # Delegating your stake
 
@@ -18,11 +24,18 @@ at the last section about _how to register a stake pool_.
 Stake is concentrated in accounts, and you will need your account key to
 delegate its associated stake.
 
+``스테이크는 계정에 집중되어 있으며 관련 스테이크를 위임하려면 계정 키가 필요합니다.``
+
 You will need your:
 
 * account public key: a bech32 string of a public key
 * the Stake Pool ID: an hexadecimal string identifying the stake pool you want
   to delegate your stake to.
+
+"당신만의 암호화 자료가 필요합니다" :
+
+* ``계정 공개 키 : 공개 키의 bech32 문자열``
+* ``스테이크 풀 ID : 스테이크를 위임 할 스테이크 풀을 식별하는 16 진수 문자열.``
 
 ```
 $ jcli certificate new stake-delegation STAKE_POOL_ID ACCOUNT_PUBLIC_KEY > stake_delegation.cert
@@ -33,7 +46,11 @@ $ jcli certificate new stake-delegation STAKE_POOL_ID ACCOUNT_PUBLIC_KEY > stake
 We need to make sure that the owner of the account is authorizing this
 delegation to happens, and for that we need a cryptographic signature.
 
+``계정 소유자가 이 위임을 승인하고 암호화 서명이 필요한지 확인해야합니다.``
+
 We will need the account secret key to create a signature
+
+``서명을 만들려면 계정 비밀 키가 필요합니다``
 
 ```
 $ cat stake_delegation.cert | jcli certificate sign account_key.prv | tee stake_delegation.cert
@@ -42,9 +59,13 @@ cert1q8rv4ccl54k99rtnm39...zr0
 
 The output can now be added in the `transaction` and submitted to a node.
 
+``이제 출력을 트랜잭션에 추가하고 노드에 제출할 수 있습니다.``
+
 ## submitting to a node
 
 The `jcli transaction add-certificate` command should be used to add a certificate **before finalizing** the transaction.
+
+``jcli transaction add-certificate 명령을 사용하여 트랜잭션을 완료하기 전에 인증서를 추가해야합니다.``
 
 For example:
 
@@ -62,22 +83,26 @@ jcli transaction finalize CHANGE_ADDRESS --fee-constant 5 --fee-coefficient 2 --
 
 The `--fee-certificate` flag indicates the cost of adding a certificate, used for computing the fees, it can be omitted if it is zero.
 
+``--fee-certificate 플래그는 요금을 계산하는 데 사용되는 인증서 추가 비용을 나타내며 0이면 생략 할 수 있습니다.``
+
 See [here](../jcli/transaction.md) for more documentation on transaction creation.
 
+``트랜잭션 생성에 대한 자세한 내용은 여기를 참조하십시오.``
 
 
 # registering stake pool
 
 There are multiple components to be aware of when running a stake pool:
 
-* your `NodeId`: it is the identifier within the blockchain protocol (wallet
-  will delegate to your stake pool via this `NodeId`);
-* your [**VRF**] key pairs: this is the cryptographic material we will use to participate
-  to the leader election;
-* your [**KES**] key pairs: this is the cryptographic material we will use to sign the
-  block with.
+`` 스테이크 풀을 실행할 때 알아야 할 여러 구성 요소가 있습니다. ``
+
+* your `NodeId`: 블록체인 프로토콜 내의 식별자입니다 (지갑은 이 NodeId를 통해 스테이크 풀에 위임합니다);
+* your [**VRF**] key pairs: 리더 선거에 참여하기 위해 사용할 암호화 자료입니다;
+* your [**KES**] key pairs: 블록에 서명하는 데 사용할 암호화 자료입니다.
 
 So in order to start your stake pool you will need to generate these objects.
+
+``따라서 스테이크 풀을 시작하려면 이러한 객체를 생성해야합니다.``
 
 # The primitives
 
@@ -86,11 +111,15 @@ So in order to start your stake pool you will need to generate these objects.
 To generate your [**VRF**] Key pairs, we will utilise [`jcli`] as described
 [here](../jcli/key.md):
 
+``VRF 키 페어를 생성하기 위해 다음에 설명 된대로 [jcli]를 사용합니다.``
+
 ```
 $ jcli key generate --type=Curve25519_2HashDH > stake_pool_vrf.prv
 ```
 
 `stake_pool_vrf.prv` file now contains the VRF private key.
+
+``stake_pool_vrf.prv 파일에 VRF 개인 키가 포함되었습니다.``
 
 ```
 $ cat stake_pool_vrf.prv | jcli key to-public > stake_pool_vrf.pub
@@ -106,6 +135,8 @@ $ jcli key generate --type=SumEd25519_12 > stake_pool_kes.prv
 
 `stake_pool_kes.prv` now contains your KES private key
 
+``stake_pool_kes.prv는 이제 KES 개인 키를 포함합니다``
+
 ```
 $ cat stake_pool_kes.prv | jcli key to-public > stake_pool_kes.pub
 ```
@@ -116,6 +147,9 @@ The certificate is what will be sent to the blockchain in order to register
 yourself to the other participants of the blockchain that you are a stake
 pool too.
 
+
+``인증서는 귀하가 스테이크 풀이라는 다른 블록 체인 참가자에게 자신을 등록하기 위해 블록 체인으로 전송되는 것입니다.``
+
 ```
 $ jcli certificate new stake-pool-registration \
     --kes-key $(cat stake_pool_kes.pub) \
@@ -125,12 +159,16 @@ $ jcli certificate new stake-pool-registration \
 
 Now you need to sign this certificate with the owner key:
 
+``이제 소유자 키로 이 인증서에 서명해야합니다.``
+
 ```
 $ cat stake_pool.cert | jcli certificate sign stake_key.prv | tee stake_pool.cert
 cert1qsqqqqqqqqqqqqqqqqqqq0p5avfqp9tzusr26...cegxaz
 ```
 
 And now you can retrieve your stake pool id (`NodeId`):
+
+``이제 스테이크 풀 ID (NodeId)를 검색 할 수 있습니다.``
 
 ```
 $ cat stake_pool.cert | jcli certificate get-stake-pool-id | tee stake_pool.id
@@ -146,10 +184,13 @@ ea830e5d9647af89a5e9a4d4089e6e855891a533316adf4a42b7bf1372389b74
 This section is meant for advanced users and developers of the node, or if
 you to learn more about the node.
 
+``이 섹션은 노드의 고급 사용자 및 개발자를 위해 또는 노드에 대해 더 많이 배우려는 경우에 사용됩니다.``
+
 At the moment, it only covers details on how to create your own blockchain genesis
 configuration, but in normal case, the blockchain configuration should be available
 with the specific blockchain system.
 
+``현재로서는 자체 블록체인 생성 구성을 만드는 방법에 대해서만 자세히 설명하지만 일반적인 경우 특정 블록체인 시스템에서 블록 체인 구성을 사용할 수 있어야합니다.``
 
 
 # genesis file
@@ -158,12 +199,18 @@ The genesis file is the file that allows you to create a new blockchain
 from block 0. It lays out the different parameter of your blockchain:
 the initial utxo, the start time, the slot duration time, etc...
 
+``생성 파일은 블록 0에서 새 블록 체인을 생성 할 수있는 파일입니다. 블록 체인의 다른 매개 변수를 배치합니다 : 초기 utxo, 시작 시간, 슬롯 지속 시간 등.``
+
 Example of a BFT genesis file with an initial address UTxO and an account UTxO.
 More info regarding [starting a BFT blockchain here](./02_starting_bft_blockchain.md)
 and [regarding addresses there](../jcli/address.md).
 You could also find information regarding the [jcli genesis tooling](../jcli/genesis.md).
 
+``초기 주소 UTxO 및 계정 UTxO를 가진 BFT 생성 파일의 예 여기에서 BFT 블록 체인 시작 및 주소에 관한 추가 정보. jcli 생성 툴링에 관한 정보도 찾을 수 있습니다.``
+
 You can generate a documented pre-generated genesis file:
+
+``문서화 된 사전 생성 된 생성 파일을 생성 할 수 있습니다.``
 
 ```
 jcli genesis init
@@ -171,33 +218,35 @@ jcli genesis init
 
 For example your genesis file may look like:
 
+``예를 들어, 생성 파일은 다음과 같습니다.``
+
 ```yaml
 {{#include ../../jormungandr-lib/src/interfaces/block0_configuration/DOCUMENTED_EXAMPLE.yaml}}
 ```
 
 There are multiple _parts_ in the genesis file:
 
-* `blockchain_configuration`: this is a list of configuration
-  parameters of the blockchain, some of which can be changed later
-  via the update protocol;
-* `initial`: list of steps to create initial state of ledger
+``생성 파일에는 여러 부분이 있습니다.``
+
+* `blockchain_configuration`: 이것은 블록 체인의 구성 파라미터 목록이며, 일부는 업데이트 프로토콜을 통해 나중에 변경 될 수 있습니다.;
+* `initial`: list of steps to create initial state of ledger. ``(원장 초기 상태 생성 단계의 리스트)``
 
 ## `blockchain_configuration` options
 
 | option | format | description |
 |:-------|:-------|:------------|
-| `block0_date` | number | the official start time of the blockchain, in seconds since UNIX EPOCH |
+| `block0_date` | number | EPOCH 시작 이후의 초 단위, 블록체인 공식 시작 시간 |
 | `discrimination` | string | `production` or `test` |
 | `block0_consensus` | string | `bft` |
-| `slot_duration` | number | the number of seconds between the creation of 2 blocks |
+| `slot_duration` | number | 2개의 블록 생성 사이의 시간(초) |
 | `epoch_stability_depth` | number | allowed size of a fork (in number of block) |
-| `consensus_leader_ids` | array | the list of the BFT leader at the beginning of the blockchain |
-| `max_number_of_transactions_per_block` | number | the maximum number of transactions allowed in a block |
-| `bft_slots_ratio` | number | placeholder, do not use |
-| `linear_fees` | object | linear fee settings, set the fee for transaction and certificate publishing |
-| `consensus_genesis_praos_active_slot_coeff` | number | genesis praos active slot coefficient.  Determines minimum stake required to try becoming slot leader, must be in range (0,1] |
-| `kes_update_speed` | number | the speed to update the KES Key in seconds |
-| `slots_per_epoch` | number | number of slots in each epoch |
+| `consensus_leader_ids` | array | BFT 리더 목록 (블록체인 처음 시작 할 때) |
+| `max_number_of_transactions_per_block` | number | 블록에서 허용되는 최대 트랜잭션 수 |
+| `bft_slots_ratio` | number | placeholder(자리표시자), do not use(사용금지) |
+| `linear_fees` | object | linear fee settings, 거래 및 인증서 게시 수수료 설정 |
+| `consensus_genesis_praos_active_slot_coeff` | number | 기원 praos 활성 슬롯 계수. 슬롯 리더가 되기 위해 필요한 최소 스테이크 결정, 범위 (0,1)에 있어야 함 |
+| `kes_update_speed` | number | KES 키를 업데이트 하는 속도, 초단위 |
+| `slots_per_epoch` | number | 각 에포크의 슬롯 수 |
 
 _for more information about the BFT leaders in the genesis file, see
 [Starting a BFT Blockchain](./02_starting_bft_blockchain.md)_
@@ -208,9 +257,9 @@ Each entry can be one of 3 variants:
 
 | variant | format | description |
 |:-------|:-------|:------------|
-| `fund` | sequence | initial deposits present in the blockchain (up to 255 outputs per entry) |
-| `cert` | string | initial certificate |
-| `legacy_fund` | sequence | same as `fund`, but with legacy Cardano address format |
+| `fund` | sequence | 블록 체인의 초기 예치금 (항목 당 최대 255 개의 출력) |
+| `cert` | string | initial certificate (초기증명서 |
+| `legacy_fund` | sequence | 펀드와 동일하지만 기존 Cardano 주소 형식 |
 
 Example:
 
@@ -237,10 +286,11 @@ initial:
 | variant | format | description |
 |:-------|:-------|:------------|
 | `address` | string | can be a [single address](../jcli/address.md#address-for-utxo) or an [account address](../jcli/address.md#address-for-account) |
-| `value` | number | assigned value |
+| `value` | number | assigned value (할당된 가치) |
 
 `legacy_fund` differs only in address format, which is legacy Cardano
 
+``legacy_fund 는 legacy Cardano 주소 형식만 다릅니다.
 
 
 # starting a bft node
