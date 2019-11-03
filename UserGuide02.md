@@ -412,4 +412,4 @@ jormungandr --genesis-block asdf1234... --config node.config --secret node_secre
 
 _The 'asdf1234...' part should be the actual block0 hash of the network_
 
-``'asdf1234 ...'부분은 네트워크의 실제 block0 해시 여야합니다.``
+``'asdf1234 ...' 부분은 네트워크의 실제 block0 해시 여야합니다.``
