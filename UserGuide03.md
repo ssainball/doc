@@ -119,11 +119,5 @@ leadership:
     garbage_collection_interval: 15m
 ```
 
-* `log_ttl` describes for how long the node will keep logs of leader events.
-  This is link to the data you receives from the REST leadership logs end point;
-* `garbage_collection_interval` describes the interval between 2 garbage collection
-  runs: i.e. when the node removes item logs that have timed out
-  
- ``* log_ttl은 노드가 리더 이벤트 로그를 유지하는 기간을 설명합니다. REST 리더십 로그 엔드 포인트에서 수신 한 데이터에 대한 링크입니다.``
-  
- ``* garbage_collection_interval은 두 가비지 수집 실행 간격을 설명합니다. 즉, 노드가 시간 초과 된 항목 로그를 제거 할 때``
+* `log_ttl` 은 노드가 리더 이벤트 로그를 보관하는 기간을 기술합니다.;
+* `garbage_collection_interval` 은 2개의 가비지 수집 실행 간격(예: 노드가 시간 초과된 item log 를 제거하는 경우)
