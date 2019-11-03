@@ -34,8 +34,10 @@ The following options are available in the log section:
 
 ``로그 섹션에서 다음 옵션을 사용할 수 있습니다.``
 
-- `level`: 로깅 레벨. 설정하지 않으면 기본값 "info". 선택 가능 "off", "critical", "error", "warn", "info", "debug", "trace"
+- `level`: 로깅 레벨. 기본값은 "info". 선택 가능 "off", "critical", "error", "warn", "info", "debug", "trace"
+
 - `format`: log output format - `plain` or `json`
+
 - `output`: log output - `stdout`, `stderr`, `syslog` (Unix only),
   or `journald` (Linux 만 사용가능하며, 컴파일 할때 활성화해야 사용 가능함).
 
