@@ -10,9 +10,7 @@ stake pool operators. It allows offline operations:
 ``jcli는 노드 명령 행 헬퍼입니다. 주로 개발자와 스테이크 풀 운영자를 위한 것입니다. 오프라인 작업을 허용합니다.``
 
 * ``지갑 및 스테이크 풀을 위한 암호화 자료를 생성하는 단계``
-
 * ``주소, 거래, 인증서 작성``
-
 * ``새로운 블록체인 준비``
 
 and it allows simple interactions with the node:
@@ -24,9 +22,7 @@ and it allows simple interactions with the node:
 ``노드와의 간단한 상호 작용을 허용합니다.``
 
 * ``쿼리 통계``
-
 * ``거래 및 인증서 보내기``
-
 * ``raw blocks 및 UTxO 얻기``
 
 # cryptographic keys
@@ -81,9 +77,6 @@ The options are
 
 
 
-
-<data> - path to file with data to sign, if no value is passed, standard input will be used
-
 ``<data> -서명 할 데이터가 있는 파일 경로, 값이 전달되지 않으면 표준 입력이 사용됩니다.``
 
 
@@ -102,7 +95,6 @@ The options are
 - --public-key <public_key> : bech32로 인코딩 된 공개 키가있는 파일 경로
 - --signature <signature> : 서명이있는 파일의 경로
 
-<data> - path to file with data to sign, if no value is passed, standard input will be used
 
 ``- <data> 서명 할 데이터가 있는 파일 경로, 값이 전달되지 않으면 표준 입력이 사용됩니다.``
 
@@ -318,7 +310,7 @@ jcli transaction new > tx
 
 For the input, we need to reference the uxto with the **UTXO's transaction ID** and **UTXO'S output index** fields and we need to specify how much coins are there with the **associated value** field.
 
-``입력을 위해, 우리는 **UTXO's transaction ID** 및 **UTXO'S output index** 등의 UTXO 필드 참조가 필요 하며 **associated value** 필드와 함께 얼마나 많은 코인이 있는지 지정해야 합니다.``
+``입력을 위해, 우리는`` **UTXO's transaction ID** 및 **UTXO'S output index** ``등의 UTXO 필드 참조가 필요 하며`` **associated value** ``필드와 함께 얼마나 많은 코인이 있는지 지정해야 합니다.``
 
 ### Example - UTXO address as Input
 
@@ -461,7 +453,7 @@ and for block `d9040ca57e513a36ecd3bb54207dfcd10682200929cad6ada46b521417964174`
 
 The status here could also be: 
 
-``여기서 상태는 다음과 같습니다.``
+``여기서 status는 아래에서 설명합니다.``
 
 Pending: if the transaction is received and is pending being added in the blockchain (or rejected).
 
@@ -857,14 +849,6 @@ counter: 1
 delegation: c780f14f9782770014d8bcd514b1bc664653d15f73a7158254730c6e1aa9f356
 value: 990
 ```
-
-* `value` is the current balance of the account;
-* `counter` is the number of transactions performed using this account
-  this is useful to know when signing new transactions;
-* `delegation` is the Stake Pool Identifier the account is delegating to.
-  it is possible this value is not set if there is no delegation certificate
-  sent associated to this account.
-
 
 * ```value` 는 계정의 현재 잔고입니다.;``
 * ```counter` 는 이 계정을 사용하여 수행 된 트랜잭션 수이며 새 트랜잭션에 서명 할 때 알아야합니다.;``
