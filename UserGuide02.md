@@ -280,7 +280,7 @@ The node can be configured to work as a explorer. This consumes more resources, 
 
 There is two ways of enabling the explorer api. It can either be done by passing the `--enable-explorer` flag on the start arguemnts or by the config file: 
 
-``탐색기 API를 활성화하는 방법에는 두 가지가 있습니다. 시작 인수에 --enable-explorer 플래그를 전달하거나 구성 파일을 사용하여 수행할 수 있습니다.``
+``탐색기 API를 활성화하는 방법에는 두 가지가 있습니다. 시작 인수에 '--enable-explorer' 플래그를 전달하거나 구성 파일을 사용하여 수행할 수 있습니다.``
 
 ``` yaml
 explorer:
@@ -297,7 +297,7 @@ For configuring CORS the explorer API, this needs to be done on the REST section
 
 A graphql interface can be used to query the explorer data, when enabled, two endpoints are available in the [REST interface](03_rest_api.md): `/explorer/graphql` and `/explorer/graphiql` .
 
-``graphql 인터페이스를 사용하여 탐색기 데이터를 조회 할 수 있습니다. 사용 가능한 경우 REST 인터페이스에서 /explorer/graphql 및 /explorer /graphiql 의 두 엔드 포인트를 사용할 수 있습니다.``
+``graphql 인터페이스를 사용하여 탐색기 데이터를 조회 할 수 있습니다. 사용 가능한 경우 REST 인터페이스에서 '/explorer/graphql' 및 '/explorer /graphiql' 의 두 엔드 포인트를 사용할 수 있습니다.``
 
 The first is the one that queries are made against, for example: 
 
@@ -381,13 +381,13 @@ jormungandr --genesis-block-hash asdf1234... --config config.yaml --secret node_
 
 _The 'asdf1234...' part should be the actual block0 hash of the network_
 
-``'asdf1234 ...'부분은 네트워크의 실제 block0 해시 여야합니다.``
+``'asdf1234 ...' 부분은 네트워크의 실제 block0 해시 여야합니다.``
 
 ### Connecting to a BFT blockchain
 
 In order to generate blocks, the node should be registered as a slot leader in the network and started in the following way.
 
-``블록을 생성하려면 노드를 네트워크에서 슬롯 리더로 등록하고 다음과 같이 시작해야합니다.``
+``블록을 생성하려면 노드를 네트워크에서 슬롯 리더로 등록하고 다음과 같이 시작해야 합니다.``
 
 ## The secret file
 
@@ -412,4 +412,4 @@ jormungandr --genesis-block asdf1234... --config node.config --secret node_secre
 
 _The 'asdf1234...' part should be the actual block0 hash of the network_
 
-``'asdf1234 ...' 부분은 네트워크의 실제 block0 해시 여야합니다.``
+``'asdf1234 ...' 부분은 네트워크의 실제 block0 해시 여야 합니다.``
