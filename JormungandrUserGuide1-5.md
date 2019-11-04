@@ -61,7 +61,7 @@ certificates.
 Blocks represent the spine of the blockchain, safely and securely linking
 blocks in a chain, whilst grouping valid fragments together.
 
-``블록은 블록체인(blockchain)의 척추를 나타내며, 유효한 조각들을 함께 그룹화하면서 블록을 안전하고 보안적으로 연결합니다.``
+``블록은 블록체인의 척추를 나타내며, 유효한 조각들을 함께 그룹화하면서 블록을 안전하고 보안적으로 연결합니다.``
 
 Blocks are composed of 2 parts:
 
