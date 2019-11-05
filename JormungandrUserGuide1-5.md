@@ -365,7 +365,7 @@ it's recommended for this interface to not be opened to the public.
 
 TODO: Add a high level overview of what it does
 
-``TODO : 기능에 대한 개괄적인 개요 추가``
+``앞으로 할 일 : 기능에 대한 개괄적인 개요 추가``
 
 ### Control API REST
 
@@ -379,7 +379,7 @@ to be able to do maintenance tasks on the process:
 
 TODO: Detail the ACL/Security measure
 
-``TODO : ACL/보안조치 세부 사항``
+``앞으로 할 일 : ACL/보안조치 세부 사항``
 
 Jörmungandr network capabilities are split into:
 
@@ -400,7 +400,7 @@ chapter already: [go to REST documentation](../quickstart/03_rest_api.md)
 The protocol is based on commonly used in the industry tools: HTTP/2 and RPC.
 More precisely, Jörmungandr utilises [`gRPC`](https://www.grpc.io).
 
-``이 프로토콜은 산업 도구에서 일반적으로 사용되는 HTTP/2 및 RPC를 기반으로합니다. 좀 더 정확하게 말씀드리면 Jörmungandr는 gRPC를 활용 합니다.``
+``이 프로토콜은 산업 도구에서 일반적으로 사용되는 HTTP/2 및 RPC를 기반으로 합니다. 좀 더 정확하게 말씀드리면 Jörmungandr는 gRPC를 활용 합니다.``
 
 This choice has been made for it is already widely supported across the world,
 it is utilising HTTP/2 which makes it easier for Proxy and Firewall to recognise
@@ -411,6 +411,11 @@ the protocol and allow it.
 ## Type of queries
 
 The protocol allows to send multiple types of messages between nodes:
+
+* sync block to remote peer's _Last Block_ (`tip`).
+* propose new fragments (new transactions, certificates, ...):
+  this is for the fragment propagation.
+* propose new blocks: for the block propagation.
 
 ``이 프로토콜을 사용하면 노드간에 여러 유형의 메시지를 보낼 수 있습니다.``
 
@@ -435,7 +440,7 @@ Peer discovery is done via [`Poldercast`](https://hal.inria.fr/hal-01555561/docu
 construction. The idea is to allow the node to participate actively into
 building the decentralized topology of the p2p network.
 
-``피어 검색은 Poldercast의 P2P 토폴로지 구성을 통해 수행됩니다. 아이디어는 노드가 p2p 네트워크의 분산 토폴로지를 구축하는 데 적극적으로 참여할 수 있도록 하는 것입니다.``
+``피어 검색은 Poldercast의 P2P 토폴로지(체계적 분류) 구성을 통해 수행됩니다. 아이디어는 노드가 p2p 네트워크의 분산 토폴로지(체계적 분류)를 구축하는 데 적극적으로 참여할 수 있도록 하는 것입니다.``
 
 This is done through gossiping. This is the process of sharing with others
 topology information: who is on the network, how to reach them and what are
@@ -460,6 +465,6 @@ strategies to select nodes to gossip to and to select the gossiping data:
 
 1. Cyclon: ``이 모듈은 gossiping 전략에 약간의 무작위성을 추가합니다. 또한 노드가 남겨지는 것을 방지하여 가장 적게 사용 된 노드와의 접촉을 선호합니다.``
 
-2. Vicinity: ``이 모듈은 토폴로지 노드 사이에 관심 유도 링크를 작성하는 데 도움이 됩니다. 공통의 관심사를 가진 노드가 종종 연락해야합니다.``
+2. Vicinity: ``이 모듈은 토폴로지(체계적 분류) 노드 사이에 관심 유도 링크를 작성하는 데 도움이 됩니다. 공통의 관심사를 가진 노드가 종종 연락해야합니다.``
 
 3. Rings: ``이 모듈은 지향적인 노드 목록을 만듭니다. 네트워크의 노드를 연결하는 임의의 방법입니다. 각 주제에 대해 노드는 닫기 노드 세트를 선택합니다.``
