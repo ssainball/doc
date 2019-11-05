@@ -44,7 +44,7 @@ a block could be present.
 Consecutive slots are grouped into epochs, which have updatable size defined
 by the protocol.
 
-``연속 슬롯은 프로토콜에 의해 정의되는 업데이트 가능한 크기를 갖는 에포크로 그룹화 됩니다.``
+``연속 슬롯은 프로토콜에 정의에 의해 업데이트 가능한 크기를 갖는 에포크로 그룹화 됩니다.``
 
 
 ## Fragments
@@ -61,7 +61,7 @@ certificates.
 Blocks represent the spine of the blockchain, safely and securely linking
 blocks in a chain, whilst grouping valid fragments together.
 
-``블록은 블록체인의 척추를 나타내며, 유효한 프래그먼트를 함께 그룹화하면서 블록을 안전하고 보안적으로 연결합니다.``
+``블록은 블록체인의 척추이며, 유효한 프래그먼트를 함께 그룹화하면서 블록을 안전하고 보안적으로 연결합니다.``
 
 Blocks are composed of 2 parts:
 
@@ -116,13 +116,13 @@ their stake to be elected to create a block. Each lottery draw is private to
 each stake pool, so that the overall network doesn't know in advance who can
 or cannot create blocks.
 
-``Ouroboros Genesis Praos 는 블록 메이커가 스테이크에 비례하여 블록 생성자로 뽑힐 수 있는 프로토콜(복권) 입니다. 각 복권 추첨은 각 이해관계자(스테이크 풀) 풀에 대해 비공개로 진행되므로, 전체 네트워크가 누가 블록을 만들 수 있는지, 만들지 못하는지 여부를 미리 알 수 없습니다.``
+``Ouroboros Genesis Praos 는 블록 메이커가 스테이크에 비례하여 블록 생성자로 뽑힐 수 있는 복권 프로토콜 입니다. 각 복권 추첨은 각 이해관계자(스테이크 풀) 풀에 대해 비공개로 진행되므로, 전체 네트워크가 누가 블록을 만들 수 있는지, 만들지 못하는지 여부를 미리 알 수 없습니다.``
 
 In Genesis-Praos slot time duration is constant, however the frequency of 
 creating blocks is not stable, since the creation of blocks is a probability 
 that is linked to the stake and consensus_genesis_praos_active_slot_coeff.
 
-``Genesis-Praos에서 슬롯 지속 시간은 일정하지만 블록 생성 빈도는 안정적이지 않습니다. 블록의 생성은 스테이크 및 consensus_genesis_praos_active_slot_coeff 와 연결된 확률이기 때문입니다.``
+``Genesis-Praos에서 슬롯 지속 시간은 일정하지만 블록 생성 빈도는 일정하지 않습니다. 블록의 생성은 스테이크 및 consensus_genesis_praos_active_slot_coeff 와 연결된 확률이기 때문입니다.``
 
 **Note**: In Genesis-Praos, if there is no stake in the system, no blocks will be 
 created anymore starting with the next epoch.
@@ -155,7 +155,7 @@ key, whereas in Genesis-Praos mode, the leader is a stake pool.
 Transaction forms the cornerstone of the blockchain, and is one type of fragment
 and also the most frequent one.
 
-``거래는 블록체인의 초석을 이루며, 한 가지 유형의 조각이자 가장 빈번한 것입니다.``
+``거래는 블록체인의 초석을 이루며, 한 가지 유형의 프래그먼트이자 가장 빈번한 것입니다.``
 
 Transaction is composed of inputs and outputs; On one side, the inputs represent
 coins being spent, and on the other side the outputs represent coins being received.
@@ -176,7 +176,7 @@ coins being spent, and on the other side the outputs represent coins being recei
 
 Transaction have fees that are defined by the blockchain settings and the following invariant hold:
 
-``거래에는 블록체인 설정 및 다음과 같은 불변성 수수료가 정의되어 있습니다.``
+``거래에는 블록체인 설정 및 다음과 같이 일정한 수수료가 정의되어 있습니다.``
 
 \\[ \sum Inputs = \sum Outputs + fees \\]
 
@@ -219,7 +219,7 @@ In a proof of stake, participants are issued a stake equivalent to the amount
 of coins they own. The stake is then used to allow participation in the protocol,
 simply explained as:
 
-``스테이크 증거로 참가자는 자신이 소유 한 코인의 양에 해당하는 스테이크를 발행합니다. 그런 다음 스테이크는 프로토콜에 참여하는 데 사용되며 다음과 같이 간단히 설명됩니다.``
+``스테이크 증거로 참가자는 자신이 소유한 코인의 양에 해당하는 스테이크를 발행합니다. 그런 다음 스테이크는 프로토콜에 참여하는 데 사용되며 다음과 같이 간단히 설명됩니다.``
 
 > The more stake one has, the more likely one will participate in the good health of the network.
 
@@ -281,7 +281,7 @@ Stake pool are the trusted block creators in the genesis-praos system. A pool
 is declared on the network explicitely by its owners and contains, metadata
 and cryptographic material.
 
-``스테이크 풀은 genesis-praos 시스템에서 신뢰할 수 있는 블록 제작자입니다. 풀은 그것의 소유자에 의해 명시 적으로 네트워크에 선언하고, 메타 데이터와 암호화된 자료를 포함합니다.``
+``스테이크 풀은 genesis-praos 시스템에서 신뢰할 수 있는 블록 제작자입니다. 풀은 그것의 소유자에 의해 명시적으로 네트워크에 선언하고, 메타 데이터와 암호화된 자료를 포함합니다.``
 
 Stake pool has no stake power on their own, but participants in the network
 delegate their stake to a pool for running the operation.
@@ -319,7 +319,7 @@ The secure enclave is the component containing the secret cryptographic
 material, and offering safe and secret high level interfaces to the rest of
 the node.
 
-`` secure encloave 는 비밀 암호화 자료를 포함하고 나머지 노드에 안전하고 비밀이 높은 수준의 인터페이스를 제공하는 구성 요소입니다.``
+`` secure enclave 는 비밀 암호화 자료를 포함하고 나머지 노드에 안전하고 비밀이 높은 수준의 인터페이스를 제공하는 구성 요소입니다.``
 
 ## Network
 
@@ -427,7 +427,7 @@ Another type of messages is the `Gossip` message. It allows Nodes to exchange
 information (gossips) about other nodes on the network, allowing the peer
 discovery.
 
-``또 다른 유형의 메시지는 Gossip메시지입니다. 이를 통해 노드는 네트워크의 다른 노드에 대한 정보(가십)를 교환하여 피어 발견을 허용합니다.``
+``또 다른 유형의 메시지는 Gossip 메시지입니다. 이를 통해 노드는 네트워크의 다른 노드에 대한 정보(가십)를 교환하여 피어 발견을 허용합니다.``
 
 ## Peer discovery
 
@@ -435,13 +435,13 @@ Peer discovery is done via [`Poldercast`](https://hal.inria.fr/hal-01555561/docu
 construction. The idea is to allow the node to participate actively into
 building the decentralized topology of the p2p network.
 
-``피어 검색은 Poldercast의 피어 투 피어 (P2P) 토폴로지 구성을 통해 수행됩니다. 아이디어는 노드가 p2p 네트워크의 분산 토폴로지를 구축하는 데 적극적으로 참여할 수 있도록 하는 것입니다.``
+``피어 검색은 Poldercast의 P2P 토폴로지 구성을 통해 수행됩니다. 아이디어는 노드가 p2p 네트워크의 분산 토폴로지를 구축하는 데 적극적으로 참여할 수 있도록 하는 것입니다.``
 
 This is done through gossiping. This is the process of sharing with others
 topology information: who is on the network, how to reach them and what are
 they interested about.
 
-``이것은 가십을 통해 이루어집니다. 이것은 다른 토폴로지 정보를 공유하는 프로세스입니다. 네트워크에있는 사람, 연락하는 방법 및 관심있는 대상.``
+``이것은 가십을 통해 이루어집니다. 이것은 다른 토폴로지 정보를(네트워크에있는 사람, 연락하는 방법 및 관심있는 대상) 공유하는 프로세스입니다.``
 
 In the poldercast paper there are 3 different modules implementing 3 different
 strategies to select nodes to gossip to and to select the gossiping data:
@@ -456,10 +456,10 @@ strategies to select nodes to gossip to and to select the gossiping data:
    link the nodes in the network. For each topics, the node will select a set of
    close nodes.
 
-`` poldercast 논문에는 가십 노드를 선택하고 gossiping 데이터를 선택하는 3 가지 전략을 구현하는 3 가지 모듈이 있습니다.``
+`` poldercast 논문에는 가십 노드를 선택하고 gossiping 데이터를 선택하는 3가지 전략을 구현하는 3가지 모듈이 있습니다.``
 
 1. Cyclon: ``이 모듈은 gossiping 전략에 약간의 무작위성을 추가합니다. 또한 노드가 남겨지는 것을 방지하여 가장 적게 사용 된 노드와의 접촉을 선호합니다.``
 
-2. Vicinity: ``이 모듈은 토폴로지 노드 사이에 관심 유도 링크를 작성하는 데 도움이됩니다. 공통의 관심사를 가진 노드가 종종 연락해야합니다.``
+2. Vicinity: ``이 모듈은 토폴로지 노드 사이에 관심 유도 링크를 작성하는 데 도움이 됩니다. 공통의 관심사를 가진 노드가 종종 연락해야합니다.``
 
-3. Rings: ``이 모듈은 지향적 인 노드 목록을 만듭니다. 네트워크의 노드를 연결하는 임의의 방법입니다. 각 주제에 대해 노드는 닫기 노드 세트를 선택합니다.``
+3. Rings: ``이 모듈은 지향적인 노드 목록을 만듭니다. 네트워크의 노드를 연결하는 임의의 방법입니다. 각 주제에 대해 노드는 닫기 노드 세트를 선택합니다.``
