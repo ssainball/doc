@@ -108,7 +108,7 @@ Ouroboros BFT is a simple Byzantine Fault Tolerant (BFT) protocol where the
 block makers is a known list of leaders that successively create a block and
 broadcast it on the network.
 
-``Ouroboros BFT는 간단한 비잔틴 결함 허용(BFT) 프로토콜로, 블록 메이커는 블록을 연속적으로 만들어 네트워크에 브로드캐스트 하는 leaders 목록입니다. ``
+``Ouroboros BFT는 블록 메이커가 블록을 생성하고 네트워크에 브로드캐스트 하는 leader 목록 프로토콜 입니다. ``
 
 Ouroboros Genesis Praos is a proof of stake (PoS) protocol where the block
 maker is made of a lottery where each stake pool has a chance proportional to
@@ -116,7 +116,7 @@ their stake to be elected to create a block. Each lottery draw is private to
 each stake pool, so that the overall network doesn't know in advance who can
 or cannot create blocks.
 
-``Ouroboros Genesis Praos는 블록 가 복권(각 스테이크 풀이 자신의 스테이크에 비례하여 블록을 만들 수 있는)으로 만들어지는 PoS 프로토콜입니다. 각 복권 추첨은 각 이해관계자(스테이크 풀) 풀에 대해 비공개로 진행되므로, 전체 네트워크가 누가 블록을 만들 수 있는지, 만들지 못하는지 여부를 미리 알 수 없습니다.``
+``Ouroboros Genesis Praos 는 블록 메이커가 스테이크에 비례하여 블록 생성자로 뽑힐 수 있는 프로토콜(복권) 입니다. 각 복권 추첨은 각 이해관계자(스테이크 풀) 풀에 대해 비공개로 진행되므로, 전체 네트워크가 누가 블록을 만들 수 있는지, 만들지 못하는지 여부를 미리 알 수 없습니다.``
 
 In Genesis-Praos slot time duration is constant, however the frequency of 
 creating blocks is not stable, since the creation of blocks is a probability 
