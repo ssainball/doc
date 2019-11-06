@@ -554,44 +554,10 @@ jcli genesis hash --input block-0.bin
 ```
 
 
-# Genesis
 
-Tooling for working with a genesis file
 
-``생성 파일 작업을 위한 명령어``
 
-# Usage
-```sh
-jcli genesis [subcommand]
-```
 
-## Subcommands
-
-- decode: ``인코딩된 제네시스 블록에 해당하는 YAML 파일 인쇄 하기``
-- encode: ``주어진 yaml 파일에서 블록체인의 제네시스 블록 생성 하기.``
-- hash: ``제네시스 블록 해시 인쇄 하기`` 
-- init: ``YAML 파일 작성에 도움이 되는 적절한 문서를 사용하여 기본 Genesis 파일 생성 하기.``
-- help
-
-## Examples
-
-### Encode a genesis file
-
-```sh
-jcli genesis encode --input genesis.yaml --output block-0.bin
-```
-
-or equivantely
-
-```sh
-cat genesis.yaml | jcli genesis encode > block-0.bin
-```
-
-### Get the hash of an encoded genesis file
-
-```sh
-jcli genesis hash --input block-0.bin
-```
 
 
 # REST
