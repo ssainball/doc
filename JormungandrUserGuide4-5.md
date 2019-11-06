@@ -152,9 +152,9 @@ There's 3 types of addresses:
 
 * ``Single address : 간단한 지출 키. 이 시스템에 아무런 지분이 없습니다``
 
-* ``Grouped address : 계정 키에 연결된 지출 키. 스테이크는 자동으로``
+* ``Grouped address : account 키에 연결된 지출 키. 스테이크는 자동으로``
 
-* ``Account address : 계정 키. 계정 자체가 지분입니다``
+* ``Account address : account 키. account 자체가 지분입니다``
 
 
 ### Address for UTxO
@@ -173,7 +173,7 @@ ca1qw207ae4qfj8q4yw6v3ned6psa2r3tgrw9u3y9hdjcgj2p4pcaldyukyka8
 To add the staking information and make a group address, simply add the account
 public key as a second parameter of the command:
 
-``스테이 킹 정보를 추가하고 그룹 주소를 만들려면 계정 공개 키를 명령의 두 번째 매개 변수로 추가하십시오.``
+``스테이킹 정보를 추가하고 그룹 주소를 만들려면 account 공개 키를 명령의 두 번째 매개 변수로 추가하십시오.``
 
 ```
 $ jcli address \
@@ -187,7 +187,7 @@ ca1q3yen35r2tmdye3zc5lfw3x992s7p4dcu4jkwxcda80tv8xh5ym74mqlzudkg42443nw08cxr7e9h
 
 To create an account address you need the account public key and run:
 
-``계정 주소를 만들려면 계정 공개 키가 필요합니다.``
+``account 주소를 만들려면 account 공개 키가 필요합니다.``
 
 ```
 $ jcli address \
@@ -281,7 +281,9 @@ content information of a transaction:
 The following example focuses on using an utxo as input, the few differences when transfering from an account will be pointed out when necessary.
 There is also a script [here](https://github.com/input-output-hk/jormungandr/blob/master/scripts/send-transaction) to send a transaction from a faucet account to a specific address which could be used as a reference.
 
-``다음 예는 utxo를 입력으로 사용하는 데 중점을 두며 필요한 경우 계정에서 전송할 때의 몇 가지 차이점을 설명합니다. facuet 계정에서 트랜잭션을 참조용 주소로 전송하는 스크립트도 있습니다.``
+``다음 예는 utxo를 입력으로 사용하는 데 중점을 두며 account에서 전송하는 경우와 몇 가지 차이점을 설명합니다.``
+
+``facuet 에서 특정 주소로 트랜잭션을 보내는 스크립트도 있습니다. 참조로 사용됩니다.``
 
 Let's use the following utxo as input and transfer 50 lovelaces to the destination address
 
