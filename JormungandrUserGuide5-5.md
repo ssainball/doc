@@ -148,7 +148,7 @@ yourself to the other participants of the blockchain that you are a stake
 pool too.
 
 
-``인증서는 귀하가 스테이크 풀에게 귀하를 등록하기 위해 블록체인으로 전송하는 것입니다.``
+``인증서는 귀하가 다른 블록 체인 참가자에게 자신을 스테이크 풀로 등록하기 위해 블록체인으로 전송하는 것입니다.``
 
 ```
 $ jcli certificate new stake-pool-registration \
