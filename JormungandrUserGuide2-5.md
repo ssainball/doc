@@ -127,7 +127,7 @@ allows the Node to verify the integrity of the downloaded **genesis block**.
 The **trusted peers** are the nodes in the public network that your Node will
 trust in order to initialise the Peer To Peer network.
 
-`` trusted peers 는 당신의 노드를 초기화하기 위해 퍼블릭 네트워크에서 믿을 수 있는 노드입니다.``
+`` 트러스트 피어는 당신의 노드를 초기화하기 위해 퍼블릭 네트워크에서 믿을 수 있는 노드입니다.``
 
 # The node configuration
 
@@ -402,7 +402,7 @@ The node configuration could be the same as that for [running a passive node](./
 
 There are some differences depending if you are connecting to a network running a genesis or bft consensus protocol.
 
-``당신이 독창적 합의 프로토콜 또는 bft 합의 프로토콜을 실행하는 네트워크에 접속하는지에 따라 약간의 차이가 있습니다.``
+``당신이 접속하는 네트워크(제네시스 또는 bft 합의 프로토콜)에 따라 약간의 차이가 있습니다.``
 
 ### Connecting to a genesis blockchain
 
