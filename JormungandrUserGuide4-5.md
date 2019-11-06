@@ -328,7 +328,7 @@ jcli transaction add-input  55762218e5737603e6d27d36c8aacf8fcd16406e820361a8ac65
 
 If the input is an account, the command is slightly different
 
-``입력이 account인 경우 명령이 약간 다릅니다``
+``입력이 account 인 경우 명령이 약간 다릅니다``
 
 ```sh
 jcli transaction add-account account_address account_funds --staging tx
