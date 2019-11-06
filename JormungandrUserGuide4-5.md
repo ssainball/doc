@@ -240,16 +240,18 @@ There is a couple of commands that can be used to:
     - `add-witness`
 4. `seal` the transaction, ready to send to the blockchain
 
+
+
 ``다음과 같은 명령을 사용할 수 있습니다.``
 
 1. ``거래 준비 `` :
-    - `new` ``비어있는 새 트랜잭션을 새로 작성하십시오;``
+    - `new` : ``비어있는 새 트랜잭션을 새로 작성하십시오;``
     - `add-input`
     - `add-account`
     - `add-output`
 
 
-2. `서명을 위한 트랜잭션 마무리합니다:`
+2. `finalize` : `서명을 위한 트랜잭션 마무리합니다:`
 
 
 3. ``증인을 만들고 증인을 추가하십시오:``
