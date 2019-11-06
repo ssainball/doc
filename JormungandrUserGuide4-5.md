@@ -324,7 +324,7 @@ jcli transaction add-input  55762218e5737603e6d27d36c8aacf8fcd16406e820361a8ac65
 
 If the input is an account, the command is slightly different
 
-``입력이 계정인 경우 명령이 약간 다릅니다``
+``입력이 account인 경우 명령이 약간 다릅니다``
 
 ```sh
 jcli transaction add-account account_address account_funds --staging tx
@@ -396,7 +396,7 @@ jcli transaction make-witness --genesis-block-hash abcdef987654321... --type utx
 
 When using an account as input, the command takes `account` as the type and an additional parameter: `--account-spending-counter`, that should be increased every time the account is used as input.
 
-``계정을 입력으로 사용하는 경우 이 명령은 계정을 입력으로 사용할 때마다 증가해야 하는 --account-spending-counter 유형 및 추가 매개 변수로 계정을 고려합니다.``
+``account를 입력으로 사용하는 경우 이 명령은 입력으로 사용할 때마다 증가해야 하는 --account-spending-counter 유형 및 추가 매개 변수를 고려합니다.``
 
 e.g.
 
@@ -827,7 +827,7 @@ The options are
 
 Get account state
 
-``계정 상태 얻기``
+``account 상태 얻기``
 
 ```
 jcli rest v0 account get <account-id> <options>
@@ -835,7 +835,7 @@ jcli rest v0 account get <account-id> <options>
 
 <account-id> - ID of an account, bech32-encoded
 
-``<account-id> : bech32로 인코딩 된 계정의 ID``
+``<account-id> : bech32로 인코딩 된 account의 ID``
 
 The options are
 - -h <node_addr> : 참조링크 [conventions](#conventions)
@@ -852,9 +852,9 @@ delegation: c780f14f9782770014d8bcd514b1bc664653d15f73a7158254730c6e1aa9f356
 value: 990
 ```
 
-* `value` 는 계정의 현재 잔고입니다.;
-* `counter` 는 이 계정을 사용하여 수행 된 트랜잭션 수이며 새 트랜잭션에 서명 할 때 알아야합니다.;
-* `delegation` 은 계정이 위임 된 스테이크 풀 식별자입니다. 이 계정과 관련된 위임 인증서가 전송되지 않은 경우 이 값이 설정되지 않을 수 있습니다.
+* `value` 는 account의 현재 잔고입니다.;
+* `counter` 는 이 account를 사용하여 수행 된 트랜잭션 수이며 새 트랜잭션에 서명 할 때 알아야합니다.;
+* `delegation` 은 account가 위임 된 스테이크 풀 식별자입니다. 이 account와 관련된 위임 인증서가 전송되지 않은 경우 이 값이 설정되지 않을 수 있습니다.
 
 
 ## Node settings
