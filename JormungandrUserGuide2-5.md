@@ -103,10 +103,15 @@ You can also put it in your `${HOME}/.bashrc`.
 In order to start the node, you first need to gather the blockchain
 information you need to connect to.
 
+1. the hash of the **genesis block** of the blockchain, this will be the source
+   of truth of the blockchain. It is 64 hexadecimal characters.
+2. the **trusted peers** identifiers and access points.
+
+
 ``노드를 시작하려면 먼저 연결해야하는 블록체인 정보를 수집해야 합니다.``
 
-1. the hash of the **genesis block** , 이것은 블록체인 신뢰의 근원입니다. 64개의 16진수 입니다.
-2. the **trusted peers** 식별자 및 and access points.
+1. ``제네시스 블록 해시, 이것은 블록체인 신뢰의 근원입니다. 64개의 16진수 입니다.``
+2. ``트러스트 피어 식별자 그리고 접근 포인트.``
 
 These information are essentials to start your node in a secure way.
 
@@ -117,7 +122,7 @@ static parameters of the blockchain as well as the initial funds. Your node
 will utilise the **Hash** to retrieve it from the other peers. It will also
 allows the Node to verify the integrity of the downloaded **genesis block**.
 
-``기원 블록은 블록체인의 첫 번째 블록입니다. 초기 자금규모뿐만 아니라 블록체인의 정적 매개 변수가 포함되어 있습니다. 노드는 해시를 사용하여 다른 피어에서 검색합니다. 또한 노드가 다운로드된 기원 블록의 무결성을 확인할 수 있습니다.``
+``제네시스 블록은 블록체인의 첫 번째 블록입니다. 초기 자금규모뿐만 아니라 블록체인의 정적 매개 변수가 포함되어 있습니다. 노드는 해시를 사용하여 다른 피어에서 검색합니다. 또한 노드가 다운로드된 제네시스 블록의 무결성을 확인할 수 있습니다.``
 
 The **trusted peers** are the nodes in the public network that your Node will
 trust in order to initialise the Peer To Peer network.
@@ -136,7 +141,7 @@ This config shouldn't work as it is, the ip address and port for the trusted pee
 Also, the public_address ('u.x.v.t') should be a valid address (you can use an internal one, eg: 127.0.0.1).
 Furthermore, you need to have permission to write in the path specified by the storage config.
 
-``이 구성은 그대로 작동하지 않아야합니다. 트러스트된 피어의 IP 주소 및 포트는 이미 실행중인 노드의 IP 주소 및 포트 여야합니다. 또한 public_address('u.x.v.t')는 유효한 주소 여야합니다(예 : 127.0.0.1). 또한 스토리지 구성에 지정된 경로에 쓸 수 있는 권한이 있어야 합니다.``
+``이 구성을 그대로 복사해서 사용하면 작동하지 않습니다. 트러스트된 피어의 IP 주소 및 포트는 이미 실행중인 노드의 IP 주소 및 포트 여야합니다. 또한 public_address('u.x.v.t')는 유효한 주소 여야합니다(예 : 127.0.0.1). 또한 스토리지 구성에 지정된 경로에 쓸 수 있는 권한이 있어야 합니다.``
 
 ```yaml
 storage: "/mnt/cardano/storage"
@@ -152,12 +157,13 @@ p2p:
 
 Description of the fields:
 
-- `storage`: (선택사항) 저장소 경로입니다. 생략하면 블록체인은 메모리에만 저장됩니다.
+- `storage`: (optional) Path to the storage. If omitted, the
+  blockchain is stored in memory only.
 - `log`: (optional) Logging configuration:
-    - `level`: log messages minimum severity. 설정하지 않으면 기본 값은 "info" 입니다.
+    - `level`: log messages minimum severity. If not configured anywhere, defaults to "info".
         Possible values: "off", "critical", "error", "warn", "info", "debug", "trace".
     - `format`: Log output format, `plain` or `json`.
-    - `output`: 로그 출력 대상. 가능한 값은 다음과 같습니다.:
+    - `output`: Log output destination. Possible values are:
       - `stdout`: standard output
       - `stderr`: standard error
       - `syslog`: syslog (only available on Unix systems)
@@ -172,20 +178,66 @@ Description of the fields:
     - `listen`: _address_:_port_ to listen for requests
     - `pkcs12`: (optional) Certificate file
     - `cors`: (optional) CORS configuration, if not provided, CORS is disabled
-      - `allowed_origins`: (선택 사항) 허용 된 원점 (제공된 경우)
-      - `max_age_secs`: (선택 사항) 최대 CORS 캐싱 시간 (초) (제공된 것이 없으면 캐싱이 비활성화 됨)
+      - `allowed_origins`: (optional) allowed origins, if none provided, echos request origin
+      - `max_age_secs`: (optional) maximum CORS caching time in seconds, if none provided, caching is disabled
 - `p2p`: P2P network settings
-    - `trusted_peers`: (선택 사항) P2P 토폴로지와 로컬 블록체인을 부트스트랩하기 위해 연결할 multiaddr(노드 public_id) 목록입니다.;
+    - `trusted_peers`: (optional) the list of nodes's [multiaddr][multiaddr] with their associated `public_id`
+      to connect to in order to bootstrap the P2P topology (and bootstrap our local blockchain);
+    - `private_id`: the node's private key ([`Ed25519`]) that will be used to identify this node to the network
+    - `public_address`: [multiaddr][multiaddr] string specifying address of the
+      P2P service. This is the public address that will be distributed to other
+      peers of the network that may find interest in participating to the
+      blockchain dissemination with the node.
+    - `listen_address`: (optional) [multiaddr][multiaddr] specifies the address the node
+      will listen to to receive p2p connection. Can be left empty and the node will listen
+      to whatever value was given to `public_address`.
+    - `topics_of_interest`: The dissemination topics this node is interested to hear about:
+      - `messages`: Transactions and other ledger entries.
+        Typical setting for a non-mining node: `low`. For a stakepool: `high`;
+      - `blocks`: Notifications about new blocks.
+        Typical setting for a non-mining node: `normal`. For a stakepool: `high`.
+    - `max_connections`: The maximum number of simultaneous P2P connections
+      this node should maintain.
+- `explorer`: (optional) Explorer settings
+    - `enabled`: True or false
+
+[multiaddr]: https://github.com/multiformats/multiaddr
+
+
+- `storage`: (옵션) 저장소 경로입니다. 생략하면 블록체인은 메모리에만 저장됩니다.
+- `log`: (옵션) 로깅 구성:
+    - `level`: log messages minimum severity. 설정하지 않으면 기본 값은 "info" 입니다.
+        Possible values: "off", "critical", "error", "warn", "info", "debug", "trace".
+    - `format`: Log output format, `plain` or `json`.
+    - `output`: 로그 출력 대상. 가능한 값은 다음과 같습니다.:
+      - `stdout`: standard output
+      - `stderr`: standard error
+      - `syslog`: syslog (only available on Unix systems)
+      - `journald`: journald service (only available on Linux with systemd,
+        (if jormungandr is built with the `systemd` feature)
+      - `gelf`: Configuration fields for GELF (Graylog) network logging protocol
+        (if jormungandr is built with the `gelf` feature):
+        - `backend`: _hostname_:_port_ of a GELF server
+        - `log_id`: identifier of the source of the log, for the `host` field
+                    in the messages.
+- `rest`: (옵션) Configuration of the REST endpoint.
+    - `listen`: _address_:_port_ to listen for requests
+    - `pkcs12`: (옵션) Certificate file
+    - `cors`: (옵션) CORS configuration, if not provided, CORS is disabled
+      - `allowed_origins`: (옵션) 허용 된 원점 (제공된 경우)
+      - `max_age_secs`: (옵션) 최대 CORS 캐싱 시간 (초) (제공된 것이 없으면 캐싱이 비활성화 됨)
+- `p2p`: P2P network settings
+    - `trusted_peers`: (옵션) P2P 토폴로지와 로컬 블록체인을 부트스트랩하기 위해 연결할 multiaddr(노드 public_id) 목록입니다.;
     - `private_id`: 네트워크에서 이 노드를 식별하는 데 사용될 노드의 개인 키 (Ed25519)
     - `public_address`: P2P 서비스의 주소 지정. 이것은 노드의 블록체인 보급에 관심이 있는 네트워크의 다른 피어에게 배포 될 공개 주소입니다.
-    - `listen_address`: (선택 사항) multiaddr은 p2p 연결을 수신하기 위해 노드가 수신 할 주소를 지정합니다. 비워 둘 수 있으며 노드는 public_address에 지정된 값을 수신합니다.
+    - `listen_address`: (옵션) multiaddr은 p2p 연결을 수신하기 위해 노드가 수신 할 주소를 지정합니다. 비워 둘 수 있으며 노드는 public_address에 지정된 값을 수신합니다.
     - `topics_of_interest`: The dissemination topics this node is interested to hear about:
       - `messages`: 거래 및 기타 원장 항목.
         non-mining node: `low`.  stakepool: `high`; 
       - `blocks`: 새로운 블록에 대한 알림.
         non-mining node: `normal`. stakepool: `high`.
     - `max_connections`: 이 노드가 유지해야하는 최대 동시 P2P 연결 수입니다.
-- `explorer`: (optional) Explorer settings
+- `explorer`: (옵션) Explorer settings
     - `enabled`: True or false
 
 [multiaddr]: https://github.com/multiformats/multiaddr
@@ -198,7 +250,7 @@ jormungandr --config config.yaml --genesis-block-hash 'abcdef987654321....'
 
 The 'abcdef987654321....' part refers to the hash of the genesis, that should be given to you from one of the peers in the network you are connecting to.
 
-``'abcdef987654321 ....' 부분은 연결중인 네트워크의 피어 중 하나에서 제공해야 하는 기원의 해시를 나타냅니다.``
+``'abcdef987654321 ....' 부분은 연결중인 네트워크의 피어 중 하나에서 제공해야 하는 제네시스의 해시를 나타냅니다.``
 
 In case you have the genesis file (for example, because you are creating the network) you can get this hash with jcli.
 
@@ -263,7 +315,7 @@ The result may be:
 
 Please note that the end points and the results may change in the future.
 
-``접속지점(end points) 및 결과는 향후 변경 될 수 있습니다.``
+`` 접속 지점(end points) 및 결과는 향후 변경 될 수 있습니다.``
 
 To see the whole Node API documentation,
 [click here](https://editor.swagger.io/?url=https://raw.githubusercontent.com/input-output-hk/jormungandr/master/doc/openapi.yaml)
@@ -324,6 +376,7 @@ curl \
 ```
 
 While the second serves an in-browser graphql IDE that can be used to try queries interactively.
+
 ``두 번째는 대화식으로 쿼리를 시도하는 데 사용할 수 있는 브라우저 내 graphql IDE 를 제공합니다.``
 
 
@@ -333,11 +386,15 @@ While the second serves an in-browser graphql IDE that can be used to try querie
 
 Like in the passive node case, two things are needed to connect to an existing network
 
+1. the hash of the **genesis block** of the blockchain, this will be the source
+   of truth of the blockchain. It is 64 hexadecimal characters.
+2. the **trusted peers** identifiers and access points.
+
+
 ``패시브 노드 사례처럼 기존 네트워크에 연결하려면 두 가지가 필요합니다.``
 
-1. the hash of the **genesis block** , 이것은 블록체인 신뢰의 근원입니다. 64개의 16진수 입니다.
-2. the **trusted peers** 식별자 및 and access points.
-
+1. ``제네시스 블록 해시, 이것은 블록체인 신뢰의 근원입니다. 64개의 16진수 입니다.``
+2. ``트러스트 피어 식별자 그리고 접근 포인트.``
 
 
 The node configuration could be the same as that for [running a passive node](./01_passive_node.md). 
