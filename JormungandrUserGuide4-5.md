@@ -381,11 +381,11 @@ Transaction `0df39a87d3f18a188b40ba8c203f85f37af665df229fb4821e477f6998864273' (
 
 For signing the transaction, you need the private key associated with the input address (the one that's in the utxos) and the hash of the genesis block of the network you are connected to.
 
-``트랜잭션에 서명하려면 입력 주소(utxos에 있는 주소)와 연결된 개인 키와 연결된 네트워크의 생성 블록 해시가 필요합니다.``
+``트랜잭션에 서명하려면 입력 주소(utxos에 있는 주소)의 개인 키와 제네시스 블록 해시가 필요합니다.``
 
 The genesis' hash is needed for ensuring that the transaction cannot be re-used in another blockchain and for security concerns on offline transaction signing, as we are signing the transaction for the specific blockchain started by this block0 hash.
 
-``우리가 이 block0 해시에 의해 시작된 특정 블록체인에 대한 거래에 서명 할 때, 트랜잭션을 다른 블록 체인에서 재사용 할 수 없도록 하고 오프라인 거래 서명에 대한 보안 문제를 위해 기원의 해시가 필요합니다.``
+``우리가 이 block0 해시에 의해 시작된 특정 블록체인에 대한 거래에 서명 할 때, 트랜잭션을 다른 블록 체인에서 재사용 할 수 없도록 하고 오프라인 거래 서명에 대한 보안 문제를 위해 제네시스의 해시가 필요합니다.``
 
 The following command takes the private key in the *key.prv* file and creates a witness in a file named *witness* in the current directory. 
 
@@ -514,7 +514,7 @@ jcli certificate sign <key> <input-file> <output-file>
 
 Tooling for working with a genesis file
 
-``생성 파일 작업을 위한 명령어``
+``제네시스 파일 작업을 위한 명령어``
 
 # Usage
 ```sh
@@ -523,10 +523,10 @@ jcli genesis [subcommand]
 
 ## Subcommands
 
-- decode: ``인코딩 된 기원 블록에 해당하는 YAML 파일 인쇄 하기``
-- encode: ``주어진 yaml 파일에서 블록체인의 기원 블록 생성 하기.``
-- hash: ``기원 블록 해시 인쇄 하기`` 
-- init: ``YAML 파일 작성에 도움이 되는 적절한 문서를 사용하여 기본 Genesis 파일 생성 하기.``
+- decode: ``인코딩 된 제네시스 블록에 해당하는 YAML 파일 인쇄 하기``
+- encode: ``주어진 yaml 파일에서 블록체인의 제네시스 블록 생성 하기.``
+- hash: ``제네시스 블록 해시 인쇄 하기`` 
+- init: ``YAML 파일 작성에 도움이 되는 적절한 문서를 사용하여 기본 제네시스 파일 생성 하기.``
 - help
 
 
@@ -567,9 +567,9 @@ jcli genesis [subcommand]
 
 ## Subcommands
 
-- decode: ``인코딩 된 기원 블록에 해당하는 YAML 파일 인쇄 하기``
-- encode: ``주어진 yaml 파일에서 블록체인의 기원 블록 생성 하기.``
-- hash: ``기원 블록 해시 인쇄 하기`` 
+- decode: ``인코딩된 제네시스 블록에 해당하는 YAML 파일 인쇄 하기``
+- encode: ``주어진 yaml 파일에서 블록체인의 제네시스 블록 생성 하기.``
+- hash: ``제네시스 블록 해시 인쇄 하기`` 
 - init: ``YAML 파일 작성에 도움이 되는 적절한 문서를 사용하여 기본 Genesis 파일 생성 하기.``
 - help
 
