@@ -83,7 +83,7 @@ jcli transaction finalize CHANGE_ADDRESS --fee-constant 5 --fee-coefficient 2 --
 
 The `--fee-certificate` flag indicates the cost of adding a certificate, used for computing the fees, it can be omitted if it is zero.
 
-``--fee-certificate 플래그는 요금을 계산하는 데 사용되는 인증서 추가 비용을 나타내며 0이면 생략할 수 있습니다.``
+``--fee-certificate 플래그는 요금을 계산하는 데 사용되는 인증서 추가 비용을 나타내며 0 이면 생략할 수 있습니다.``
 
 See [here](../jcli/transaction.md) for more documentation on transaction creation.
 
@@ -199,7 +199,7 @@ The genesis file is the file that allows you to create a new blockchain
 from block 0. It lays out the different parameter of your blockchain:
 the initial utxo, the start time, the slot duration time, etc...
 
-``생성 파일은 블록 0에서 새 블록체인을 생성할 수 있는 파일입니다. 블록체인의 다른 매개 변수를 배치합니다 : 초기 utxo, 시작 시간, 슬롯 지속 시간 등.``
+``생성 파일은 블록 0 에서 새 블록체인을 생성할 수 있는 파일입니다. 블록체인의 다른 매개 변수를 배치합니다 : 초기 utxo, 시작 시간, 슬롯 지속 시간 등.``
 
 initial address UTxO 및 account UTxO 를 가진 BFT 생성 파일의 예.
 BFT 블록체인 시작 및 주소에 관한 추가 정보 [starting a BFT blockchain here](./02_starting_bft_blockchain.md)
@@ -458,7 +458,7 @@ Additionally, there is a script [here](https://github.com/input-output-hk/jormun
 When starting a genesis praos blockchain there is an element to take
 into consideration while constructing the block 0: _the stake distribution_.
 
-``제네시스 praos 블록체인을 시작할 때 블록 0을 구성하는 동안 고려해야 할 요소인 _the stake distribution_ 가 있습니다.``
+``제네시스 praos 블록체인을 시작할 때 블록 0 을 구성하는 동안 고려해야 할 요소인 _the stake distribution_ 가 있습니다.``
 
 In the context of Genesis/Praos the network is fully decentralized and it is
 necessary to think ahead about initial stake pools and to make sure there
@@ -529,7 +529,7 @@ Now that there is both your stake key and there are stake pools available
 in the block0 you need to delegate to one of the stake pool. Follow the instruction
 in [delegating stake](../stake_pool/delegating_stake.md).
 
-``이제 스테이크 키가 있고 블록 0에 사용 가능한 스테이크 풀이 있으므로 스테이크 풀 중 하나에 위임해야 합니다. 스테이크 위임의 지시를 따르십시오.``
+``이제 스테이크 키가 있고 블록 0 에 사용 가능한 스테이크 풀이 있으므로 스테이크 풀 중 하나에 위임해야 합니다. 스테이크 위임의 지시를 따르십시오.``
 
 And in the initial funds start adding the addresses. To create an address with delegation
 follow the instruction in [JCLI's address guide](../jcli/address.md). Utilise the stake key
