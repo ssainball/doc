@@ -243,7 +243,7 @@ There is a couple of commands that can be used to:
 ``다음과 같은 명령을 사용할 수 있습니다.``
 
 1. ``거래 준비 `` :
-    - ``비어있는 새 트랜잭션을 새로 작성하십시오.``
+    - 'new' ``비어있는 새 트랜잭션을 새로 작성하십시오;``
     - ``add-input``
     - ``add-account``
     - ``add-output``
