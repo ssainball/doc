@@ -244,15 +244,15 @@ There is a couple of commands that can be used to:
 
 1. ``거래 준비 `` :
     - 'new' ``비어있는 새 트랜잭션을 새로 작성하십시오;``
-    - ``add-input``
-    - ``add-account``
-    - ``add-output``
+    - `add-input`
+    - `add-account`
+    - `add-output`
 
 
-2. ``서명을 위한 트랜잭션 마무리합니다``:
+2. ``서명을 위한 트랜잭션 마무리합니다:``
 
 
-3. ``증인을 만들고 증인을 추가하십시오``:
+3. ``증인을 만들고 증인을 추가하십시오:``
     - ``make-witness``
     - ``add-witness``
 
