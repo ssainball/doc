@@ -36,9 +36,9 @@ The following options are available in the log section:
 
 - `level`: 로깅 레벨. 기본값은 "info". 선택 가능 "off", "critical", "error", "warn", "info", "debug", "trace"
 
-- `format`: log output format - `plain` or `json`
+- `format`: 로그 아웃풋 포맷 - `plain` or `json`
 
-- `output`: log output - `stdout`, `stderr`, `syslog` (Unix only),
+- `output`: 로그 아웃풋 - `stdout`, `stderr`, `syslog` (Unix only),
   or `journald` (Linux 만 사용가능하며, 컴파일 할때 활성화해야 사용 가능함).
 
 
@@ -98,7 +98,7 @@ them, how to prioritize them etc.
 The `mempool` field in your node config file is not mandatory, by default it is set
 as follow:
 
-``노드 구성 파일의 mempool 필드는 필수는 아니며 기본적으로 다음과 같이 설정됩니다.``
+``노드 구성 파일의 mempool 필드는 필수가 아니며 기본적으로 다음과 같이 설정됩니다.``
 
 ```yaml
 mempool:
@@ -111,7 +111,7 @@ mempool:
 
 * `log_ttl` 은 노드가 풀에서 보류/수락/거부 된 프래그먼트 로그를 보관하는 기간을 설명합니다.
 
-* `garbage_collection_interval`  노드가 시간 초과된 항목(프래그먼트 또는 로그)을 제거 할 때의 간격을 설명합니다.
+* `garbage_collection_interval` 노드가 시간 초과된 항목(프래그먼트 또는 로그)을 제거 할 때의 간격을 설명합니다.
 
 
 The `leadership` field in your node config file is not mandatory, by default it is set
@@ -127,4 +127,4 @@ leadership:
 
 * `log_ttl` 은 노드가 리더 이벤트 로그를 보관하는 기간을 기술합니다.
 
-* `garbage_collection_interval` 은 2개의 가비지 수집 실행 간격(예: 노드가 시간 초과된 item log 를 제거하는 경우)
+* `garbage_collection_interval` 은 2개의 가비지 수집 실행 간격 (예: 노드가 시간 초과된 item log 를 제거하는 경우)
