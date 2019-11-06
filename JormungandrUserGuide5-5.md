@@ -458,7 +458,7 @@ Additionally, there is a script [here](https://github.com/input-output-hk/jormun
 When starting a genesis praos blockchain there is an element to take
 into consideration while constructing the block 0: _the stake distribution_.
 
-``창세기 praos 블록체인을 시작할 때 블록 0을 구성하는 동안 고려해야 할 요소인 _the stake distribution_ 가 있습니다.``
+``제네시스 praos 블록체인을 시작할 때 블록 0을 구성하는 동안 고려해야 할 요소인 _the stake distribution_ 가 있습니다.``
 
 In the context of Genesis/Praos the network is fully decentralized and it is
 necessary to think ahead about initial stake pools and to make sure there
