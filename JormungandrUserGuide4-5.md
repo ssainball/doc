@@ -244,14 +244,14 @@ There is a couple of commands that can be used to:
 
 ``다음과 같은 명령을 사용할 수 있습니다.``
 
-1. ``거래 준비 `` :
-    - `new` : ``비어있는 새 트랜잭션을 새로 작성하십시오;``
+1. ``거래 준비`` :
+    - `` `new` 비어있는 새 트랜잭션을 새로 작성하십시오;``
     - `add-input`
     - `add-account`
     - `add-output`
 
 
-2. `finalize` : `서명을 위한 트랜잭션 마무리합니다:`
+2. `` `finalize` : 서명을 위한 트랜잭션 마무리합니다:``
 
 
 3. ``증인을 만들고 증인을 추가하십시오:``
@@ -268,6 +268,8 @@ content information of a transaction:
 * `info`
 * `id` to get the **Transaction ID** of the transaction
 * `to-message` to get the hexadecimal encoded message, ready to send with `cli rest message`
+
+
 
 ``트랜잭션의 컨텐츠 정보를 디코딩하고 표시하는 데 도움이되는 기능도 있습니다.``
 
