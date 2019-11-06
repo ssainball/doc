@@ -654,7 +654,7 @@ YAML printed on success
 
 Posts a signed, hex-encoded transaction
 
-``서명 된 16 진 인코딩 트랜잭션을 게시합니다.``
+``서명 된 16진 인코딩 트랜잭션을 게시합니다.``
 
 ```
 jcli rest v0 message post <options>
@@ -735,7 +735,7 @@ status:                         # fragment was included in a block
 
 Retrieves a hex-encoded ID of the blockchain tip
 
-``블록체인 팁의 16진 인코딩 ID를 검색합니다.``
+``블록체인 tip의 16진 인코딩 ID를 검색합니다.``
 
 ```
 jcli rest v0 tip get <options>
