@@ -204,24 +204,23 @@ Description of the fields:
 [multiaddr]: https://github.com/multiformats/multiaddr
 
 
+필드 설명 :
+
 - `storage`: (옵션) 저장소 경로입니다. 생략하면 블록체인은 메모리에만 저장됩니다.
 - `log`: (옵션) 로깅 구성:
-    - `level`: log messages minimum severity. 설정하지 않으면 기본 값은 "info" 입니다.
-        Possible values: "off", "critical", "error", "warn", "info", "debug", "trace".
-    - `format`: Log output format, `plain` or `json`.
+    - `level`: 로그 메세지 최소 심각도. 설정하지 않으면 기본 값은 "info" 입니다.
+        가능 값: "off", "critical", "error", "warn", "info", "debug", "trace".
+    - `format`: 로그 아웃 포맷, `plain` or `json`.
     - `output`: 로그 출력 대상. 가능한 값은 다음과 같습니다.:
-      - `stdout`: standard output
-      - `stderr`: standard error
-      - `syslog`: syslog (only available on Unix systems)
-      - `journald`: journald service (only available on Linux with systemd,
-        (if jormungandr is built with the `systemd` feature)
-      - `gelf`: Configuration fields for GELF (Graylog) network logging protocol
-        (if jormungandr is built with the `gelf` feature):
-        - `backend`: _hostname_:_port_ of a GELF server
-        - `log_id`: identifier of the source of the log, for the `host` field
-                    in the messages.
-- `rest`: (옵션) Configuration of the REST endpoint.
-    - `listen`: _address_:_port_ to listen for requests
+      - `stdout`: 표준 출력
+      - `stderr`: 표준 에러
+      - `syslog`: syslog (Unix 만 가능)
+      - `journald`: journald service (Linux 만 가능, jormungandr 가 `systemd` 기능으로 빌드 된 경우)
+      - `gelf`: GELF (Graylog) network 로깅 프로토콜의 구성 필드 (jormungandr가 `gelf` 기능으로 빌드 된 경우):
+        - `backend`: _hostname_:_port_  GELF server 구성
+        - `log_id`: 메시지의`host` 필드에 대한 로그 소스의 식별자.
+- `rest`: (옵션) REST endpoint 구성.
+    - `listen`: _address_:_port_ 요청을 듣기 위한 구성
     - `pkcs12`: (옵션) Certificate file
     - `cors`: (옵션) CORS configuration, if not provided, CORS is disabled
       - `allowed_origins`: (옵션) 허용 된 원점 (제공된 경우)
@@ -231,7 +230,7 @@ Description of the fields:
     - `private_id`: 네트워크에서 이 노드를 식별하는 데 사용될 노드의 개인 키 (Ed25519)
     - `public_address`: P2P 서비스의 주소 지정. 이것은 노드의 블록체인 보급에 관심이 있는 네트워크의 다른 피어에게 배포 될 공개 주소입니다.
     - `listen_address`: (옵션) multiaddr은 p2p 연결을 수신하기 위해 노드가 수신 할 주소를 지정합니다. 비워 둘 수 있으며 노드는 public_address에 지정된 값을 수신합니다.
-    - `topics_of_interest`: The dissemination topics this node is interested to hear about:
+    - `topics_of_interest`: 이 노드의 메세지 전파 항목은 다음과 같습니다. :
       - `messages`: 거래 및 기타 원장 항목.
         non-mining node: `low`.  stakepool: `high`; 
       - `blocks`: 새로운 블록에 대한 알림.
@@ -326,7 +325,7 @@ To see the whole Node API documentation,
 
 The node can be configured to work as a explorer. This consumes more resources, but makes it possible to query data otherwise not available.
 
-``탐색기로 작동하도록 노드를 구성할 수 있습니다. 이로 인해 더 많은 리소스가 소비되지만 접근 불가했던 감춰진 데이터를 쿼리할 수 있습니다.``
+``탐색기로 작동하도록 노드를 구성할 수 있습니다. 이로 인해 더 많은 리소스가 소비되지만 접근 불가했던 데이터를 쿼리할 수 있습니다.``
 
 ## Configuration
 
@@ -403,7 +402,7 @@ The node configuration could be the same as that for [running a passive node](./
 
 There are some differences depending if you are connecting to a network running a genesis or bft consensus protocol.
 
-``당신이 독창적인 합의 프로토콜 또는 bft 합의 프로토콜을 실행하는 네트워크에 접속하는지에 따라 약간의 차이가 있습니다.``
+``당신이 독창적 합의 프로토콜 또는 bft 합의 프로토콜을 실행하는 네트워크에 접속하는지에 따라 약간의 차이가 있습니다.``
 
 ### Connecting to a genesis blockchain
 
@@ -417,7 +416,7 @@ In order to be able to generate blocks in an existing genesis network, a [regist
 
 Put the node id and private keys in a yaml file in the following way:  
 
-``다음과 같은 방법으로 노드 ID 및 개인 키를 yaml 파일에 넣습니다.``
+``다음과 같은 방법으로 노드 ID 와 개인 키를 yaml 파일에 넣습니다.``
 
 ##### Example
 
