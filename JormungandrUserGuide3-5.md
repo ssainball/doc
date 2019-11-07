@@ -36,7 +36,7 @@ The following options are available in the log section:
 
 - `level`: 로깅 레벨. 기본값은 "info". 선택 가능 "off", "critical", "error", "warn", "info", "debug", "trace"
 
-- `format`: 로그 아웃풋 포맷 - `plain` or `json`
+- `format`: 로그 아웃풋 포맷 - `plain` 또는 `json`
 
 - `output`: 로그 아웃풋 - `stdout`, `stderr`, `syslog` (Unix only),
   or `journald` (Linux 만 사용가능하며, 컴파일 할때 활성화해야 사용 가능함).
