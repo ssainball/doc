@@ -358,15 +358,16 @@ initial:
 
 In order to start your blockchain in BFT mode you need to be sure that:
 
-`` BFT 모드에서 블록체인을 시작하려면 다음을 확인해야 합니다. ``
-
 * `consensus_leader_ids` is non empty;
-
-``'consensus_leader_ids'는 비어 있지 않습니다.``
 
 more information regarding the [genesis file here](./01_the_genesis_block.md).
 
+`` BFT 모드에서 블록체인을 시작하려면 다음을 확인해야 합니다. ``
+
+* ``'consensus_leader_ids'는 비어 있지 않습니다.``
+
 ``[genesis file here] (./01_the_genesis_block.md)에 대한 자세한 정보``
+
 
 ## Creating the block 0
 
