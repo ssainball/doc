@@ -436,13 +436,13 @@ bft:
 7. Create config file and store it on your HD as `node.config` e.g. ->
 
 
-``4. 이전에 생성 된 키 `cat key.prv | jcli key to public` ``
+``4. 퍼블릭키를 생성합니다. `cat key.prv | jcli key to public` ``
 
-``5. 생성 된 공개 키를 `genesis.yaml` 파일에서 `consissus_leader_ids :`에 입력합니다. ``
+``5. 생성 된 공개 키를 `genesis.yaml` 파일에서 `consissus_leader_ids :` 에 입력합니다. ``
 
-``6. 블록 생성 = `jcli genesis encode --input genesis.yaml --output block-0.bin` ``
+``6. 제네시스 블록 생성 = `jcli genesis encode --input genesis.yaml --output block-0.bin` ``
 
-``7. 설정 파일을 만들어 당신의 노드서버에서  `node.config` 로 저장하십시오. -> ``
+``7. 설정 파일을 만들어 당신의 HD에서  `node.config` 로 저장하십시오. -> ``
 
 ```yaml
 ---
