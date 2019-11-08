@@ -419,6 +419,12 @@ with multiple leaders.
 2. Generate secret key, e.g. ` jcli key generate --type=Ed25519 > key.prv`
 3. Put secret key in a file, e.g. `node_secret.yaml` as follows:
 
+``1. 초기 설정 생성 `jcli genesis init> genesis.yaml` ``
+
+``2. 비밀 키를 생성하십시오  ` jcli key generate --type=Ed25519 > key.prv` ``
+
+``3. 비밀 키를 파일에 넣습니다  `node_secret.yaml은 다음과 같습니다 :` ``
+
 ```yaml
 bft:
  signing_key: ed25519_sk1kppercsk06k03yk4qgea....
@@ -428,6 +434,15 @@ bft:
 5. Put generated public key as in `genesis.yaml` under `consensus_leader_ids:`
 6. Generate block = `jcli genesis encode --input genesis.yaml --output block-0.bin`
 7. Create config file and store it on your HD as `node.config` e.g. ->
+
+
+``4. 이전에 생성 된 키 `cat key.prv | jcli key to public` ``
+
+``5. 생성 된 공개 키를 `genesis.yaml` 파일에서 `consissus_leader_ids :`에 입력합니다. ``
+
+``6. 블록 생성 = `jcli genesis encode --input genesis.yaml --output block-0.bin` ``
+
+``7. 설정 파일을 만들어 당신의 노드서버에서  `node.config` 로 저장하십시오. -> ``
 
 ```yaml
 ---
