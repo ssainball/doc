@@ -199,7 +199,7 @@ UTXO behaves like cash/notes, and work like fixed denomination ticket that are
 cumulated. This is the accounting model found in Bitcoin. A UTXO is uniquely
 reference by its transaction ID and its index.
 
-``UTXO는 현금 장부와 같은 누적된 고정 금액의 티켓처럼 작동한다. 이것은 비트코인에서 발견된 회계 모델입니다. UTXO는 트랜잭션 ID와 색인으로 고유하게 참조됩니다.``
+``UTXO는 현금 장부와 같은 누적된 고정 금액의 티켓처럼 작동합니다. 이것은 비트코인에서 발견된 회계 모델입니다. UTXO는 트랜잭션 ID와 색인으로 고유하게 참조됩니다.``
 
 Accounts behaves like a bank account, and are simpler to use since exact amount
 can be used. This is the accounting model found in Ethereum. An account is
